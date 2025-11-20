@@ -2,7 +2,7 @@
 
 ## Préambule
 
-Pour vous remettre aux sélecteur CSS, je recommande d'utiliser [CSS Diner](https://flukeout.github.io/) en premier lieu. Pour de la 3D il y a [Unfold](https://rupl.github.io/unfold/)(à faire après grid garden) et CSS Battle.
+Pour vous remettre aux sélecteur CSS, je recommande d'utiliser [CSS Diner](https://flukeout.github.io/) en premier lieu. Pour de la 3D il y a [Unfold](https://rupl.github.io/unfold/) (à faire après grid garden) et CSS Battle.
 
 ## Introduction
 
@@ -62,13 +62,15 @@ justify-self: flex-start;
 align-items: flex-start;
 ```
 
-### Ordination d'un élément
+### Ordination d'un élément avec flex
 
 Permet de changer l'ordre de l'élément dans sa boîte, fonctionne comme une array avec une indexation qui commence à zéro (l'index peut être également négatif tout comme une array).
 
 ```css
 order: 0;
 ```
+
+La valeur par défaut d'un élément est zéro, dont si un on met la valeur `1` à un ou plusieurs éléments, ils apparaîtront à la fin du flux (ou tout au début si on met `-1`).
 
 ### Alignement horizontal d'un élément
 
@@ -84,16 +86,87 @@ align-self: flex-start;
 
 ### Overflow et étalage sur une nouvelle row
 
-De base dans quand on utilise `display: flex`, il y a `flex-shrink` qui essaye d'éviter l'overflow en rétrécissant la taille des éléments du conteneur (si la hauteur ou la largeur minimal sont atteints, notamment en auto pour son contenu), en gros vos éléments vont rétrécir tant qu'il n'auront pas à provoquer un overflow de leur propre contenu (en auto) ou si leur taille minimal est atteinte.
+Par défaut, avec `display: flex`, **les éléments peuvent rétrécir grâce à `flex-shrink`** pour éviter l’overflow, mais pas en dessous de leur **taille minimale** (par exemple la taille du contenu s'il y a la valeur `auto` pour la taille).
 
-Une solution consiste à utiliser la fonction `wrap`. Permettant ainsi l'étalage sur une nouvelle row dès que les éléments du conteneur commencent à être trop serrés sur leur axe (si la direction est sur X, cela se met sur une nouvelle row, si c'est sur Y, une nouvelle colonne).
-
-```css
-flex-wrap: wrap; /* il faut mettre la valeur wrap pour l'activer */
-```
-
-On peut combiner `flex-direction` et `flex-wrap`
+Pour gérer l’espace quand les éléments sont trop serrés, on peut utiliser `flex-wrap`, qui les **fait passer sur une nouvelle ligne ou colonne** selon l’axe principal.
 
 ```css
-flex-flow: column wrap; /* la première variable pour la direction, et la seconde pour l'étalage */
+flex-wrap: wrap; /* active le passage à la ligne ou colonne suivante */
 ```
+
+On peut combiner direction et wrapping avec :
+
+```css
+flex-flow: column wrap; /* axe principal en colonne et wrapping activé */
+```
+
+## Grid
+
+Pour utiliser cette fonction CSS, sur chacun j'ai laissé la valeur par défaut.
+
+On applique ce display sur un conteneur de la sorte
+
+```css
+#conteneur {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+```
+
+Ici on se retrouve avec 5 colonnes et 5 rows de même taille.
+
+### Étendre un élément
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column-start: 1;
+}
+```
+
+`#water` est un enfant de `#garden`, ici il ne se déploie que sur la toute première cellule.
+
+```css
+#water {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+```
+
+Dans l'exemple ici, `#water` s’étend sur les 3 premières cellules. On pourrait parfaitement utiliser des index négatifs et/ou inverser les coordonnées de début et de fin.
+Attention, quand on rentre des coordonnée de cellule, les index correspondents aux lignes qui séparent les cellules et non les cellules elles-mêmes.
+
+## Déterminer une largeur en fonction d'une largeur de span
+
+Au lieu
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column-start: 2;
+  grid-column-end: span 2;
+}
+```
+
+Ici on utilise 2 cellule à partir de la deuxième ligne, donc sur les cellules 2 et 3.
+
+### Ordination d'un élément avec grid
+
+Permet de changer l'ordre de l'élément dans sa boîte, fonctionne comme une array avec une indexation qui commence à zéro (l'index peut être également négatif tout comme une array).
+
+```css
+order: 0;
+```
+
+La valeur par défaut d'un élément est zéro, dont si un on met la valeur `1` à un ou plusieurs éléments, ils apparaîtront à la fin du flux (ou tout au début si on met `-1`).

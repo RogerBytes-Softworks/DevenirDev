@@ -170,3 +170,62 @@ order: 0;
 ```
 
 La valeur par défaut d'un élément est zéro, dont si un on met la valeur `1` à un ou plusieurs éléments, ils apparaîtront à la fin du flux (ou tout au début si on met `-1`).
+
+### Fonction repeat
+
+Le fait de spécifier un ensemble de colonnes avec des largeurs identiques peut devenir fastidieux. Heureusement, il y a une fonction repeat pour nous aider.
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: repeat(8, 12.5%)
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+```
+
+Par exemple, nous avons défini précédemment huit colonnes de 12.5% avec la règle `grid-template-columns: repeat(8, 12.5%)`.
+
+### Unité fractionnaire FR
+
+La grille introduit également une nouvelle unité, le fractionnaire `fr`.  
+Chaque unité fr alloue une partie de l'espace disponible.  
+Par exemple, si deux éléments sont définies respectivement avec 1fr et 3fr, l'espace est divisé en 4 parts égales, le premier élément occupant 1/4 et  
+le deuxième élément 3/4 de l'espace disponible.
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+```
+
+Ici, la première colonne représente 1/6 de votre première ligne et la deuxième les 5/6 restants.
+
+### association des fr avec d'autre unités
+
+Lorsque les colonnes sont définies avec des pixels, des pourcentages ou des ems, toutes les autres colonnes définies avec fr se répartiront l'espace restant.
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-area: 1 / 1 / 6 / 2;
+}
+
+#poison {
+  grid-area: 1 / 5 / 6 / 6;
+}
+```
+
+Si on met `grid-template-columns: 50px repeat(3, 1fr) 50px;`, la grille créera 3 autres colonnes de taille identique sur l'espace restant.

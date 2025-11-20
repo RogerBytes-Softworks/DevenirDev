@@ -19,6 +19,7 @@ Il n'est pas rare qu'ils soient utilisés conjointement, notamment en utilisant 
 - [CSS Flexbox Layout Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Flexbox Froggy](https://flexboxfroggy.com/#fr)
 - [Flexbox Zombies](https://flexboxzombies.com/)
+- [Anchoreum](https://codepip.com/games/anchoreum/)
 
 ### Supports Grid
 
@@ -26,7 +27,6 @@ Il n'est pas rare qu'ils soient utilisés conjointement, notamment en utilisant 
 - [Grid Garden](https://cssgridgarden.com/#fr)
 - [Outil de test Grid Playground](https://michalgrochowski.github.io/grid-playground/dist/)
 - [cours freecodecamp](https://www.freecodecamp.org/news/heres-my-free-css-grid-course-merry-christmas-3826dd24f098/)
--
 
 ## Flexbox
 
@@ -229,3 +229,20 @@ Lorsque les colonnes sont définies avec des pixels, des pourcentages ou des ems
 ```
 
 Si on met `grid-template-columns: 50px repeat(3, 1fr) 50px;`, la grille créera 3 autres colonnes de taille identique sur l'espace restant.
+
+### Créer des columns ou rows nulles
+
+Je n'ai pas bien compris l’intérêt mais on peut faire ainsi (exercice 26 de grid garden).
+
+```css
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 50px repeat(3, 0fr) 1fr;
+}
+
+#water {
+  grid-column: 1 / 6;
+  grid-row: 5 / 6;
+}
+```

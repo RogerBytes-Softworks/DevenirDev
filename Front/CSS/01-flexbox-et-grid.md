@@ -208,9 +208,10 @@ le deuxième élément 3/4 de l'espace disponible.
 
 Ici, la première colonne représente 1/6 de votre première ligne et la deuxième les 5/6 restants.
 
-### association des fr avec d'autre unités
+### association des fr avec d'autre unités et grid area
 
 Lorsque les colonnes sont définies avec des pixels, des pourcentages ou des ems, toutes les autres colonnes définies avec fr se répartiront l'espace restant.
+Et `grid-area` permet de donner les index de ligne des colonnes et des row en une seul fois, ça fait `height-start/width-start/height-end/width-end`.
 
 ```css
 #garden {
@@ -232,7 +233,7 @@ Si on met `grid-template-columns: 50px repeat(3, 1fr) 50px;`, la grille créera 
 
 ### Créer des columns ou rows nulles
 
-Je n'ai pas bien compris l’intérêt mais on peut faire ainsi (exercice 26 de grid garden).
+Ca permet de créer une colonne invisible s'il n'y a pas de contenu à l'intérieur.
 
 ```css
 #garden {
@@ -246,3 +247,23 @@ Je n'ai pas bien compris l’intérêt mais on peut faire ainsi (exercice 26 de 
   grid-row: 5 / 6;
 }
 ```
+
+Ici l'on a fait trois colonnes faisait une taille nulle (`0fr`).
+
+### Grid Template
+
+À la manière de `grid-area` pour le placement des contenus, `grid-template` permet de générer sa grille en donnant en même temps les rows et les columns.
+
+```css
+#garden {
+  display: grid;
+  grid-template: 60% 1fr / 200px 1fr;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+```
+
+Pour les valeurs ça fait `height-start/width-start/height-end/width-end`.

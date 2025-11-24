@@ -2,6 +2,8 @@
 
 ## Préambule
 
+En premier lieu, consultez cette [introduction au html](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content) et [cette introduction au css](https://web.dev/learn/css). Puis suivez ce [cours de responsive design](https://web.dev/learn/design/).
+
 Pour vous remettre aux sélecteur CSS, je recommande d'utiliser [CSS Diner](https://flukeout.github.io/) en premier lieu. Pour de la 3D il y a [Unfold](https://rupl.github.io/unfold/) (à faire après grid garden) et CSS Battle.
 
 ## Introduction

@@ -62,7 +62,7 @@ Pour rédiger ce qui suit, j'ai suivi [ce tutoriel vidéo](https://www.youtube.c
 
 ### Extensions Codium
 
-Depuis le marketplace avec mon petit programme `vsix-dl`
+Depuis le marketplace avec mon petit programme `vsix-dl` conçu pour VSCodium (pour les extensions disponibles seulement pour VSCode), je lance l'installation via :
 
 ```bash
 vsix-dl AnbuselvanRocky.Bootstrap5-vscode
@@ -112,7 +112,7 @@ On peut changer la couleur du texte via des classes BS.
 <p class="text-info">.text-info en bleu ciel</p>
 <p class="text-light bg-secondary">.text-light en gris clair</p>
 <p class="text-dark bg-secondary">.text-dark en noir</p>
-<p class="text-muted">.text-muted en gris, utile pour les lien désactivés</p>
+<p class="text-muted">.text-muted en gris, utile pour les liens désactivés</p>
 <p class="text-white bg-secondary">.text-white en blanc</p>
 ```
 
@@ -187,3 +187,36 @@ Pour que vos lignes s’étendent proprement avec les colonnes, il est recommand
 ### Breakpoint dans une grid Bootstrap
 
 Si l'on commence à faire notre site en "mobile-first" (c'est à dire la version portrait et plus petite en premier, ce qui est recommandé).
+
+Donc pour le mobile on utilise simplement `col-` (on ne précise pas, on est en "extra small" par défaut), pour la tablette on utilise `col-md-` et pour la vue desktop on se sert de `col-lg-`.
+
+Mis en pratique cela donne ceci :
+
+```html
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed red;
+    }
+  </style>
+
+  <div class="container">
+    <div class="row text-center justify-content">
+      <div class="col-12 col-md-6 col-lg-4">col 1</div>
+      <div class="col-12 col-md-6 col-lg-4">col 2</div>
+      <div class="col-12 col-md-6 col-lg-4">col 3</div>
+      <div class="col-12 col-md-6 col-lg-4">col 4</div>
+    </div>
+  </div>
+</body>
+```
+
+Chaque breakpoint remplace le précédent dès que la largeur devient suffisante, si une classe existe (comme ici, il y a `xs`, `md` et `lg`).
+
+Explication :
+
+- `col-12` en vue mobile "extra small" (on n'écrit pas "xs" c'est mis par défaut) étend l'élément sur l'ensemble du layout (de douze colonnes), donc un élément par ligne en mobile
+- `col-md-6` en vue tablet "medium" étend l'élément sur 6/12e du layout, donc deux éléments par ligne en tablet
+- `col-lg-4` en vue desktop "large" étend l'élément sur 4/12e du layout, donc trois éléments par ligne en desktop

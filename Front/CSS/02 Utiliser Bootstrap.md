@@ -284,3 +284,118 @@ Il est aussi parfaitement possible de faire du nesting (de l'imbrication), à l'
   </div>
 </div>
 ```
+
+### Utilisation du margin et du padding
+
+- **Padding** : c’est l’espace **à l’intérieur** d’un élément, entre le contenu et sa bordure. Exemple : `padding: 10px`, le texte ne touchera pas directement les bords du div.
+- **Margin** : c’est l’espace **à l’extérieur** d’un élément, entre cet élément et les autres éléments autour. Exemple : `margin: 10px` éloigne le div de ses voisins.
+
+En Bootstrap, il y a des classes pratiques pour les deux :
+
+- `p-1` à `p-5` → padding sur tous les côtés
+- `pt-1` → padding-top, `pb-2` → padding-bottom, etc.
+- `m-1` à `m-5` → margin sur tous les côtés
+- `mt-2` → margin-top, `mx-3` → margin horizontal, `my-4` → margin vertical
+
+On peut aussi utiliser `px-` et `py-` pour le paddings, ainsi que `m-` et `p-` si la marge et le pad sont identiques sur les axes x et y.
+
+Représentation simplifiée :
+
+```text
+Margin
+┌───────────────────────────┐
+│ Border                    |
+│ ┌───────────────────────┐ |
+│ │ Padding               | |
+│ │ ┌───────────────────┐ │ |
+│ │ │     Content       │ │ |
+│ │ └───────────────────┘ │ |
+│ └───────────────────────┘ |
+└───────────────────────────┘
+```
+
+Explications :
+
+- **Content** : le texte, image ou élément à l'intérieur du div.
+- **Padding** : espace entre le contenu et la bordure du div.
+- **Border** : la bordure du div (optionnelle).
+- **Margin** : espace entre ce div et les autres éléments autour.
+
+Par exemple, en reprenant une grid Bootstrap
+
+```html
+<style>
+  .container,
+  .row div {
+    background-color: aqua;
+    border: 1px dashed darkblue;
+  }
+</style>
+
+<div class="container">
+  <div
+    class="row text-center justify-content-center row-cols-2 p-5 m-2 bg-danger"
+  >
+    <div class="col bg-primary text-light">nested</div>
+    <div class="col bg-secondary text-light">nested</div>
+  </div>
+
+  <div class="row text-center justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">col 1</div>
+    <div class="col-12 col-md-6 col-lg-4">col 2</div>
+    <div class="col-12 col-md-6 col-lg-4">col 3</div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
+        <div class="col bg-success">nested 1 in col 4</div>
+        <div class="col bg-warning">nested 2 in col 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+On voit (via live server) assez nettement les marges et les pad avec les différentes couleurs.
+
+### Mettre du gap entre les colonnes
+
+Au niveau de la classe, c'est pareil que pour le margin et le padding, mais avec la lettre `g`.
+
+```html
+<style>
+  .container,
+  .row div {
+    background-color: aqua;
+    border: 1px dashed darkblue;
+  }
+</style>
+
+<div class="container">
+  <div class="row text-center justify-content-center my-3 gx-2 gy-1 bg-danger">
+    <div class="col-10 col-md-5 col-lg-3 bg-primary text-light">nested</div>
+    <div class="col-10 col-md-5 col-lg-3 bg-secondary text-light">nested</div>
+  </div>
+
+  <div class="row text-center justify-content-center g-2 bg-secondary">
+    <div class="col-10 col-md-5 col-lg-2">col 1</div>
+    <div class="col-10 col-md-5 col-lg-2">col 2</div>
+    <div class="col-10 col-md-5 col-lg-2">col 3</div>
+    <div class="col-10 col-md-5 col-lg-2">
+      <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
+        <div class="col bg-success">nested 1 in col 4</div>
+        <div class="col bg-warning">nested 2 in col 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+Attention, il faut faire attention à ce que les colonnes ne s'étalent pas sur l’entièreté du display de la grid avant d'ajouter un gap, sinon ça provoque un overflow !
+Il vaut mieux une grid avec des colonnes bien réglées que de tricher en mettant la classe Bootstrap `overflow-hidden` sur le conteneur.
+
+### Utiliser des components Bootstrap
+
+Les composants Bootstrap sont des éléments préconçus (boutons, cartes, alertes, modals…) que l’on peut directement intégrer dans sa page pour gagner du temps et conserver une cohérence visuelle.
+
+Les components (ou composants dans la langue de Molière) sont disponible dans la nav latérale de [la page "Docs" du site](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+Je suis passé sur le thème "dracula theme official"

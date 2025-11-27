@@ -198,12 +198,12 @@ Mis en pratique cela donne ceci :
     .container,
     .row div {
       background-color: aqua;
-      border: 1px dashed red;
+      border: 1px dashed darkblue;
     }
   </style>
 
   <div class="container">
-    <div class="row text-center justify-content">
+    <div class="row text-center justify-content-center">
       <div class="col-12 col-md-6 col-lg-4">col 1</div>
       <div class="col-12 col-md-6 col-lg-4">col 2</div>
       <div class="col-12 col-md-6 col-lg-4">col 3</div>
@@ -220,3 +220,67 @@ Explication :
 - `col-12` en vue mobile "extra small" (on n'écrit pas "xs" c'est mis par défaut) étend l'élément sur l'ensemble du layout (de douze colonnes), donc un élément par ligne en mobile
 - `col-md-6` en vue tablet "medium" étend l'élément sur 6/12e du layout, donc deux éléments par ligne en tablet
 - `col-lg-4` en vue desktop "large" étend l'élément sur 4/12e du layout, donc trois éléments par ligne en desktop
+
+Et si on ne souhaite pas faire de breakpoint (en gros le même affichage peu importe le support) on peut également définir un nombre de colonne par défaut par ligne (pour des colonnes avec la même taille) avec `row-cols-` suivi du nombre de colonnes désirées.
+
+```html
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+  </style>
+
+  <div class="container">
+    <div class="row text-center justify-content-center row-cols-3">
+      <div class="col">col 1</div>
+      <div class="col">col 2</div>
+      <div class="col">col 3</div>
+      <div class="col">col 4</div>
+    </div>
+  </div>
+</body>
+```
+
+On utilise `col` comme classe pour chaque élément, ici nous avons donc trois colonnes par ligne. Attention, si l'on donne une largeur à `col-` à unj ou des éléments, ça prend le dessus sur `row-cols-` sur la ligne modifiée.
+
+On remarque aussi que j'ai utilisé `justify-content-center` dans mon exemple, il s'agit du fonctionnement de flex, donc l'on peut utiliser ses variantes :
+
+On remarque aussi que j'ai utilisé `justify-content-center` dans mon exemple, (il s'agit bien de Flexbox derrière Bootstrap), donc l'on peut utiliser ses variantes :
+
+- `justify-content-start` → aligne les éléments au début de la ligne (à gauche en LTR)
+- `justify-content-end` → aligne les éléments à la fin de la ligne (à droite en LTR)
+- `justify-content-center` → centre les éléments horizontalement
+- `justify-content-between` → espace les éléments pour qu’il y ait le maximum d’espace entre eux
+- `justify-content-around` → espace les éléments avec un espace égal autour de chaque élément
+- `justify-content-evenly` → espace les éléments avec un espacement égal entre eux et aux extrémités
+
+Pareil pour `align-items` et `align-self` (voir documentation de Flexbox).
+
+Il est aussi parfaitement possible de faire du nesting (de l'imbrication), à l'intérieur des cellules d'un grid Bootstrap, le fonctionnement est similaire à du Grid classique, voici un exemple :
+
+```html
+<style>
+  .container,
+  .row div {
+    background-color: aqua;
+    border: 1px dashed darkblue;
+  }
+</style>
+
+<div class="container">
+  <div class="row text-center justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">col 1</div>
+    <div class="col-12 col-md-6 col-lg-4">col 2</div>
+    <div class="col-12 col-md-6 col-lg-4">col 3</div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="row row-cols-2">
+        <div class="col bg-success">nested 1 in col 4</div>
+        <div class="col bg-warning">nested 2 in col 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+```

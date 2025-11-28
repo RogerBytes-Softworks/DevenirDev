@@ -171,7 +171,6 @@ Pour faire simple, les valeurs à utiliser pour du responsive sont
 C'est en réalité une media query interne à Bootstrap.
 
 Chaque breakpoint remplace le précédent dès que la largeur devient suffisante, si une classe existe. Pour le mobile extra small, on n’écrit rien, c’est implicite.
-
 Voici un exemple de code permettant de comprendre le breakpoint
 
 ```html
@@ -936,7 +935,6 @@ $primary: #ff00aa;
 // 3) Votre CSS additionnel
 .card { border-radius: 1rem; }
 ```
-
 
 Nous allons utiliser ici la [doc de la typographie](https://getbootstrap.com/docs/5.3/content/typography/), pour la typo on récupère ce qu'il y a à la fin de [Display Headings](https://getbootstrap.com/docs/5.3/content/typography/#display-headings).
 

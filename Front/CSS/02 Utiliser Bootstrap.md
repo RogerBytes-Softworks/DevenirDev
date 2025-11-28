@@ -923,6 +923,21 @@ Maintenant que l'on sait utiliser Bootstrap avec Vite il est très simple de fai
 #### Modifier des variables Bootstrap
 
 En bas de chaque section de la doc de Bootstrap, on trouve une section "CSS" qui contiennent les variables et informations nécessaires pour modifier Bootstrap.
+
+Voici la structure correcte à utiliser pour les imports
+
+```scss
+// 1) Vos variables perso
+$primary: #ff00aa;
+
+// 2) Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// 3) Votre CSS additionnel
+.card { border-radius: 1rem; }
+```
+
+
 Nous allons utiliser ici la [doc de la typographie](https://getbootstrap.com/docs/5.3/content/typography/), pour la typo on récupère ce qu'il y a à la fin de [Display Headings](https://getbootstrap.com/docs/5.3/content/typography/#display-headings).
 
 ```css
@@ -958,23 +973,96 @@ $body-color: white;
 On va modifier une card, on va se servir du snippet `bs5-card-background`, je vais le nest dans une `.row` et régler les `.col`, et l'on y ajoute aussi une modale avec `bs5-modal-default`
 
 ```html
-<body>
-  <div class="container py-4 px-3 mx-auto">
-    <h1>Hello, Bootstrap and Vite!</h1>
-    <button class="btn btn-primary">Primary button</button>
-  </div>
+<!-- Modal trigger button -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg"
+  data-bs-toggle="modal"
+  data-bs-target="#modalId"
+>
+  Launch
+</button>
 
-  <div class="card text-white bg-primary">
-    <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
-    <div class="card-body">
-      <h4 class="card-title">Title</h4>
-      <p class="card-text">Text</p>
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div
+  class="modal fade"
+  id="modalId"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  role="dialog"
+  aria-labelledby="modalTitleId"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Body</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
     </div>
   </div>
-</body>
+</div>
+
+<!-- Optional: Place to the bottom of scripts -->
+<script>
+  const myModal = new bootstrap.Modal(
+    document.getElementById("modalId"),
+    options
+  );
+</script>
+
+<div class="container pt-1">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4 card text-white bg-primary">
+      <img class="card-img-top" src="img/arale.webp" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Text</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card text-white bg-primary">
+      <img class="card-img-top" src="img/arale.webp" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Text</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card text-white bg-primary">
+      <img class="card-img-top" src="img/arale.webp" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Text</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 card text-white bg-primary">
+      <img class="card-img-top" src="img/arale.webp" alt="Title" />
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Text</p>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
-et le style associé
+et le style associé (vous pouvez décommenter et/ou faire vos essais).
 
 ```scss
 // $body-bg: #181818;

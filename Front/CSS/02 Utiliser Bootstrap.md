@@ -254,27 +254,29 @@ Pareil pour `align-items` et `align-self` (voir documentation de Flexbox).
 Il est aussi parfaitement possible de faire du nesting (de l'imbrication), à l'intérieur des cellules d'un grid Bootstrap, le fonctionnement est similaire à du Grid classique, voici un exemple :
 
 ```html
-<style>
-  .container,
-  .row div {
-    background-color: aqua;
-    border: 1px dashed darkblue;
-  }
-</style>
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+  </style>
 
-<div class="container">
-  <div class="row text-center justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">col 1</div>
-    <div class="col-12 col-md-6 col-lg-4">col 2</div>
-    <div class="col-12 col-md-6 col-lg-4">col 3</div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="row row-cols-2">
-        <div class="col bg-success">nested 1 in col 4</div>
-        <div class="col bg-warning">nested 2 in col 4</div>
+  <div class="container">
+    <div class="row text-center justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">col 1</div>
+      <div class="col-12 col-md-6 col-lg-4">col 2</div>
+      <div class="col-12 col-md-6 col-lg-4">col 3</div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="row row-cols-2">
+          <div class="col bg-success">nested 1 in col 4</div>
+          <div class="col bg-warning">nested 2 in col 4</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
 ```
 
 ### Utilisation du margin et du padding
@@ -316,34 +318,37 @@ Explications :
 Par exemple, en reprenant une grid Bootstrap
 
 ```html
-<style>
-  .container,
-  .row div {
-    background-color: aqua;
-    border: 1px dashed darkblue;
-  }
-</style>
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+  </style>
 
-<div class="container">
-  <div
-    class="row text-center justify-content-center row-cols-2 p-5 m-2 bg-danger"
-  >
-    <div class="col bg-primary text-light">nested</div>
-    <div class="col bg-secondary text-light">nested</div>
-  </div>
+  <div class="container">
+    <div
+      class="row text-center justify-content-center row-cols-2 p-5 m-2 bg-danger"
+    >
+      <div class="col bg-primary text-light">nested</div>
+      <div class="col bg-secondary text-light">nested</div>
+    </div>
 
-  <div class="row text-center justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">col 1</div>
-    <div class="col-12 col-md-6 col-lg-4">col 2</div>
-    <div class="col-12 col-md-6 col-lg-4">col 3</div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
-        <div class="col bg-success">nested 1 in col 4</div>
-        <div class="col bg-warning">nested 2 in col 4</div>
+    <div class="row text-center justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">col 1</div>
+      <div class="col-12 col-md-6 col-lg-4">col 2</div>
+      <div class="col-12 col-md-6 col-lg-4">col 3</div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
+          <div class="col bg-success">nested 1 in col 4</div>
+          <div class="col bg-warning">nested 2 in col 4</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <body></body>
+</body>
 ```
 
 On voit (via live server) assez nettement les marges et les pad avec les différentes couleurs.
@@ -353,32 +358,36 @@ On voit (via live server) assez nettement les marges et les pad avec les différ
 Au niveau de la classe, c'est pareil que pour le margin et le padding, mais avec la lettre `g`.
 
 ```html
-<style>
-  .container,
-  .row div {
-    background-color: aqua;
-    border: 1px dashed darkblue;
-  }
-</style>
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+  </style>
 
-<div class="container">
-  <div class="row text-center justify-content-center my-3 gx-2 gy-1 bg-danger">
-    <div class="col-10 col-md-5 col-lg-3 bg-primary text-light">nested</div>
-    <div class="col-10 col-md-5 col-lg-3 bg-secondary text-light">nested</div>
-  </div>
+  <div class="container">
+    <div
+      class="row text-center justify-content-center my-3 gx-2 gy-1 bg-danger"
+    >
+      <div class="col-10 col-md-5 col-lg-3 bg-primary text-light">nested</div>
+      <div class="col-10 col-md-5 col-lg-3 bg-secondary text-light">nested</div>
+    </div>
 
-  <div class="row text-center justify-content-center g-2 bg-secondary">
-    <div class="col-10 col-md-5 col-lg-2">col 1</div>
-    <div class="col-10 col-md-5 col-lg-2">col 2</div>
-    <div class="col-10 col-md-5 col-lg-2">col 3</div>
-    <div class="col-10 col-md-5 col-lg-2">
-      <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
-        <div class="col bg-success">nested 1 in col 4</div>
-        <div class="col bg-warning">nested 2 in col 4</div>
+    <div class="row text-center justify-content-center g-2 bg-secondary">
+      <div class="col-10 col-md-5 col-lg-2">col 1</div>
+      <div class="col-10 col-md-5 col-lg-2">col 2</div>
+      <div class="col-10 col-md-5 col-lg-2">col 3</div>
+      <div class="col-10 col-md-5 col-lg-2">
+        <div class="row row-cols-2 bg-primary pt-2 pb-5 mx-2 my-3">
+          <div class="col bg-success">nested 1 in col 4</div>
+          <div class="col bg-warning">nested 2 in col 4</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
 ```
 
 Attention, il faut faire attention à ce que les colonnes ne s'étalent pas sur l’entièreté du display de la grid avant d'ajouter un gap, sinon ça provoque un overflow !
@@ -423,3 +432,210 @@ On peut assigner les classes de boutons à d'autres éléments
 Voici des exemples de [modales](https://getbootstrap.com/docs/5.3/components/modal/).
 
 Ici je vais me servir du snippet (grâce aux extensions) `bs5-modal-toggle`, il va me copier tout le bloc nécessaire.
+
+```html
+<body>
+  <div
+    class="modal fade"
+    id="exampleModalToggle"
+    aria-hidden="true"
+    aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Show a second modal and hide this one with the button below.
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-primary"
+            data-bs-target="#exampleModalToggle2"
+            data-bs-toggle="modal"
+          >
+            Open second modal
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalToggle2"
+    aria-hidden="true"
+    aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Hide this modal and show the first with the button below.
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-primary"
+            data-bs-target="#exampleModalToggle"
+            data-bs-toggle="modal"
+          >
+            Back to first
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    href="#exampleModalToggle"
+    role="button"
+    >Open first modal</a
+  >
+</body>
+```
+
+`data-bs-toggle="modal"` et `data-bs-target="#id"` sont essentiels pour que le bouton ouvre la modale correspondante dans cet exemple.
+
+On peut maintenant modifier chaque classe et id au besoin, pareil pour les contenu des éléments.
+
+### Modification de variables Bootstrap
+
+Cette section explique comment exploiter les variables CSS de Bootstrap directement, pour adapter rapidement certaines couleurs, espacements et styles sans avoir besoin de compiler les fichiers SCSS.
+
+#### Utiliser une variable Bootstrap
+
+On ajoute une classe `.custom-button` au style de la page, et au lieu de.
+
+```html
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+
+    .custom-button {
+      border: 2px solid red;
+    }
+  </style>
+
+  <button type="button" class="btn btn-primary custom-button">Primary</button>
+  <!-- on a ajouté notre classe sur le bouton au dessus -->
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+
+  <p>Texte <mark>surligné</mark></p>
+  <p>Texte <del>supprimé</del></p>
+  <p>Texte <s>dépassé et barré</s></p>
+  <p>Texte <ins>Ajouté au document</ins></p>
+  <p>Texte <u>souligné</u></p>
+  <p>Texte <small>en petits caractères</small></p>
+  <p>Texte <strong>mis en évidence en gras</strong></p>
+  <p>Texte <em>mis en italique</em></p>
+</body>
+```
+
+Maintenant on va apprendre à modifier les variables de Bootstrap pour changer la famille de fonts.
+
+Dans le navigateur, ouvrez les outils développeur avec F12, allez dans `Inspecteur` (ou Elements sur Chrome) et cliquez sur `html` (il se trouve en premier dans le flux).
+
+On peut également utiliser une variable couleur pour notre classe custom de bouton, par exemple var(--bs-orange). Que Bootstrap soit chargé via CDN ou local, ces variables CSS sont déjà disponibles.
+
+```html
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+
+    .custom-button {
+      border: 2px solid var(--bs-orange);
+    }
+  </style>
+
+  <button type="button" class="btn btn-primary custom-button">Primary</button>
+  <!-- on a ajouté notre classe sur le bouton au dessus -->
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+
+  <p>Texte <mark>surligné</mark></p>
+  <p>Texte <del>supprimé</del></p>
+  <p>Texte <s>dépassé et barré</s></p>
+  <p>Texte <ins>Ajouté au document</ins></p>
+  <p>Texte <u>souligné</u></p>
+  <p>Texte <small>en petits caractères</small></p>
+  <p>Texte <strong>mis en évidence en gras</strong></p>
+  <p>Texte <em>mis en italique</em></p>
+</body>
+```
+
+#### Modifier une variable Bootstrap
+
+Maintenant, changeons les familles de fonts grâce à la pseudo-classe CSS `:root` pour modifier `--bs-font-sans-serif` que l'on voit dans la fenêtre style de l'inspecteur F12.
+
+```css
+--bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+  "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+```
+
+```html
+<body>
+  <style>
+    .container,
+    .row div {
+      background-color: aqua;
+      border: 1px dashed darkblue;
+    }
+
+    .custom-button {
+      border: 2px solid var(--bs-orange);
+    }
+
+    :root {
+      --bs-font-sans-serif: "Poppins";
+    }
+  </style>
+
+  <button type="button" class="btn btn-primary custom-button">Primary</button>
+  <!-- on a ajouté notre classe sur le bouton au dessus -->
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+
+  <p>Texte <mark>surligné</mark></p>
+  <p>Texte <del>supprimé</del></p>
+  <p>Texte <s>dépassé et barré</s></p>
+  <p>Texte <ins>Ajouté au document</ins></p>
+  <p>Texte <u>souligné</u></p>
+  <p>Texte <small>en petits caractères</small></p>
+  <p>Texte <strong>mis en évidence en gras</strong></p>
+  <p>Texte <em>mis en italique</em></p>
+</body>
+```
+
+## Mise en place de Vite pour React/Angular

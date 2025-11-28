@@ -8,6 +8,8 @@ Les instructions suivantes proviennent [de la page dédiée bootstrap](https://g
 
 ### Utiliser le CDN
 
+Incluez-le dans votre `<head>`.
+
 ```html
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -15,11 +17,6 @@ Les instructions suivantes proviennent [de la page dédiée bootstrap](https://g
   integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
   crossorigin="anonymous"
 />
-```
-
-et à la fin, juste avant `</body>`
-
-```html
 <script
   defer
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -43,11 +40,6 @@ Installez-le à la racine de votre projet git, puis incluez-le dans votre `<head
   href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
   rel="stylesheet"
 />
-```
-
-et juste avant votre fermeture `</body>` collez
-
-```html
 <script
   defer
   src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -396,6 +388,38 @@ Il vaut mieux une grid avec des colonnes bien réglées que de tricher en mettan
 
 Les composants Bootstrap sont des éléments préconçus (boutons, cartes, alertes, modals…) que l’on peut directement intégrer dans sa page pour gagner du temps et conserver une cohérence visuelle.
 
-Les components (ou composants dans la langue de Molière) sont disponible dans la nav latérale de [la page "Docs" du site](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+Les components (ou composants dans la langue de Molière) sont disponible dans la nav latérale de [la page "Docs" du site](https://getbootstrap.com/docs/5.3/getting-started/introduction/), c'est sur ces pages que j'ai pris les exemples qui vont suivre, il y a plein d'éléments prêts à être utilisés sur la documentation officielle de Bootstrap.
 
-Je suis passé sur le thème "dracula theme official"
+#### Boutons
+
+Voici des exemples de [boutons](https://getbootstrap.com/docs/5.3/components/buttons/).
+
+```md
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+```
+
+On peut assigner les classes de boutons à d'autres éléments
+
+```md
+<a class="btn btn-primary" href="#" role="button">Link</a>
+<a class="btn btn-outline-primary" href="#" role="button">Link outline</a>
+<button class="btn btn-primary" type="submit">Button</button>
+<input class="btn btn-primary" type="button" value="Input">
+<input class="btn btn-primary" type="submit" value="Submit">
+<input class="btn btn-primary" type="reset" value="Reset">
+```
+
+#### Modales
+
+Voici des exemples de [modales](https://getbootstrap.com/docs/5.3/components/modal/).
+
+Ici je vais me servir du snippet (grâce aux extensions) `bs5-modal-toggle`, il va me copier tout le bloc nécessaire.

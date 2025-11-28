@@ -1,5 +1,53 @@
 # Bootstrap
 
+Bootstrap est un framework CSS qui accélère la création d’interfaces responsive grâce à une grille flexible et de nombreux composants prêts à l’emploi ; cette documentation vous guide pas à pas, de l’installation avec Vite jusqu’à l’utilisation pratique des classes, de la grille et du SCSS.
+
+## Index
+
+- [Bootstrap](#bootstrap)
+  - [Index](#index)
+  - [Ajouter Bootstrap à un projet](#ajouter-bootstrap-à-un-projet)
+    - [Utiliser le CDN](#utiliser-le-cdn)
+    - [Installer avec NPM](#installer-avec-npm)
+  - [Utilisation de Bootstrap](#utilisation-de-bootstrap)
+    - [Extensions Codium](#extensions-codium)
+    - [Initialisation du projet](#initialisation-du-projet)
+    - [Balisage et couleurs](#balisage-et-couleurs)
+    - [Les breakpoints](#les-breakpoints)
+    - [La grille Bootstrap](#la-grille-bootstrap)
+    - [Breakpoint dans une grid Bootstrap](#breakpoint-dans-une-grid-bootstrap)
+    - [Utilisation du margin et du padding](#utilisation-du-margin-et-du-padding)
+    - [Mettre du gap entre les colonnes](#mettre-du-gap-entre-les-colonnes)
+    - [Utiliser des components Bootstrap](#utiliser-des-components-bootstrap)
+    - [Boutons](#boutons)
+    - [Modales](#modales)
+    - [Modification de variables Bootstrap](#modification-de-variables-bootstrap)
+      - [Utiliser une variable Bootstrap](#utiliser-une-variable-bootstrap)
+      - [Modifier une variable Bootstrap](#modifier-une-variable-bootstrap)
+  - [Mise en place de Vite pour React/Angular](#mise-en-place-de-vite-pour-reactangular)
+    - [Initialisation du projet Vite](#initialisation-du-projet-vite)
+    - [Initialiser le dépôt local](#initialiser-le-dépôt-local)
+    - [Créer un dépôt distant](#créer-un-dépôt-distant)
+    - [Activer le remote](#activer-le-remote)
+    - [Premier envoi](#premier-envoi)
+      - [Création d'un fichier `README.md`](#création-dun-fichier-readmemd)
+      - [Premier "git add" et "git commit"](#premier-git-add-et-git-commit)
+      - [Premier "git push" (IMPORTANT)](#premier-git-push-important)
+    - [Création de la structure du projet](#création-de-la-structure-du-projet)
+    - [Configurer Vite](#configurer-vite)
+      - [Remplir `vite.config.js`](#remplir-viteconfigjs)
+      - [Remplir `src/index.html`](#remplir-srcindexhtml)
+      - [Ajout du script npm](#ajout-du-script-npm)
+      - [Démarrer Vite](#démarrer-vite)
+    - [Importer Bootstrap](#importer-bootstrap)
+      - [Import du CSS](#import-du-css)
+      - [Import du JS](#import-du-js)
+    - [Utilisation de Sass en custom scss](#utilisation-de-sass-en-custom-scss)
+      - [Modifier des variables Bootstrap](#modifier-des-variables-bootstrap)
+  - [Auteur](#auteur)
+
+---
+
 ## Ajouter Bootstrap à un projet
 
 Pour installer Bootstrap on peut passer par le CDN (une connexion au site de Bootstrap) ou via npm, un gestionnaire de paquets Node.js (qui l'installe dans votre projet).
@@ -78,7 +126,7 @@ et à l'intérieur j'utilise le snippet natif `!` (qui utilise la dernière vers
 http://127.0.0.1:5500/
 ```
 
-## Balisage et couleurs
+### Balisage et couleurs
 
 Voici les balises html textuelles habituelles, pour rappel.
 
@@ -110,17 +158,19 @@ On peut changer la couleur du texte via des classes BS.
 
 Les couleurs de Bootstrap sont `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `muted` et `white`.
 
-## Les breakpoints
+### Les breakpoints
 
 Les _breakpoints_ sont des largeurs personnalisables qui déterminent comment votre mise en page responsive se comporte selon la taille de l’appareil ou de la fenêtre dans Bootstrap.
 
 Pour faire simple, les valeurs à utiliser pour du responsive sont
 
-- Vue téléphone : la classe "extra small" pour du <576px, pas besoin de la préciser: c'est ce qu'il y a par défaut
-- Vue tablette : la classe "medium" `md` pour du ≥768px, dispensable (souvent tablette et desktop ont la le même rendu)
-- Vue desktop : la classe "large" `lg` pour du ≥992px,
+- Vue Mobile (extra small) : col ou col-{nombre}, implicite, pas de xs (pour du <576px)
+- Vue Tablette (medium) : col-md-{nombre} (pour du ≥768px, dispensable, tablette et desktop ont la le même rendu)
+- Vue Desktop (large) : col-lg-{nombre} (pour du ≥992px)
 
 C'est en réalité une media query interne à Bootstrap.
+
+Chaque breakpoint remplace le précédent dès que la largeur devient suffisante, si une classe existe. Pour le mobile extra small, on n’écrit rien, c’est implicite.
 
 Voici un exemple de code permettant de comprendre le breakpoint
 
@@ -139,12 +189,12 @@ Si vous remplacez `container-fluid` par `container` vous verrez alors qu'en éti
 
 `fluid` est une valeur spéciale de breakpoint, indiquant de s'étendre à 100% tout le temps.
 
-## La grille Bootstrap
+### La grille Bootstrap
 
 Bootstrap utilise un système de grille inspiré du CSS Grid, basé sur un layout de 12 colonnes par ligne (`row`).
 
 - Si vous utilisez des classes `col-{nombre}`, la somme des colonnes est limitée à 12 par ligne, et les colonnes excédentaires passent à la ligne suivante.
-- Si vous utilisez simplement `col`, chaque colonne prend une part égale de l’espace disponible, et vous pouvez avoir plus de 12 colonnes sur une seule ligne si la largeur le permet.
+- Si vous utilisez simplement `col`, chaque colonne prend une part égale de l’espace disponible, et vous pouvez avoir plus de 12 colonnes sur une seule ligne si la largeur le permet, mais uniquement si on utilise `col` sans chiffre, en auto répartition.
 
 on utilise `.row` et `.col` pour générer les row et les columns.
 
@@ -180,7 +230,7 @@ Pour que vos lignes s’étendent proprement avec les colonnes, il est recommand
 
 Si l'on commence à faire notre site en "mobile-first" (c'est à dire la version portrait et plus petite en premier, ce qui est recommandé).
 
-Donc pour le mobile on utilise simplement `col-` (on ne précise pas, on est en "extra small" par défaut), pour la tablette on utilise `col-md-` et pour la vue desktop on se sert de `col-lg-`.
+Pour le mobile : on écrit simplement `col` ou `col-{nombre}` (ex. `col-12`). Il n’existe pas de préfixe `xs` dans Bootstrap 5 ; c’est implicite par défaut. Pour la tablette on utilise `col-md-` et pour la vue desktop on se sert de `col-lg-`.
 
 Mis en pratique cela donne ceci :
 
@@ -205,7 +255,7 @@ Mis en pratique cela donne ceci :
 </body>
 ```
 
-Chaque breakpoint remplace le précédent dès que la largeur devient suffisante, si une classe existe (comme ici, il y a `xs`, `md` et `lg`).
+Chaque breakpoint remplace le précédent dès que la largeur devient suffisante, si une classe existe, comme ici, il y a la largeur par défaut (vue mobile), `md` et `lg` (xs est implicite, utilisé par défaut, on ne peut pas le préciser).
 
 Explication :
 
@@ -236,9 +286,7 @@ Et si on ne souhaite pas faire de breakpoint (en gros le même affichage peu imp
 </body>
 ```
 
-On utilise `col` comme classe pour chaque élément, ici nous avons donc trois colonnes par ligne. Attention, si l'on donne une largeur à `col-` à unj ou des éléments, ça prend le dessus sur `row-cols-` sur la ligne modifiée.
-
-On remarque aussi que j'ai utilisé `justify-content-center` dans mon exemple, il s'agit du fonctionnement de flex, donc l'on peut utiliser ses variantes :
+On utilise `col` comme classe pour chaque élément, ici nous avons donc trois colonnes par ligne. Attention, si l'on donne une largeur à `col-{nombre}` à un ou des éléments, ça prend le dessus sur `row-cols-` sur la ligne modifiée.
 
 On remarque aussi que j'ai utilisé `justify-content-center` dans mon exemple, (il s'agit bien de Flexbox derrière Bootstrap), donc l'on peut utiliser ses variantes :
 
@@ -290,6 +338,9 @@ En Bootstrap, il y a des classes pratiques pour les deux :
 - `pt-1` → padding-top, `pb-2` → padding-bottom, etc.
 - `m-1` à `m-5` → margin sur tous les côtés
 - `mt-2` → margin-top, `mx-3` → margin horizontal, `my-4` → margin vertical
+- `ms` → margin-start (gauche), `me` → margin-end (droit)
+
+`ms` et `me` sont ici expliqué pour une écriture LTR (Left To Right).
 
 On peut aussi utiliser `px-` et `py-` pour le paddings, ainsi que `m-` et `p-` si la marge et le pad sont identiques sur les axes x et y.
 
@@ -399,7 +450,7 @@ Les composants Bootstrap sont des éléments préconçus (boutons, cartes, alert
 
 Les components (ou composants dans la langue de Molière) sont disponible dans la nav latérale de [la page "Docs" du site](https://getbootstrap.com/docs/5.3/getting-started/introduction/), c'est sur ces pages que j'ai pris les exemples qui vont suivre, il y a plein d'éléments prêts à être utilisés sur la documentation officielle de Bootstrap.
 
-#### Boutons
+### Boutons
 
 Voici des exemples de [boutons](https://getbootstrap.com/docs/5.3/components/buttons/).
 
@@ -427,7 +478,7 @@ On peut assigner les classes de boutons à d'autres éléments
 <input class="btn btn-primary" type="reset" value="Reset">
 ```
 
-#### Modales
+### Modales
 
 Voici des exemples de [modales](https://getbootstrap.com/docs/5.3/components/modal/).
 
@@ -638,8 +689,316 @@ Maintenant, changeons les familles de fonts grâce à la pseudo-classe CSS `:roo
 </body>
 ```
 
+---
+
 ## Mise en place de Vite pour React/Angular
 
 Pour développer rapidement des applications React ou Angular, nous allons configurer Vite, un bundler (outil qui regroupe tous vos fichiers JS, CSS et assets en un seul paquet optimisé) avec hot reload (rechargement instantané de la page quand vous modifiez votre code, sans perdre l’état de l’application).
 
-J'en suis [à la 31e minute de la vidéo](https://www.youtube.com/watch?v=MTRHi0gxPEo&t=1862s), je suis trop fatigué, dodo.
+### Initialisation du projet Vite
+
+On crée le projet (en suivant [la doc officielle BS](https://getbootstrap.com/docs/5.3/getting-started/vite/))
+
+```bash
+mkdir BootstrapLearning && cd BootstrapLearning
+npm init -y
+```
+
+Nb: Remplacez `BootstrapLearning` par le nom de votre projet.
+
+Ensuite on installe la version dev de vite
+
+```bash
+npm i --save-dev vite
+```
+
+Puis on installe Bootstrap et Sass (requis pour importer et compiler le CSS)
+
+```bash
+npm i --save bootstrap @popperjs/core
+npm i --save-dev sass
+```
+
+### Initialiser le dépôt local
+
+```bash
+git init
+```
+
+### Créer un dépôt distant
+
+Je créé un dépôt distant du même nom sur mon org de github
+
+```bash
+gh repo create RogerBytes/BootstrapLearning --public
+```
+
+Nb: Remplacez `RogerBytes` par le nom de votre repo gh ou de votre organisation gh.
+
+### Activer le remote
+
+```bash
+git remote add origin git@github.com:RogerBytes/BootstrapLearning.git
+```
+
+### Premier envoi
+
+#### Création d'un fichier `README.md`
+
+Il est impossible de push depuis votre dépôt local vers le distant si le premier est vide
+Créez donc un fichier `README.md` (vide) avec :
+
+```bash
+touch README.md
+```
+
+#### Premier "git add" et "git commit"
+
+```bash
+git add --all && git commit -m "First commit"
+```
+
+#### Premier "git push" (IMPORTANT)
+
+Le premier push est différent :
+
+```bash
+git push --set-upstream origin master
+```
+
+Voilà, `Vite` ainsi que notre branche distante et locale sont initialisés correctement.
+
+### Création de la structure du projet
+
+```bash
+mkdir {src,src/js,src/scss}
+touch src/index.html src/js/main.js src/scss/styles.scss vite.config.js
+```
+
+Voici une représentation visuelle de la structure
+
+```text
+BootstrapLearning/
+├── src/
+│   ├── js/
+│   │   └── main.js
+│   └── scss/
+│   |   └── styles.scss
+|   └── index.html
+├── package-lock.json
+├── package.json
+└── vite.config.js
+```
+
+Tout est en place, il nous reste plus qu'à configurer Vite en complétant `vite.config.js`.
+
+### Configurer Vite
+
+#### Remplir `vite.config.js`
+
+Ouvrez `vite.config.js` dans votre IDE, il est vide, copiez dedans :
+
+```js
+import { resolve } from "path";
+
+export default {
+  root: resolve(__dirname, "src"),
+  build: {
+    outDir: "../dist",
+  },
+  server: {
+    port: 8080,
+  },
+  // Optional: Silence Sass deprecation warnings. See note below.
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: [
+          "import",
+          "mixed-decls",
+          "color-functions",
+          "global-builtin",
+        ],
+      },
+    },
+  },
+};
+```
+
+Lorsque l'on compile le sass (en css) on peut ignorer les éventuels messages d'alertes comme quoi c'est déprécié, c'est pas un souci (un fix est en cours dans l'équipe de Vite).
+
+#### Remplir `src/index.html`
+
+Maintenant on va éditer `src/index.html` (la page lancée dans le navigateur par Vite)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap w/ Vite</title>
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="container py-4 px-3 mx-auto">
+      <h1>Hello, Bootstrap and Vite!</h1>
+      <button class="btn btn-primary">Primary button</button>
+    </div>
+  </body>
+</html>
+```
+
+#### Ajout du script npm
+
+Il faut ouvrir `package.json` et y inclure (en ajoutant la ligne "start" aux scripts) ce script de démarrage :
+
+```js
+{
+  // ...
+  "scripts": {
+    "start": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  // ...
+}
+```
+
+#### Démarrer Vite
+
+Nous pouvons lancer Vite de puis la racine du projet (via notre script npm)
+
+```bash
+npm start
+```
+
+Par défaut l'adesse en localhost est
+
+```http
+http://localhost:8080/
+```
+
+### Importer Bootstrap
+
+#### Import du CSS
+
+Pour importer bootstrap ouvrez `src/scss/styles.scss` dans votre IDE et ajoutez
+
+```scss
+// Import all of Bootstrap’s CSS
+@import "bootstrap/scss/bootstrap";
+```
+
+#### Import du JS
+
+Ouvrez `src/js/main.js` et ajoutez-y :
+
+```js
+// Import our custom CSS
+import "../scss/styles.scss";
+
+// Import all of Bootstrap’s JS
+import * as bootstrap from "bootstrap";
+```
+
+Au besoin c'est dans ce fichier que vous pouvez importer des plugins JS de Bootstrap individuellement (afin de limiter la taille du bundle).
+
+Par exemple (facultatif, destiné aux utilisateurs avancés)
+
+```js
+import Alert from "bootstrap/js/dist/alert";
+
+// or, specify which plugins you need:
+import { Tooltip, Toast, Popover } from "bootstrap";
+```
+
+Voilà, Vite ainsi que Bootstrap et Sass sont correctement configurés et prêts à l'usage !
+
+---
+
+### Utilisation de Sass en custom scss
+
+Maintenant que l'on sait utiliser Bootstrap avec Vite il est très simple de faire du CSS customisé et de modifier Bootstrap. Pour des informations plus détaillées, consultez la page `Customize` [de la doc de Bootstrap](https://getbootstrap.com/docs/5.3/customize/overview/)
+
+#### Modifier des variables Bootstrap
+
+En bas de chaque section de la doc de Bootstrap, on trouve une section "CSS" qui contiennent les variables et informations nécessaires pour modifier Bootstrap.
+Nous allons utiliser ici la [doc de la typographie](https://getbootstrap.com/docs/5.3/content/typography/), pour la typo on récupère ce qu'il y a à la fin de [Display Headings](https://getbootstrap.com/docs/5.3/content/typography/#display-headings).
+
+```css
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
+);
+
+$display-font-family: null;
+$display-font-style: null;
+$display-font-weight: 300;
+$display-line-height: $headings-line-height;
+```
+
+Pour chacune des sections de la doc de Bootstrap, vous trouverez les variables en bas de page, souvent dans une section `Sass variables`.
+
+Pour modifier des variables bootstrap, ouvrir `src/scss/styles.css` faire ces modification avant l'import. Par exemple
+
+```scss
+$body-bg: green;
+$primary: #ff4136;
+$h1-font-size: 5rem;
+$body-color: white;
+
+// Import all of Bootstrap’s CSS
+@import "bootstrap/scss/bootstrap";
+```
+
+On va modifier une card, on va se servir du snippet `bs5-card-background`, je vais le nest dans une `.row` et régler les `.col`, et l'on y ajoute aussi une modale avec `bs5-modal-default`
+
+```html
+<body>
+  <div class="container py-4 px-3 mx-auto">
+    <h1>Hello, Bootstrap and Vite!</h1>
+    <button class="btn btn-primary">Primary button</button>
+  </div>
+
+  <div class="card text-white bg-primary">
+    <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+    <div class="card-body">
+      <h4 class="card-title">Title</h4>
+      <p class="card-text">Text</p>
+    </div>
+  </div>
+</body>
+```
+
+et le style associé
+
+```scss
+// $body-bg: #181818;
+// $primary: red;
+// $h1-font-size: 5rem;
+// $body-color: white;
+
+// Import all of Bootstrap’s CSS
+@import "bootstrap/scss/bootstrap";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-img-top {
+  width: 80%;
+  height: auto;
+}
+```
+
+Les bases de Bootstrap sont désormais acquises.
+
+## Auteur
+
+- [Harry RICHMOND](https://github.com/RogerBytes)

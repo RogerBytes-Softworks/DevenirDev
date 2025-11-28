@@ -639,3 +639,7 @@ Maintenant, changeons les familles de fonts grâce à la pseudo-classe CSS `:roo
 ```
 
 ## Mise en place de Vite pour React/Angular
+
+Pour développer rapidement des applications React ou Angular, nous allons configurer Vite, un bundler (outil qui regroupe tous vos fichiers JS, CSS et assets en un seul paquet optimisé) avec hot reload (rechargement instantané de la page quand vous modifiez votre code, sans perdre l’état de l’application).
+
+J'en suis [à la 31e minute de la vidéo](https://www.youtube.com/watch?v=MTRHi0gxPEo&t=1862s), je suis trop fatigué, dodo.

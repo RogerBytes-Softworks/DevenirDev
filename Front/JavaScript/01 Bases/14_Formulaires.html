@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>14 Les Formulaires</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/github-markdown.css" />
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/stackoverflow-dark.min.css" />
+    <script src="assets/js/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="markdown-body">
+        <h1 id="1">14 Les Formulaires</h1>
+        <h2 id="2">Généralités</h2>
+        <p>
+          Avec JavaScript, les formulaires Html prennent une toute autre
+          dimension.
+        </p>
+        <p>
+          N'oublions pas qu'en JavaScript, on peut accéder à chaque élément d'un
+          formulaire pour y aller lire ou écrire une valeur, y associer un
+          gestionnaire d'événement...
+        </p>
+        <p>
+          Tous ces éléments renforceront grandement les capacités interactives
+          de vos pages.
+        </p>
+        <h2 id="6">DECLARATION D'UN FORMULAIRE</h2>
+        <p>Le formulaire est l'élément Html déclaré par les balises</p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+        <p>
+          Il faut noter qu'en JavaScript, les attributs
+          <code>name="nom_du_formulaire"</code> et
+          <code>id="id_du_formulaire"</code> ont toute leur importance pour
+          désigner le chemin complet des éléments.
+        </p>
+        <p>
+          En outre, les attributs <code>action</code> et
+          <code>method</code> sont facultatifs pour autant que vous ne faites
+          pas appel au serveur.
+        </p>
+        <h2 id="11">ACCES AU FORMULAIRE ET A SES ELEMENTS</h2>
+        <p>
+          En JavaScript, on peut accéder à un objet de la fenêtre via
+          l’arborescence du DOM du navigateur et des tableaux indicés et
+          associatifs :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-property">nom_du_formulaire</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-number">0</span>]…
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-string">'nom_du_formulaire'</span>]…</code></pre>
+        <p>
+          On peut également accéder directement à tout élément via les deux
+          méthodes suivantes qui reprennent les attributs name et id présents
+          dans la fenêtre :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-comment">// retourne l’élément indicé par id = 'idElt'</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'idElt'</span>); 
+
+<span class="hljs-comment">// retourne la liste des éléments ayant pour nom : name = 'nameElt'</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByName</span>(<span class="hljs-string">'nameElt'</span>); </code></pre>
+        <h3 id="16">LES CONTROLES DE SAISIES</h3>
+        <p>
+          JavaScript est très apprécié pour valider les formulaires Html côté
+          client.
+        </p>
+        <p>
+          -&gt; L’interactivité est plus rapide avec l’utilisateur que la
+          validation côté serveur.
+        </p>
+        <p>
+          Il reste primordial de contrôler également les formulaires côté
+          serveur dans le cas où l’utilisateur désactiverait JavaScript.
+        </p>
+        <p>
+          Ces contrôles peuvent être faits avec les gestionnaires d’événements
+          comme <code>onClick, onBlur, onSubmit, onReset</code> … mais aussi
+          avec des méthodes qui simulent une action Html comme
+          <code>submit()</code> et <code>reset()</code>.
+        </p>
+        <p>
+          -&gt; La méthode <code>submit()</code> remplace l’événement lié au
+          bouton de type <code>"submit"</code> en validant le formulaire.
+        </p>
+        <p>
+          -&gt; La méthode <code>reset()</code> remplace l’événement lié au
+          bouton de type <code>"reset"</code> en réinitialisant le formulaire.
+        </p>
+        <h4 id="23">onSubmit</h4>
+        <p>
+          Cet événement est généré soit lorsque le bouton Submit du formulaire
+          est cliqué, soit lorsque la méthode submit() est appelée. Cet
+          événement peut renvoyer un booléen pour envoyer ou non le formulaire.
+        </p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> &gt;</span><span class="language-javascript">
+
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">checkForm</span>(<span class="hljs-params">f</span>) {
+                <span class="hljs-title function_">alert</span>(<span class="hljs-string">"Contrôle champ "</span> + f.<span class="hljs-property">elements</span>[<span class="hljs-string">'chp'</span>].<span class="hljs-property">value</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// n’envoie pas le formulaire</span>
+            }
+
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>= <span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form1"</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">"return checkForm(this);"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chp"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"essai"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>= <span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Valider"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <p>
+          Dans l’exemple ci-dessus, le formulaire intercepte l’envoi du
+          formulaire avec l’événement onSubmit.
+        </p>
+        <p>
+          Cet événement appelle la méthode <code>checkForm()</code>, avec
+          l’argument <code>this</code> et <strong>attend</strong> une
+          <strong>réponse booléenne</strong> pour
+          <strong>envoyer ou non</strong> le formulaire.
+        </p>
+        <p>
+          L’argument this est la référence de l’objet en cours, ici le
+          formulaire.
+        </p>
+        <p>La fonction <code>checkForm()</code> retourne false.</p>
+        <p>Le formulaire ne sera pas envoyé.</p>
+        <p>Testez l'exemple ci-dessous</p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Intercepte la validation du formulaire<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">checkForm</span>(<span class="hljs-params">f</span>) {
+                <span class="hljs-title function_">alert</span>(<span class="hljs-string">"Vous vous appelez : "</span> + f.<span class="hljs-property">elements</span>[<span class="hljs-string">'nom'</span>].<span class="hljs-property">value</span> + <span class="hljs-string">" "</span> + f.<span class="hljs-property">elements</span>[<span class="hljs-string">'prenom'</span>].<span class="hljs-property">value</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// do not submit the form</span>
+            }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Intercepte la validation du formulaire<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"form1"</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">"return checkForm(this);"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>= <span class="hljs-string">"nom"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Dupont"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>= <span class="hljs-string">"prenom"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Eric"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idSubForm1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"subForm1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Connection"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <p>
+          L’instruction <strong><code>return</code></strong> appelée dans
+          l’événement <strong><code>onSubmit</code></strong> permet de
+          <strong>soumettre ou non le formulaire</strong> suivant la valeur de
+          retour de la fonction <code>checkForm()</code>.
+        </p>
+        <h2 id="34">PROPRIETES UTILES DES BALISES HTML</h2>
+        <h3 id="35">Les zones de texte (text et textarea)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Propriété</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>indique le nom du contrôle par lequel on pourra accéder.</td>
+            </tr>
+            <tr>
+              <td>defaultValue</td>
+              <td>
+                indique la valeur par défaut qui sera affichée dans la zone de
+                texte.
+              </td>
+            </tr>
+            <tr>
+              <td>value</td>
+              <td>
+                indique la valeur en cours de la zone de texte.<br />
+                soit celle tapée par l'utilisateur ou si celui-ci n'a rien tapé,
+                la valeur par défaut.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Toute valeur de champ est une chaîne de caractères !</p>
+        <p>
+          <strong>Pensez</strong> à changer les virgules en point pour les
+          nombres.
+        </p>
+        <h3 id="39">Les boutons radio (radio)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Propriété</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>
+                indique le nom du contrôle.<br />Tous les boutons portent le
+                même nom.
+              </td>
+            </tr>
+            <tr>
+              <td>index</td>
+              <td>l'index ou le rang du bouton radio en commençant par 0.</td>
+            </tr>
+            <tr>
+              <td>checked</td>
+              <td>indique l'état en cours de l'élément radio</td>
+            </tr>
+            <tr>
+              <td>defaultChecked</td>
+              <td>indique l'état du bouton sélectionné par défaut.</td>
+            </tr>
+            <tr>
+              <td>value</td>
+              <td>indique la valeur de l'élément radio.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="41">Les boutons case à cocher (checkbox)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Propriété</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>
+                indique le nom du contrôle.<br />Toutes les cases à cocher
+                portent un nom différent.
+              </td>
+            </tr>
+            <tr>
+              <td>checked</td>
+              <td>indique l'état en cours de l'élément case à cocher.</td>
+            </tr>
+            <tr>
+              <td>defaultChecked</td>
+              <td>indique l'état du bouton sélectionné par défaut.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="43">Les listes de sélection (select)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Propriété</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>indique le nom de la liste déroulante.</td>
+            </tr>
+            <tr>
+              <td>length</td>
+              <td>
+                indique le nombre d'éléments de la liste.<br />S'il est indiqué
+                dans le tag <strong>SELECT</strong>, tous les éléments de la
+                liste seront affichés.<br />
+                Si vous ne l'indiquez pas un seul apparaîtra dans la boite de la
+                liste déroulante.
+              </td>
+            </tr>
+            <tr>
+              <td>selectedIndex</td>
+              <td>
+                indique le rang à partir de 0 de l'élément de la liste qui a été
+                sélectionné par l'utilisateur.
+              </td>
+            </tr>
+            <tr>
+              <td>defaultSelected</td>
+              <td>
+                indique l'élément de la liste sélectionné par défaut.<br />C'est
+                lui qui apparaît alors dans la petite boite.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="45">L'EMPLOI DE THIS</h3>
+        <p>
+          Pour désigner l'objet en cours, JavaScript met à votre disposition le
+          mot-clé <strong><code>this</code></strong
+          >.
+        </p>
+        <p>
+          Cette <strong>écriture raccourcie</strong> est souvent utilisée (sans
+          risque de confusion) en remplacement du chemin complet de l'objet dans
+          un formulaire.
+        </p>
+        <p>Un exemple vous éclairera mieux qu'un long discours.</p>
+        <p>Soit un script avec un formulaire :</p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"form3"</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"choix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> /&gt;</span>Choix numéro 1<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"choix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> /&gt;</span>Choix numéro 2<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"choix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span> /&gt;</span>Choix numéro 3<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"but"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Quel est votre choix ?"</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">"choixprop(form3)"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+        <p>
+          Au lieu d'employer <code>choixprop(form3)</code>, on aurait pu
+          utiliser <code>choixprop(this.form)</code> et éviter ainsi toute
+          confusion avec les autres noms de formulaires.
+        </p>
+        <p>
+          Dans cet exemple, <code>this.form</code> désigne le formulaire
+          <code>form3</code> complet.
+        </p>
+        <p>
+          Par contre, <code>choixprop(this)</code> n'aurait désigné que
+          l'élément de type bouton du formulaire <code>form3</code>.
+        </p>
+        <p>
+          Pour être complet, <code>this</code> est utilisé aussi pour créer une
+          ou plusieurs propriétés d'un objet.
+        </p>
+        <p>
+          Ainsi, pour créer un objet livre avec les propriétés auteur, éditeur
+          et prix cette opération peut être effectuée à l'aide de la fonction :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">livre</span>(<span class="hljs-params">auteur, editeur, prix</span>) {
+<span class="hljs-variable language_">this</span>.<span class="hljs-property">auteur</span> = auteur;
+<span class="hljs-variable language_">this</span>.<span class="hljs-property">editeur</span> = editeur;
+<span class="hljs-variable language_">this</span>.<span class="hljs-property">prix</span> = prix;
+}
+<span class="hljs-keyword">var</span> l1 = <span class="hljs-keyword">new</span> <span class="hljs-title function_">livre</span>(<span class="hljs-string">"monAuteur"</span>, <span class="hljs-string">"monEditeur"</span>, <span class="hljs-number">15.0</span>);
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-string">"Mon Auteur '"</span> + l1.<span class="hljs-property">auteur</span> + <span class="hljs-string">"' vaut "</span> + l1.<span class="hljs-property">prix</span> + <span class="hljs-string">" euros."</span>);</code></pre>
+        <h3 id="57">Exercice</h3>
+        <p>
+          Réaliser un formulaire "Contact.html" correspondant au modèle
+          ci-dessous, avec les contraintes suivantes :
+        </p>
+        <ul>
+          <li>
+            <p>Le formulaire sera envoyé grâce à la méthode "Post".</p>
+          </li>
+          <li>
+            <p>La "Société" doit comporter au moins 1 caractère.</p>
+          </li>
+          <li>
+            <p>
+              La "Personne à contacter" doit comporter au moins 1 caractère.
+            </p>
+          </li>
+          <li>
+            <p>Le "Code postal" doit comporter 5 caractères numériques.</p>
+          </li>
+          <li>
+            <p>La "Ville" doit comporter au moins 1 caractère.</p>
+          </li>
+          <li>
+            <p>Le Email doit comporter au moins le caractère "@".</p>
+          </li>
+        </ul>
+        <p>
+          <img
+            src="assets/img/js_16_img_1.png"
+            alt="formulaire à réaliser"
+          />
+        </p>
+        <p>
+          Le champ <strong>"Environnement technique"</strong> est une liste
+          déroulante dans laquelle on peut choisir les techniques utilisées pour
+          le projet proposé, ainsi qu'une zone de texte qui reçoit la sélection.
+        </p>
+        <p>
+          Il est permis de rajouter des informations manuelles dans la zone de
+          texte.
+        </p>
+        <p>
+          La valeur <strong>"Choisissez"</strong> ne doit pas s'afficher dans la
+          zone de texte si elle a été sélectionnée.
+        </p>
+        <p>
+          <img
+            src="assets/img/js_16_img_2.png"
+            alt="liste déroulante"
+          />
+        </p>
+        <p>Prévoyez les messages appropriés en cas d'erreur de saisie :</p>
+        <p>
+          <img
+            src="assets/img/js_16_img_3.png"
+            alt="messages d'erreur"
+          />
+        </p>
+      </div>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      document.title = "" + document.querySelector("h1").textContent;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="utf-8" />
+    <title>09 Le D.O.M. et l'objet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/github-markdown.css" />
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/stackoverflow-dark.min.css" />
+    <script src="assets/js/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="markdown-body">
+        <h1 id="1">09 Le D.O.M. et l'objet.</h1>
+        <h2 id="2">Présentation</h2>
+        <p>Javascript est un langage orienté objet*.</p>
+        <p>
+          Pour Javascript une page web est un « document » et chaque élément
+          (balises et attributs HTML, mais aussi la fenêtre du navigateur) de ce
+          document est un objet.
+        </p>
+        <p>
+          Cette représentation objet est appelée le «
+          <strong>Document Objet Model</strong> », en abrégé
+          <strong>D.O.M</strong>.
+        </p>
+        <p>
+          Le D.O.M. représente donc l’arborescence d’une page web, une
+          hiérarchie est établie où chaque niveau est un nœud qui possède
+          éventuellement des éléments parents et/ou fils (enfants).
+        </p>
+        <p>
+          L'objet par défaut (le parent de tous les autres éléments) est l’objet
+          <code>document</code>.
+        </p>
+        <p>Ensuite, tout est donc un objet, par exemple :</p>
+        <ul>
+          <li>
+            <p>
+              Les chaînes de caractères, nombres et booléens peuvent être des
+              objets (ou des valeurs primitives traitées comme des objets)
+            </p>
+          </li>
+          <li>
+            <p>Les fonctions</p>
+          </li>
+          <li>
+            <p>Les tableaux</p>
+          </li>
+          <li>
+            <p>Les dates</p>
+          </li>
+          <li>
+            <p>Le navigateur (objet Navigator)</p>
+          </li>
+          <li>
+            <p>La fenêtre (objet Window)</p>
+          </li>
+          <li>
+            <p>L'écran (objet Screen)</p>
+          </li>
+          <li>
+            <p>L'écran (objet Location)</p>
+          </li>
+          <li>
+            <p>L'historique de navigation (objet History)</p>
+          </li>
+          <li>
+            <p>Les expressions régulières (objet Regexp)</p>
+          </li>
+        </ul>
+        <blockquote>
+          <p>
+            * pour les puristes, JavaScript n'est pas à proprement parler un
+            langage orienté objet tel que C++ ou encore Java. On dira plutôt que
+            JavaScript est un langage basé sur les objets.
+          </p>
+        </blockquote>
+        <h2 id="11">Les objets et leur hiérarchie</h2>
+        <p>
+          JavaScript va diviser une page web en objets issus des éléments HTML
+          et surtout va vous permettre d'accéder à ces objets, d'en retirer des
+          informations et de les manipuler.
+        </p>
+        <p>
+          Voyons d'abord une illustration des différents objets qu'une page peut
+          contenir.
+        </p>
+        <p>Vous avez chargé la page suivante :</p>
+        <p>
+          <img
+            src="assets/img/js_12_img_1.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>
+          Cette page s'affiche dans une fenêtre. C'est l'objet
+          <code>window</code>.
+        </p>
+        <p>
+          <img
+            src="assets/img/js_12_img_2.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>
+          Dans cette fenêtre, il y a un document HTML : il s'agit de l'objet
+          <code>document</code>.
+        </p>
+        <p>
+          Autrement dit (et c'est là que l'on voit apparaître la notion de la
+          hiérarchie des objets JavaScript), l'objet
+          <code>window</code> contient l'objet <code>document</code>.
+        </p>
+        <p>
+          <img
+            src="assets/img/js_12_img_3.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>
+          Dans ce document, on trouve un formulaire au sens HTML. C'est l'objet
+          <code>form</code>.
+        </p>
+        <p>
+          Autrement dit, l'objet <code>window</code> contient un objet
+          <code>document</code> qui lui contient un objet <code>form</code>.
+        </p>
+        <p>
+          <img
+            src="assets/img/js_12_img_4.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>
+          Dans ce formulaire, on trouve trois types d'objets. Deux boutons
+          radio, un bouton classique et une zone de texte. Ce sont
+          respectivement l'objet <strong>radio</strong>, l'objet
+          <strong>button</strong>, l'objet <strong>text</strong>.
+        </p>
+        <p>
+          Autrement dit, l'objet <code>window</code> contient l'objet
+          <code>document</code> qui contient l'objet <code>form</code> qui
+          contient à son tour l'objet <code>radio</code>, l'objet
+          <code>button</code> et l'objet <code>text</code>.
+        </p>
+        <p>
+          <img
+            src="assets/img/js_12_img_5.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>La hiérarchie des objets de cet exemple est donc :</p>
+        <p>
+          <img
+            src="assets/img/js_12_img_6.png"
+            alt="Objet Window"
+          />
+        </p>
+        <p>
+          Pour accéder à un objet, il faudra donner le chemin complet de l'objet
+          en allant du contenant le plus extérieur à l'objet à l'objet
+          référencé.
+        </p>
+        <p>
+          Cependant, les objets situés dans un formulaire sont ciblés par un
+          tableau d’éléments : <code>elements[]</code>.
+        </p>
+        <p>Soit par exemple pour le bouton <code>radio</code> "semaine" :</p>
+        <p>Exemple :</p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> radio = <span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-number">0</span>].<span class="hljs-property">elements</span>[<span class="hljs-number">0</span>] ; </code></pre>
+        <p>
+          Pour récupérer un objet dont vous connaissez l’ID (attribut HTML
+          <code>id</code>) :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> elt = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">"ID de l’élément"</span>); </code></pre>
+        <p>
+          Pour récupérer une liste d’objets qui portent le même nom (attribut
+          HTML <code>name</code>) :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> elt = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByName</span>(<span class="hljs-string">"nom de l’élément"</span>); </code></pre>
+        <p>Testez l'exemple ci-dessous :</p>
+        <pre><code class="language-html hljs language-xml">    <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"form1"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>= <span class="hljs-string">"nom"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Mozart"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>= <span class="hljs-string">"prenom"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Ella"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idSubForm1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"subForm1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Connection"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"La 2nde zone de texte a pour nom : "</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-string">'form1'</span>].<span class="hljs-property">elements</span>[<span class="hljs-number">1</span>].<span class="hljs-property">name</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"La 1ère zone de texte a pour valeur : '"</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-string">'form1'</span>].<span class="hljs-property">elements</span>[<span class="hljs-string">'nom'</span>].<span class="hljs-property">value</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Le bouton Submit a pour identifiant unique : "</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'idSubForm1'</span>).<span class="hljs-property">id</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Le bouton Submit a pour valeur : "</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByName</span>(<span class="hljs-string">'subForm1'</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">value</span>);
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <p>
+          Vous pouvez aussi utiliser la fonction <code>querySelector</code>,
+          elle permet d’attraper le premier élément HTML qui correspond au
+          sélecteur CSS spécifié. Pour récupérer le premier élément qui porte la
+          classe example.
+        </p>
+        <pre><code class="hljs language-javascript"><span class="hljs-keyword">var</span> elt1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">".example"</span>); </code></pre>
+        <p>Pour récupérer l’élément <code>&lt;body&gt;</code> :</p>
+        <pre><code class="hljs language-javascript"><span class="hljs-keyword">var</span> content = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">"body"</span>); </code></pre>
+        <p>
+          La fonction <code>querySelector</code> utilise la même syntaxe que le
+          CSS pour sélectionner les éléments HTML.
+        </p>
+        <h2 id="45">Les propriétés des objets</h2>
+        <p>
+          Une propriété est un attribut, une caractéristique, une description de
+          l'objet.
+        </p>
+        <p>
+          Par exemple, l'objet <em>volant</em> d'une voiture a comme propriétés
+          qu'il peut être en bois ou en cuir.
+        </p>
+        <p>
+          L'objet livre a comme propriétés son auteur, sa maison d'édition, son
+          titre, son numéro ISBN, etc. De même, les objets JavaScript ont des
+          propriétés personnalisées. Dans le cas du bouton radio, une de ses
+          propriétés est sa sélection ou sa non-sélection (<code>checked</code>
+          en anglais).
+        </p>
+        <p>
+          En JavaScript, pour accéder aux propriétés, on utilise la syntaxe :
+        </p>
+        <blockquote>
+          <p>nom_objet.nom_propriete</p>
+        </blockquote>
+        <p>
+          Dans le cas du bouton radio "semaine", pour tester la propriété de
+          sélection, on écrira
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-property">forms</span>[<span class="hljs-number">0</span>].<span class="hljs-property">elements</span>[<span class="hljs-number">0</span>].<span class="hljs-property">checked</span></code></pre>
+        <h3 id="53">La propriété <code>innerHTML</code></h3>
+        <p>
+          Cette propriété est particulière. Elle permet de récupérer le code
+          HTML fils de tout élément HTML.
+        </p>
+        <p>
+          Par exemple, elle permet de modifier le contenu d’une balise
+          <code>&lt;div&gt;</code> …
+        </p>
+        <pre><code class="language-html hljs language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idDiv"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Je suis un paragraphe dans une div<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'idDiv'</span>).<span class="hljs-property">innerHTML</span> = <span class="hljs-string">"&lt;h3&gt;Titre&lt;/h3&gt;"</span>;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+        <h3 id="57">La propriété <code>value</code></h3>
+        <p>
+          Elle permet de récupérer le contenu d'un champ de formulaire. Par
+          exemple, elle permet de modifier le contenu d'une balise
+          <code>&lt;div&gt;</code>
+        </p>
+        <pre><code class="language-html hljs language-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"txtBox"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'txtBox'</span>).<span class="hljs-property">value</span> = <span class="hljs-number">53</span>;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+        <h2 id="60">Le DOM</h2>
+        <p>
+          Le DOM ou Document Object Model sert de référence comme modèle
+          organisationnel des différents objets qui constituent une page.
+        </p>
+        <p>
+          Le W3C a défini un DOM standard, nommé DOM Level 0, pour tous les
+          navigateurs depuis Internet Explorer 5.
+        </p>
+        <p>
+          Les navigateurs offrent ainsi un ensemble de fonctions pour permettre
+          à JavaScript d'accéder à aux éléments du DOM. JavaScript sert
+          d'interface vers les objets internes du navigateur.
+        </p>
+        <p>
+          Le DOM du W3C permet d’accéder à tous les éléments du document. Le DOM
+          du navigateur ne permet pas d’accéder à tout le contenu du document.
+        </p>
+        <h2 id="65">Le modèle Objet du navigateur</h2>
+        <p>
+          <img
+            src="assets/img/js_12_img_7.png"
+            alt="Objet Window"
+          />
+        </p>
+        <ul>
+          <li>
+            <code>Anchors[]</code> : tableau des ancres (balises
+            <code>&lt;a&gt;</code>)
+          </li>
+          <li>
+            <code>Links[]</code> : tableau des liens (attributs
+            <code>href</code> dans les balises <code>&lt;a&gt;</code> et
+            <code>&lt;area&gt;</code>)
+          </li>
+          <li>
+            <code>Embeds[]</code> : tableau des objets multimedia (balises
+            <code>&lt;embed&gt;</code>)
+          </li>
+        </ul>
+        <p>Testez l'exemple ci-dessous :</p>
+        <pre><code class="language-html hljs language-xml">    <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Exemple DOM<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">testerRadio</span>(<span class="hljs-params"></span>) 
+    {
+        <span class="hljs-keyword">var</span> radio = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByName</span>(<span class="hljs-string">"btnRadChoix"</span>);
+
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;radio.<span class="hljs-property">length</span>;i++) 
+                {
+                    <span class="hljs-keyword">if</span> (radio[i].<span class="hljs-property">checked</span>) 
+                    {
+                        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">"txtBox1"</span>).<span class="hljs-property">value</span> = radio[i].<span class="hljs-property">value</span>;
+                    }
+                }
+            }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"frmChoix"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"btnRadChoix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"semaine"</span> <span class="hljs-attr">checked</span>&gt;</span> Semaine
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span>  <span class="hljs-attr">name</span>=<span class="hljs-string">"btnRadChoix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"week end"</span>&gt;</span> Week-end 
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"btn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Choix"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"testerRadio();"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"txtBox1"</span> <span class="hljs-attr">type</span> =<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"txtChoix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <h2 id="70">L'objet <code>window</code></h2>
+        <p>
+          L'objet <code>window</code> fait référence à la fenêtre du navigateur.
+        </p>
+        <p>On crée un nouvel objet window avec la syntaxe suivante :</p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> maFenetre = [<span class="hljs-variable language_">window</span>.]<span class="hljs-title function_">open</span>(url [, nom [, caracteristiques[, replace]]]);</code></pre>
+        <ul>
+          <li>
+            <strong>url</strong> est l'URL de la page que l'on désire afficher
+            dans la nouvelle fenêtre. Si on ne désire pas afficher un fichier
+            html existant, on mettra simplement ''".
+          </li>
+          <li><strong>nom</strong> est le nom de la nouvelle fenêtre.</li>
+          <li>
+            <strong>caracteristiques</strong> (facultatif) est une liste de
+            certaines ou de toutes les caractéristiques de la nouvelle fenêtre
+            que l'on note à la suite, séparées par des virgules et sans espaces
+            ni passage à la ligne.
+          </li>
+          <li>
+            <strong>replace</strong> (facultatif) précise si oui ou non
+            (<code>true</code>, <code>false</code>) la nouvelle fenêtre sera
+            ajoutée dans l'historique du navigateur.
+          </li>
+        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Caractéristique</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>toolbar=yes ou no</td>
+              <td>Affichage de la barre d'outils</td>
+            </tr>
+
+            <tr>
+              <td>location=yes ou non</td>
+              <td>Affichage de champ d'adresse (ou de localisation)</td>
+            </tr>
+
+            <tr>
+              <td>directories=yes ou no</td>
+              <td>Affichage des boutons d'accès rapide</td>
+            </tr>
+
+            <tr>
+              <td>status=yes ou no</td>
+              <td>Affichage de la barre d'état</td>
+            </tr>
+
+            <tr>
+              <td>menubar=yes ou no</td>
+              <td>Affichage de la barre de menus</td>
+            </tr>
+
+            <tr>
+              <td>scrollbars=yes ou no</td>
+              <td>Affichage des barres de défilement.</td>
+            </tr>
+
+            <tr>
+              <td>resizable=yes ou no</td>
+              <td>Dimensions de la fenêtre modifiables</td>
+            </tr>
+
+            <tr>
+              <td>width=x en pixels</td>
+              <td>Largeur de la fenêtre en pixels</td>
+            </tr>
+
+            <tr>
+              <td>height=y en pixels</td>
+              <td>Hauteur de la fenêtre en pixels</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>On peut aussi utiliser 1 ou 0 au lieu de yes ou no.</p>
+        <p>
+          <strong>Précision</strong> : Si on ne précise aucune caractéristique,
+          la nouvelle fenêtre les comportera toutes !
+        </p>
+        <p>
+          On ferme la nouvelle fenêtre avec la méthode <code>close()</code>,
+          comme la syntaxe suivante :
+        </p>
+        <pre><code class="language-js hljs language-javascript">maFenetre.<span class="hljs-title function_">close</span>();</code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Instruction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>closed</td>
+              <td>
+                Propriété de type booléen qui précise si la fenêtre est fermée
+                ou non.
+              </td>
+            </tr>
+
+            <tr>
+              <td>defaultStatus</td>
+              <td>
+                Propriété qui indique le texte par défaut de la barre d’état.
+              </td>
+            </tr>
+
+            <tr>
+              <td>opener</td>
+              <td>
+                Cette propriété donne une référence de la fenêtre appelante
+                c.-à-d. la fenêtre d’où a été créée la nouvelle fenêtre.
+              </td>
+            </tr>
+
+            <tr>
+              <td>self</td>
+              <td>Propriété qui référence la fenêtre courante.</td>
+            </tr>
+
+            <tr>
+              <td>status</td>
+              <td>
+                Propriété qui indique le texte courant de la barre d’état.
+              </td>
+            </tr>
+
+            <tr>
+              <td>top</td>
+              <td>
+                Propriété qui référence la fenêtre au sommet de la hiérarchie.
+              </td>
+            </tr>
+
+            <tr>
+              <td>alert(string)</td>
+              <td>Méthode qui ouvre une fenêtre d’information.</td>
+            </tr>
+
+            <tr>
+              <td>blur()</td>
+              <td>Méthode qui enlève le focus à la fenêtre.</td>
+            </tr>
+
+            <tr>
+              <td>close()</td>
+              <td>Méthode qui ferme la fenêtre.</td>
+            </tr>
+
+            <tr>
+              <td>confirm(string)</td>
+              <td>Méthode qui ouvre une fenêtre de confirmation.</td>
+            </tr>
+
+            <tr>
+              <td>focus()</td>
+              <td>
+                Méthode qui rend active la fenêtre et la met au premier plan.
+              </td>
+            </tr>
+
+            <tr>
+              <td>moveTo(x, y)</td>
+              <td>
+                Méthode qui déplace la fenêtre à la nouvelle position (x, y).
+              </td>
+            </tr>
+
+            <tr>
+              <td>open()</td>
+              <td>Méthode qui ouvre une nouvelle fenêtre.</td>
+            </tr>
+
+            <tr>
+              <td>print()</td>
+              <td>Méthode qui lance une impression de la page en cours.</td>
+            </tr>
+
+            <tr>
+              <td>prompt(string[, defaut])</td>
+              <td>Méthode qui ouvre une fenêtre de saisie.</td>
+            </tr>
+
+            <tr>
+              <td>resizeTo(x, y)</td>
+              <td>Méthode qui redimensionne la fenêtre.</td>
+            </tr>
+
+            <tr>
+              <td>scroll(x, y)</td>
+              <td>
+                Méthode qui positionne le visuel de la page suivant les barres
+                de défilement en position (x ,y) dans la page.
+              </td>
+            </tr>
+
+            <tr>
+              <td>setTimeout(fct(), n)</td>
+              <td>
+                Méthode qui appelle la fonction fct() à la fin du compte à
+                rebours de n secondes.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          L'usage des nouvelles fenêtres est assez sympathique en JavaScript
+          pour afficher des informations complémentaires sans surcharger la page
+          (ou fenêtre) de départ.
+        </p>
+        <p>
+          Cependant, aussi longtemps que l'utilisateur ne fermera pas ces
+          nouvelles fenêtres, celles-ci resteront ouvertes (lapalissade).
+        </p>
+        <p>Le pire est lorsqu'on les minimise.</p>
+        <p>
+          Pour peu qu'on utilise souvent cette technique, le navigateur se
+          re-trouve avec plusieurs dizaines de fenêtres ouvertes ce qui fait
+          désordre, ralentit le système et peut finir par le planter.
+        </p>
+        <p>
+          <em
+            >Veillez donc à toujours obliger la fermeture de ces nouvelles
+            fenêtres</em
+          >.
+        </p>
+        <h3 id="86">Une minuterie</h3>
+        <p>
+          L'objet <code>window</code> possède une méthode qui met à votre
+          disposition une minuterie (ou plus précisément un compte à rebours)
+          qui permettra de déclencher une fonction après un laps de temps
+          déterminé.
+        </p>
+        <p>La syntaxe de mise en route du temporisateur est :</p>
+        <pre><code class="language-js hljs language-javascript">idCompteur = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-string">"fonction_appelée()"</span>, temps en milliseconde);</code></pre>
+        <p>
+          Ainsi, <code>setTimeout("demarrer()",5000)</code> va lancer la
+          fonction <code>demarrer()</code> après 5 secondes.
+        </p>
+        <p>
+          Il est possible de récupérer l’identifiant du temporisateur dans une
+          variable (exemple : <code>idComp-teur</code>) pour arrêter le
+          temporisateur si besoin avant l'expiration du délai fixé :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-built_in">clearTimeout</span>(idCompteur);</code></pre>
+        <p> </p>
+        <h2 id="94">L'objet navigator</h2>
+        <p>
+          L'objet navigator donne la possibilité d'identifier le navigateur et
+          ses propriétés (version …).
+        </p>
+        <p>
+          Ce qui en maintes occasions sera très utile sinon indispensable pour
+          assurer la compatibilité de vos pages.
+        </p>
+        <p>
+          Les propriétés sont peu nombreuses mais au combien intéressantes
+          quoique parfois un peu obs-cures.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Instruction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>appCodeName</td>
+              <td>Propriété qui retourne le nom de code du navigateur.</td>
+            </tr>
+
+            <tr>
+              <td>appName</td>
+              <td>Propriété qui retourne la marque du navigateur.</td>
+            </tr>
+
+            <tr>
+              <td>appVersion</td>
+              <td>
+                Propriété qui renvoie des informations sur la version le système
+                d’exploitation et le code de nationalité de la version.
+              </td>
+            </tr>
+
+            <tr>
+              <td>userAgent</td>
+              <td>
+                Propriété qui renvoie des informations sur le header envoyé dans
+                le protocole http.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Exemple pour savoir si le browser tourne sous Windows, on peut
+          employer :
+        </p>
+        <pre><code class="language-js hljs language-javascript">
+<span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">appVersion</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">'Win'</span>) &gt; -<span class="hljs-number">1</span>) 
+{</code></pre>
+        <p>Testez l'exemple ci-dessous</p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Objet Navigator - Exemples<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/JavaScript"</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"JavaScript"</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">var</span> version = navigator.<span class="hljs-property">appVersion</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Le code name de votre browser est :"</span>    + navigator.<span class="hljs-property">appCodeName</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Le nom ou la marque du browser est :"</span>   + navigator.<span class="hljs-property">appName</span>); 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Les informations sur la version sont :"</span> + version); 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Le browser a comme user-agent :"</span>        + navigator.<span class="hljs-property">userAgent</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">""</span>);
+
+<span class="hljs-keyword">if</span> (version.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">'Win'</span>) &gt; -<span class="hljs-number">1</span>) 
+{ 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"&lt;br /&gt;Vous etes sous l'environnement Windows"</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"&lt;br /&gt;"</span>);
+}
+
+<span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">'Firefox'</span>) &gt; -<span class="hljs-number">1</span>) 
+{ 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Vous utilisez un navigateur FireFox"</span>);
+} 
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (version.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">'Chrome'</span>) &gt; -<span class="hljs-number">1</span>) 
+{ 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Vous utilisez un navigateur Chrome"</span>);
+} 
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (version.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">'MSIE'</span>) &gt; -<span class="hljs-number">1</span>) 
+{ 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Vous utilisez un navigateur Microsoft Internet Explorer"</span>);
+} 
+<span class="hljs-keyword">else</span> 
+{
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Vous utilisez un navigateur inconnu"</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <p> </p>
+        <h2 id="104">L'objet <code>location</code></h2>
+        <p>
+          L'objet <code>location</code> fournit les informations sur l’url de la
+          page en cours de visualisation.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Instruction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>reload()</td>
+              <td>Méthode qui recharge la page.</td>
+            </tr>
+            <tr>
+              <td>replace(url)</td>
+              <td>Méthode qui charge une nouvelle page définie par url.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          L'objet <code>location</code> comprend un grand nombre de propriétés
+          comme <code>hostname</code>, <code>href</code>, <code>pathname</code>,
+          <code>port</code>, <code>protocol</code>.
+        </p>
+        <!-- TODO : Développer L'objet `location` avec exemple ??? -->
+        <h2 id="108">L'objet <code>history</code></h2>
+        <p>
+          L'objet <code>history</code> permet de récupérer l’historique des
+          pages visitées et de naviguer parmi ces pages.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Instruction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>back()</td>
+              <td>Méthode qui charge la page précédente.</td>
+            </tr>
+
+            <tr>
+              <td>forward()</td>
+              <td>Méthode qui charge la page suivante.</td>
+            </tr>
+
+            <tr>
+              <td>go(x)</td>
+              <td>
+                Méthode qui charge la page indexée dans l’historique par x.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="111">L'objet <code>screen</code></h2>
+        <p>
+          L'objet <code>screen</code> fournit les informations sur l'écran (sa
+          résolution en taille et en couleurs).
+        </p>
+        <p>
+          Il possède plusieurs propriétés comme <code>availHeight</code>,
+          <code>availWidth</code>, <code>colorDepth</code>,
+          <code>height</code> et <code>width</code>.
+        </p>
+      </div>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      document.title = "" + document.querySelector("h1").textContent;
+    </script>
+  </body>
+</html>

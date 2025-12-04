@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>10 Les objets natifs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/github-markdown.css" />
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/stackoverflow-dark.min.css" />
+    <script src="assets/js/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="markdown-body">
+        <h1 id="1">10 Les objets natifs</h1>
+        <p>Les objets sont des composants essentiels de JavaScript.</p>
+        <p>
+          Ils sont constitués de propriétés (variables) et de méthodes
+          (fonctions).
+        </p>
+        <p>JavaScript possède ses propres objets, dits « natifs ».</p>
+        <h2 id="5">L'objet String</h2>
+        <p>
+          L'objet <code>String</code> est très utile à la manipulation des
+          caractères.
+        </p>
+        <p>On crée un objet String avec la syntaxe suivante :</p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> str = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">"toto"</span>);
+<span class="hljs-keyword">var</span> str = <span class="hljs-string">"toto"</span>;  <span class="hljs-comment">// toute chaîne de caractère est un objet String.</span></code></pre>
+        <p>La position du premier caractère d’une chaîne est 0.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Introduction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>length</td>
+              <td>
+                Propriété de type entier qui indique la longueur de la chaîne de
+                caractères.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                charAt(int)<br />
+                chartAt(string, int)
+              </td>
+              <td>
+                Méthode qui permet d'accéder à un caractère isolé d'une chaîne.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                indexOf(string)<br />
+                indexOf(string, int)
+              </td>
+              <td>
+                Méthode qui retourne la position d'une chaîne partielle à partir
+                d'une position déterminée. (position 0 par défaut)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                lastIndexOf(string)<br />
+                lastIndexOf(string, int)
+              </td>
+              <td>
+                Méthode qui retourne la position d'une chaîne partielle en
+                partant d'une position déterminée puis en reculant. (position
+                par défaut égale à length moins 1).
+              </td>
+            </tr>
+            <tr>
+              <td>match(regExp)</td>
+              <td>
+                Méthode qui retourne un tableau si l’expression régulière est
+                présente dans la chaîne de caractères, null sinon.
+              </td>
+            </tr>
+            <tr>
+              <td>replace(regExp,string)</td>
+              <td>
+                Méthode qui remplace l’expression régulière trouvée par le texte
+                string.
+              </td>
+            </tr>
+            <tr>
+              <td>substring(x,y)</td>
+              <td>
+                Méthode qui retourne une chaîne partielle située entre la
+                position x et la position (y-1).
+              </td>
+            </tr>
+            <tr>
+              <td>toLowerCase()</td>
+              <td>Méthode qui transforme toutes les lettres en minuscules.</td>
+            </tr>
+            <tr>
+              <td>toUpperCase()</td>
+              <td>Méthode qui transforme toutes les lettres en majuscules.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="11">L'objet Math</h2>
+        <p>L’objet Math sert à manipuler les nombres.</p>
+        <p>
+          On utilise les Méthodes et propriétés de l’objet Math directement sans
+          créer d’instance (new).
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> maxVal = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>);</code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Introduction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>abs(x)</td>
+              <td>Méthode qui retourne la valeur absolue de x.</td>
+            </tr>
+            <tr>
+              <td>ceil(x)</td>
+              <td>Méthode qui retourne l'entier supérieur ou égal à x.</td>
+            </tr>
+            <tr>
+              <td>floor(x)</td>
+              <td>Méthode qui retourne l’entier inférieur ou égal à x.</td>
+            </tr>
+            <tr>
+              <td>round(x)</td>
+              <td>
+                Méthode qui arrondit le nombre x à l’entier le plus proche.
+              </td>
+            </tr>
+            <tr>
+              <td>max(x, y)</td>
+              <td>Méthode qui retourne le plus grand des 2 nombres x et y.</td>
+            </tr>
+            <tr>
+              <td>min(x, y)</td>
+              <td>Méthode qui retourne le plus petit des 2 nombres x et y.</td>
+            </tr>
+            <tr>
+              <td>pow(x,y)</td>
+              <td>
+                Méthode qui calcule la valeur du nombre x à la puissance y.
+              </td>
+            </tr>
+            <tr>
+              <td>sqrt(x)</td>
+              <td>Méthode qui calcule la racine carrée du nombre x.</td>
+            </tr>
+            <tr>
+              <td>random()</td>
+              <td>
+                Méthode qui retourne la valeur d'un nombre aléatoire compris
+                entre 0 et 1.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          L’objet Math possède également des méthodes trigonométriques et
+          logarithmiques.
+        </p>
+        <p>
+          JavaScript possède également d’autres fonctions utiles pour les
+          nombres :
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Introduction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>eval(string)</td>
+              <td>
+                Méthode qui évalue la chaîne passée en argument comme un script
+                JavaScript.<br />
+                Exemples :<br />
+                var total = eval("10 + 20");<br />
+                eval("x=10;y=20;document.write(x+y)");
+              </td>
+            </tr>
+            <tr>
+              <td>isNaN(x)</td>
+              <td>
+                Méthode qui retourne true si le paramètre x n’est pas un nombre.
+              </td>
+            </tr>
+            <tr>
+              <td>parseFloat(string)</td>
+              <td>
+                Méthode qui convertit la chaîne en nombre à virgule
+                flottante.<br />
+                <font color="red"
+                  >Si la chaîne ne contient pas que des nombres, JavaScript ne
+                  prendra en compte que les nombres en début de chaîne.<br />
+                  Si le premier caractère n'est pas un caractère admis, la
+                  méthode renverra "NaN" (Not A Number).
+                </font>
+              </td>
+            </tr>
+            <tr>
+              <td>parseInt(string)</td>
+              <td>Méthode qui convertit la chaîne en entier.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="19">L'objet Date</h2>
+        <p>L’objet Date sert à manipuler les dates.</p>
+        <p>
+          La création d’un objet Date peut se faire de plein de façons
+          différentes :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>() ;   <span class="hljs-comment">// Date du jour</span>
+<span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(millisecondes) ;  <span class="hljs-comment">// Date depuis le 1er janvier 1970</span>
+<span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(annee, mois, jour) ;
+<span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(annee, mois, jour, heure, minute, seconde);
+<span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(chaîne de caractère représentant une date);</code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Introduction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>getYear()</td>
+              <td>Méthode qui retourne les 2 derniers chiffres de l’année.</td>
+            </tr>
+            <tr>
+              <td>getMonth()</td>
+              <td>Méthode qui retourne le mois compris entre 0 et 11 !</td>
+            </tr>
+            <tr>
+              <td>getDate()</td>
+              <td>
+                Méthode qui retourne le jour du mois compris entre 1 et 31.
+              </td>
+            </tr>
+            <tr>
+              <td>getDay()</td>
+              <td>
+                Méthode qui retourne le jour de la semaine compris entre 0 et 6.
+                (0 pour dimanche)
+              </td>
+            </tr>
+            <tr>
+              <td>getHours()</td>
+              <td>Méthode qui retourne les heures comprises entre 0 et 23.</td>
+            </tr>
+            <tr>
+              <td>getMinutes()</td>
+              <td>Méthode qui retourne les minutes comprises entre 0 et 59.</td>
+            </tr>
+            <tr>
+              <td>getSeconds()</td>
+              <td>
+                Méthode qui retourne les secondes comprises entre 0 et 59.
+              </td>
+            </tr>
+            <tr>
+              <td>getTime()</td>
+              <td>
+                Méthode qui retourne l’heure courante sous forme d’un entier
+                représentant le nombre de millisecondes écoulées depuis le 1er
+                janvier 1970 00:00:00.
+              </td>
+            </tr>
+            <tr>
+              <td>getTimezoneOffset()</td>
+              <td>
+                Méthode qui retourne la différence entre l’heure locale et
+                l’heure GMT (Greenwich, UK Mean Time) sous forme d'un entier
+                représentant le nombre de minutes (et pas en heures).
+              </td>
+            </tr>
+            <tr>
+              <td>toLocaleString()</td>
+              <td>
+                Méthode qui retourne la date sous forme de chaîne de caractères.
+              </td>
+            </tr>
+            <tr>
+              <td>parse(Date)</td>
+              <td>
+                Méthode statique qui retourne la date passée en paramètre en
+                millisecondes depuis le 1er janvier 1970 00:00:00.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          L’objet Date possède l’équivalent des méthodes getXXX() en méthodes
+          setXXX(x) pour assigner une nouvelle valeur x à la date.
+        </p>
+        <p>Exemple : <em>setMonth(10)</em>.</p>
+        <h3 id="26">Testez l'exemple ci-dessous</h3>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Objet Date - Exemples<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">var</span> myDate1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>() ;  <span class="hljs-comment">// Date du jour</span>
+<span class="hljs-keyword">var</span> myDate2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">3600</span>*<span class="hljs-number">24</span>*<span class="hljs-number">365</span>*<span class="hljs-number">40</span>) ;    <span class="hljs-comment">// Date depuis le 1er janvier 1970</span>
+<span class="hljs-keyword">var</span> myDate3 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2012</span>, <span class="hljs-number">9</span>, <span class="hljs-number">19</span>) ;
+<span class="hljs-keyword">var</span> myDate4 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2012</span>, <span class="hljs-number">9</span>, <span class="hljs-number">19</span>, <span class="hljs-number">10</span>, <span class="hljs-number">33</span>, <span class="hljs-number">12</span>);
+<span class="hljs-keyword">var</span> myDate5 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">"Jan 1, 2000 00:00:00"</span>);
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'new Date() : '</span> + myDate1.<span class="hljs-title function_">toLocaleString</span>()); 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'new Date(3600*24*365*40) : '</span> + myDate2.<span class="hljs-title function_">toLocaleString</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'new Date(2012, 9, 19) : '</span> + myDate3.<span class="hljs-title function_">toLocaleString</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'new Date(2012, 9, 19, 10, 33, 12) : '</span> + myDate4.<span class="hljs-title function_">toLocaleString</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'new Date("Jan 1, 2000 00:00:00") : '</span> + myDate5.<span class="hljs-title function_">toLocaleString</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">""</span>);
+<span class="hljs-keyword">var</span> annee = <span class="hljs-number">1900</span> + myDate1.<span class="hljs-title function_">getYear</span>();
+<span class="hljs-keyword">var</span> mois  = myDate1.<span class="hljs-title function_">getMonth</span>() + <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> jour  = myDate1.<span class="hljs-title function_">getDate</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'date du jour : '</span> + jour + <span class="hljs-string">"/"</span> + mois + <span class="hljs-string">"/"</span> + annee);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <h2 id="28">L'objet Array</h2>
+        <p>
+          L'objet Array (ou tableaux) est une liste d'éléments indexés dans
+          lesquels on pourra ranger (écrire) des données ou aller reprendre ces
+          données (lire).
+        </p>
+        <p><strong>L’indexation commence à 0</strong>.</p>
+        <p>
+          Pour faire un tableau, il faut créer la structure du tableau en
+          premier. Les éléments du tableau sont vides. Ensuite, affecter des
+          valeurs dans les cases ainsi définies.
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> tab = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span> (x); <span class="hljs-comment">// où x est le nombre d'éléments du tableau.</span>
+tab[i] = <span class="hljs-string">"élément"</span>;</code></pre>
+        <p>
+          On peut également créer et affecter un tableau en une seule étape :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> tab = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span> (<span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">20</span>); </code></pre>
+        <p>
+          JavaScript étant un langage peu typé, il n'est pas nécessaire de
+          déclarer le nombre d'éléments du tableau (soit x).
+        </p>
+        <p>
+          JavaScript prendra comme nombre d'éléments, le nombre i le plus élevé
+          lors de "l'alimentation" de la structure (en fait i + 1).
+        </p>
+        <p>
+          Ainsi la formulation suivante serait aussi correcte pour un tableau à
+          3 éléments :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> tCarnet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();
+<span class="hljs-comment">//ou</span>
+<span class="hljs-keyword">var</span> tCarnet = [];
+tCarnet[<span class="hljs-number">2</span>] = <span class="hljs-string">"Philippe"</span>; </code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Introduction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>length</td>
+              <td>
+                Donnée membre qui retourne le nombre d'éléments du tableau.
+              </td>
+            </tr>
+            <tr>
+              <td>join()<br />join(string)</td>
+              <td>
+                Méthode qui regroupe tous les éléments du tableau dans une seule
+                chaîne.<br />
+                Les différents éléments sont séparés par un caractère séparateur
+                spécifié en argument.<br />Par défaut, ce séparateur est une
+                virgule.
+              </td>
+            </tr>
+            <tr>
+              <td>reverse()</td>
+              <td>
+                Méthode qui inverse l'ordre des éléments (ne les trie pas).
+              </td>
+            </tr>
+            <tr>
+              <td>sort()</td>
+              <td>
+                Méthode qui trie les éléments par ordre alphabétique (à
+                condition qu'ils soient de même nature)
+              </td>
+            </tr>
+            <tr>
+              <td>push()</td>
+              <td>Méthode qui ajoute un nouvel élément à la fin du tableau.</td>
+            </tr>
+            <tr>
+              <td>pop()</td>
+              <td>Méthode qui supprime le dernier élément du tableau.</td>
+            </tr>
+            <tr>
+              <td>unshift()</td>
+              <td>Méthode qui ajoute un nouvel élément au début du tableau.</td>
+            </tr>
+            <tr>
+              <td>shift()</td>
+              <td>Méthode qui supprime le premier élément du tableau.</td>
+            </tr>
+            <tr>
+              <td>slice(deb, fin)</td>
+              <td>
+                Méthode qui retourne la partie du tableau commençant à l’indice
+                deb et se terminant à l’indice fin-1.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="40">L'objet Image</h2>
+        <p>
+          L'objet image permet avec JavaScript de pré charger des images qui
+          pourront être affichées ultérieurement.
+        </p>
+        <p>Ce procédé est utile notamment pour améliorer les effets visuels.</p>
+        <p>Ces images sont mises en mémoire au chargement de la page.</p>
+        <p>
+          Une fois chargée, une image est affichée plus rapidement. En revanche,
+          le chargement de la page prend plus de temps.
+        </p>
+        <p>
+          Pour pré-charger une image, il faut créer un objet image en JavaScript
+          :
+        </p>
+        <pre><code class="language-js hljs language-javascript"><span class="hljs-keyword">var</span> img1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();  
+img1.<span class="hljs-property">src</span> = <span class="hljs-string">"images/logo2.gif"</span>;</code></pre>
+        <p>
+          Pour afficher l’image, il faut passer par une balise
+          <code>&lt;img&gt;</code>, puis lui affecter l’objet Image pré chargé :
+        </p>
+        <pre><code class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"images/logo1.gif"</span> <span class="hljs-attr">onMouseOver</span>=<span class="hljs-string">"this.src=img1.src;"</span>&gt;</span> </code></pre>
+        <blockquote>
+          <p>
+            Ne pas confondre l’objet image avec la balise
+            <code>&lt;img&gt;</code>.
+          </p>
+        </blockquote>
+        <p>
+          Autres propriétés de l’objet Image : <code>name</code>,
+          <code>height</code>, <code>width</code>, <code>hspace</code> et
+          <code>vspace</code>.
+        </p>
+        <h2 id="51">Exercice</h2>
+        <p>
+          Ecrivez un programme permettant de saisir différentes valeurs
+          numérique (avec l'instruction <code>window.prompt</code>), ces valeurs
+          seront rangées dans un tableau.
+        </p>
+        <p>La saisie s'arrête quand l'utilisateur entre la valeur 0.</p>
+        <p>
+          A la fin de la saisie, votre programme doit afficher le nombre de
+          valeurs saisies, la somme et la moyenne.
+        </p>
+      </div>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      document.title = "" + document.querySelector("h1").textContent;
+    </script>
+  </body>
+</html>

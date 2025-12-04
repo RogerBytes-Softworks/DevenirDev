@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Structure d'un programme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/github-markdown.css" />
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/stackoverflow-dark.min.css" />
+    <script src="assets/js/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="markdown-body">
+        <h1 id="1">01 Structure d'un programme</h1>
+        <h2 id="2">Objectifs</h2>
+        <ul>
+          <li>
+            Comprendre les généralités de la programmation et savoir créer un
+            premier programme.
+          </li>
+          <li>
+            Connaître les règles et les conventions de syntaxe et de
+            présentation d’un programme.
+          </li>
+          <li>Ajouter des commentaires à vos programmes</li>
+        </ul>
+        <h2 id="4">Première approche</h2>
+        <p>
+          Si vous lisez ce paragraphe, c'est que vous avez cotoyé le HTML, le
+          CSS et vous avez manipulé le framework BOOTSTRAP.
+        </p>
+        <p>
+          Désormais, vous allez dynamiser vos pages Web grâce au langage
+          JAVASCRIPT.
+        </p>
+        <p>
+          Il y a plusieurs façons d'inclure du code <code>Javascript</code> dans
+          votre page:
+        </p>
+        <p>Directement dans la page :</p>
+        <pre><code class="language-html hljs language-javascript"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"fr"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        Bonjour !!!
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+            <span class="hljs-title function_">alert</span>(<span class="hljs-string">"mon premier script en javascript !"</span>);
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <p>
+          ou dans un fichier externe (les deux fichiers
+          <code>index.html</code> et <code>script.js</code> se trouvent dans le
+          même répertoire) :
+        </p>
+        <pre><code class="language-html hljs language-javascript"><span class="hljs-comment">&lt;!-- fichier index.html --&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"fr"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        Bonjour !!!
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"script.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <pre><code class="language-javascript hljs"><span class="hljs-comment">// fichier script.js</span></code></pre>
+        <h2 id="14">Les commentaires</h2>
+        <p>Les commentaires dans un programme servent :</p>
+        <ul>
+          <li>
+            à donner aux développeurs des indications sur le fonctionnement d'un
+            programme
+          </li>
+          <li>à désactiver (temporairement) des blocs de code</li>
+        </ul>
+        <blockquote>
+          <p>
+            Les parties de code mises en commentaires ne sont pas exécutées.
+          </p>
+        </blockquote>
+        <p>Commentaires sur une seule ligne :</p>
+        <pre><code class="language-javascript hljs"><span class="hljs-comment">// Affiche un message super important !!!</span>
+<span class="hljs-title function_">alert</span>(<span class="hljs-string">"Pourquoi 42 ?"</span>);</code></pre>
+        <p>
+          Commentaires sur plusieurs lignes : <code>/*</code> <code>*/</code>
+        </p>
+        <pre><code class="language-javascript hljs">
+    <span class="hljs-comment">/* 
+    Commentaire
+    sur
+    plusieurs
+    lignes
+*/</span><span class="hljs-title function_">alert</span>(<span class="hljs-string">"Je pense avoir compris"</span>);</code></pre>
+      </div>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      document.title = document.querySelector("h1").textContent;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>03 Afficher du texte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/github-markdown.css" />
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/stackoverflow-dark.min.css" />
+    <script src="assets/js/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="markdown-body">
+        <h1 id="1">03 Afficher du texte</h1>
+        <h2 id="2">Les boîtes de dialogue</h2>
+        <p>
+          JavaScript a la possibilité d'afficher des boîtes de dialogues. Ce
+          sont des outils utiles pour l'inittiation, mais on évite de les
+          utiliser sur les sites en production.
+        </p>
+        <h3 id="4">La méthode <code>alert()</code></h3>
+        <p>
+          La méthode <code>alert()</code> affiche une boîte de dialogue qui
+          contient les données transmises en paramètre.
+        </p>
+        <p>
+          Cette boîte bloque le programme en cours tant que l'utilisateur n'aura
+          pas cliqué sur "OK".
+        </p>
+        <pre><code class="language-javascript hljs"><span class="hljs-keyword">var</span> nom = <span class="hljs-string">"Jeff Lebowski"</span>;
+<span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(<span class="hljs-string">"Bonjour"</span>);
+<span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(nom);</code></pre>
+        <blockquote>
+          <p>
+            Pour écrire sur plusieurs lignes, il faut utiliser insérer la
+            caractère <code>\n</code> dans les données à afficher.
+          </p>
+        </blockquote>
+        <h3 id="9">La méthode <code>prompt()</code></h3>
+        <p>
+          Cette boîte de dialoge permet d'afficher un message et de capter les
+          données saisies par l'utilisateur.
+        </p>
+        <pre><code class="language-javascript hljs"><span class="hljs-keyword">var</span> nom
+nom = <span class="hljs-title function_">prompt</span>(<span class="hljs-string">"Saisissez votre nom"</span>)
+<span class="hljs-title function_">alert</span>(nom)</code></pre>
+        <h3 id="12">La méthode <code>confirm()</code></h3>
+        <p>
+          Cette méthode affiche une boîte de dialogue avec un message et 2
+          boutons <strong>OK</strong> et <strong>Annuler</strong>.
+        </p>
+        <p>
+          En cliquant sur <strong>OK</strong>, la méthode renvoie la valeur
+          <code>true</code>, ou <code>false</code> si on a cliqué sur
+          <strong>Annuler</strong>.
+        </p>
+        <blockquote>
+          <p>Nous verrons un peu plus loin comment utiliser cett méthode.</p>
+        </blockquote>
+        <p> </p>
+        <h2 id="17">Afficher des informations dans la console</h2>
+        <p>
+          L'objet <strong><code>console</code></strong> est un élément essentiel
+          lors de vos développements. Il permet d'afficher des informations de
+          débogage (avertissements et erreurs de code, affichage de la valeur
+          des variables etc.), précieuses pour la mise au point des scripts.
+        </p>
+        <blockquote>
+          <p>
+            La console est un outil conçu uniquement pour les développeurs; on
+            ne doit pas y afficher d'informations pour dialoguer avec
+            l'internaute (utiliser <code>alert()</code> ou
+            <code>prompt()</code>).
+          </p>
+        </blockquote>
+        <h3 id="20">La méthode <code>log</code></h3>
+        <p>
+          La console est incluse dans les outils de développement des
+          navigateurs Chrome et Firefox, pour l'afficher utiliser la touche
+          <code>F12</code> puis cliquer sur l'onglet <em>console</em>.
+        </p>
+        <p>
+          Ensuite, pour y afficher quelque chose, il faut utiliser la méthode
+          <code>log</code> de permet d'afficher des informations dans la
+          console.
+        </p>
+        <pre><code class="language-javascript hljs"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"texte affiché dans la console"</span>);</code></pre>
+        <h2 id="24">Exercices</h2>
+        <ul>
+          <li>
+            <p>
+              Créer un script qui demande successivement à l'utilisateur son nom
+              puis son prénom. La page affichera les informations sur
+              l'utilisateur via une "alert()".
+            </p>
+          </li>
+          <li>
+            <p>
+              Ecrire un programme qui calcule le produit de deux nombres entrés
+              par l'utilisateur et affiche le résultat.
+            </p>
+          </li>
+          <li>
+            <p>
+              Ecrire un programme qui convertit des degrés Celsius en degrés
+              Fahrenheit en utilisant la formule suivante :
+            </p>
+          </li>
+        </ul>
+        <p><code>F = (C*9/5) + 32</code></p>
+        <p>
+          Le programme demandera la température en degrés Celsius à
+          l'utilisateur et affichera la température convertie en degrés
+          Fahrenheit.
+        </p>
+      </div>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script>
+      document.title = document.querySelector("h1").textContent;
+    </script>
+  </body>
+</html>

@@ -42,13 +42,13 @@ SQL fonctionne en analysant et en exécutant des instructions écrites dans le l
 
 MySQL utilise ce qu'on appelle des "moteurs de stockage" pour gérer la manière dont les données sont stockées, gérées et récupérées. Chaque moteur de stockage a ses propres propriétés, optimisations et utilisations spécifiques. Voici quelques-uns des moteurs les plus courants :
 
-* **MyISAM** : C'était le moteur par défaut avant MySQL 5.5. Il est connu pour sa rapidité dans les opérations de lecture, mais il ne supporte pas les transactions ni la récupération après un crash.
+- **MyISAM** : C'était le moteur par défaut avant MySQL 5.5. Il est connu pour sa rapidité dans les opérations de lecture, mais il ne supporte pas les transactions ni la récupération après un crash.
 
-* **InnoDB** : C'est le moteur de stockage par défaut pour MySQL depuis la version 5.5. InnoDB supporte les transactions, la récupération après un crash et le verrouillage au niveau des lignes. Il est conçu pour maximiser la robustesse et l'intégrité des données.
+- **InnoDB** : C'est le moteur de stockage par défaut pour MySQL depuis la version 5.5. InnoDB supporte les transactions, la récupération après un crash et le verrouillage au niveau des lignes. Il est conçu pour maximiser la robustesse et l'intégrité des données.
 
-* **Memory** : Ce moteur stocke les données en mémoire, ce qui offre un accès très rapide. Cependant, les données sont perdues lorsque la base de données est arrêtée, car elles ne sont pas stockées de manière persistante.
+- **Memory** : Ce moteur stocke les données en mémoire, ce qui offre un accès très rapide. Cependant, les données sont perdues lorsque la base de données est arrêtée, car elles ne sont pas stockées de manière persistante.
 
-* **Archive** : Utilisé pour le stockage d'un grand nombre de données qui ne nécessitent pas de modification fréquente. Il est optimisé pour les insertions rapides et la compression des données.
+- **Archive** : Utilisé pour le stockage d'un grand nombre de données qui ne nécessitent pas de modification fréquente. Il est optimisé pour les insertions rapides et la compression des données.
 
 Les moteurs de table de MySQL permettent aux utilisateurs de choisir la meilleure façon de stocker et de gérer leurs données en fonction de leurs besoins spécifiques, ce qui rend ce système extrêmement flexible et puissant pour une large gamme d'applications.
 
@@ -60,50 +60,91 @@ En SQL, l'usage des guillemets simples ('), doubles ("), et des accents graves (
 
 ### Guillemets simples ('')
 
-* **Usage :** Utilisés pour délimiter les chaînes de caractères.
-* **Exemple :**
+- **Usage :** Utilisés pour délimiter les chaînes de caractères.
+- **Exemple :**
 
-  ```sql
-  SELECT * FROM utilisateurs WHERE nom = 'Dupont';
-  ```
+```sql
+SELECT * FROM utilisateurs WHERE nom = 'Dupont';
+```
 
 ### Guillemets doubles ("")
 
-* **Usage :** Selon le standard SQL, les guillemets doubles sont utilisés pour identifier les identifiants (noms de table, de colonne, etc.) qui ne respectent pas les conventions normales de nommage ou qui contiennent des caractères spéciaux.
-* **Exemple :**
+- **Usage :** Selon le standard SQL, les guillemets doubles sont utilisés pour identifier les identifiants (noms de table, de colonne, etc.) qui ne respectent pas les conventions normales de nommage ou qui contiennent des caractères spéciaux.
+- **Exemple :**
 
   ```sql
   SELECT "nomColonne" FROM "maTable" WHERE "nomColonne" = 'valeur';
   ```
 
-* **Remarque :** Tous les SGBD ne suivent pas cette convention. Par exemple, MySQL utilise les guillemets doubles comme des guillemets simples pour délimiter les chaînes, à moins que le mode ANSI_QUOTES soit activé.
+- **Remarque :** Tous les SGBD ne suivent pas cette convention. Par exemple, MySQL utilise les guillemets doubles comme des guillemets simples pour délimiter les chaînes, à moins que le mode ANSI_QUOTES soit activé.
 
 ### Accents graves (`)
 
-* **Usage :** Utilisés spécifiquement dans MySQL et quelques autres SGBD pour entourer les identifiants.
-* **Exemple :**
+- **Usage :** Utilisés spécifiquement dans MySQL et quelques autres SGBD pour entourer les identifiants.
+- **Exemple :**
 
   ```sql
   SELECT `nomColonne` FROM `maTable` WHERE `nomColonne` = 'valeur';
   ```
 
-* **Remarque :** Cela permet de s'assurer que les mots réservés peuvent être utilisés comme noms de table ou de colonne sans provoquer d'erreurs.
+- **Remarque :** Cela permet de s'assurer que les mots réservés peuvent être utilisés comme noms de table ou de colonne sans provoquer d'erreurs.
 
 ### Règles de syntaxe générale
 
 1. **Sensibilité à la casse :** SQL n'est pas sensible à la casse pour les mots-clés, mais le traitement des identifiants peut l'être selon le SGBD et la configuration du système d'exploitation sous-jacent.
 2. **Commentaires :**
 
-   * Commentaires sur une ligne : Utilisez `-- commentaire` ou `# commentaire` (spécifique à MySQL).
-   * Commentaires sur plusieurs lignes : Utilisez `/* commentaire */`.
+   - Commentaires sur une ligne : Utilisez `-- commentaire` ou `# commentaire` (spécifique à MySQL).
+   - Commentaires sur plusieurs lignes : Utilisez `/* commentaire */`.
+
 3. **Terminaison des instructions :** Les instructions SQL doivent se terminer par un point-virgule (`;`), bien que certains outils et environnements puissent tolérer des instructions sans point-virgule en fin de requête.
 4. **Nommage des identifiants :**
 
-   * Ne doivent pas commencer par un chiffre, mais peuvent être numériques si délimités correctement.
-   * Ne doivent pas contenir d'espaces. Utilisez des underscores `_` comme séparateurs.
-   * Évitez d'utiliser des mots réservés du SQL, à moins qu'ils ne soient entourés par des guillemets appropriés.
+   - Ne doivent pas commencer par un chiffre, mais peuvent être numériques si délimités correctement.
+   - Ne doivent pas contenir d'espaces. Utilisez des underscores `_` comme séparateurs.
+   - Évitez d'utiliser des mots réservés du SQL, à moins qu'ils ne soient entourés par des guillemets appropriés.
 
 ## SQL concrètement
+
+### User superadmin
+
+On entre dans mariadb en root avec sudo
+
+```nash
+sudo mariadb
+```
+
+On créé un super admin.
+
+```sql
+CREATE USER 'harry'@'localhost' IDENTIFIED BY 'VotreMotDePasse';
+GRANT ALL PRIVILEGES ON *.* TO 'harry'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+- `*.*` signifie **toutes les bases (`*`) et toutes les tables (`*`)** de MariaDB. Donc `harry` aura les droits sur toutes les bases et toutes leurs tables.
+- `WITH GRANT OPTION` permet à `harry` de **donner à son tour ces mêmes privilèges à d’autres utilisateurs**.
+
+Pour supprimer un super admin
+
+```sql
+DROP USER 'harry'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### Se connecter
+
+```bash
+mariadb -u dev -p
+```
+
+`dev` est mon nom d'user dans cet exemple
+
+### Executer un script SQL
+
+```bash
+mariadb -u utilisateur -p nom_base < fichier.sql
+```ou
 
 ### 1. Création de la Base de Données et des Tables
 
@@ -125,9 +166,9 @@ USE restaurant;
 ```sql
 -- Création de la table client.
 CREATE TABLE client (
-    id_client INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-    nom VARCHAR(50), 
-    prenom VARCHAR(50), 
+    id_client INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
     email VARCHAR(100)
 );
 ```
@@ -137,10 +178,10 @@ CREATE TABLE client (
 -- NOTE: Dans un modèle réaliste, une commande contient souvent plusieurs plats.
 -- On ajoute donc une table de liaison ligne_commande (voir plus bas) pour relier commande <-> plat.
 CREATE TABLE commande (
-    id_commande INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-    id_client INT, 
-    date_commande DATE, 
-    total DECIMAL(10, 2), 
+    id_commande INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id_client INT,
+    date_commande DATE,
+    total DECIMAL(10, 2),
     FOREIGN KEY (id_client) REFERENCES client(id_client)
 );
 ```
@@ -148,7 +189,7 @@ CREATE TABLE commande (
 ```sql
 -- Création de la table categorie.
 CREATE TABLE categorie (
-    id_categorie INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+    id_categorie INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nom_categorie VARCHAR(50)
 );
 ```
@@ -156,10 +197,10 @@ CREATE TABLE categorie (
 ```sql
 -- Création de la table plat.
 CREATE TABLE plat (
-    id_plat INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-    nom_plat VARCHAR(50), 
-    id_categorie INT, 
-    prix DECIMAL(10, 2), 
+    id_plat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nom_plat VARCHAR(50),
+    id_categorie INT,
+    prix DECIMAL(10, 2),
     FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie)
 );
 ```
@@ -255,9 +296,9 @@ SELECT * FROM plat ORDER BY prix LIMIT 1;
 ```sql
 -- 5. Sélectionne les plats dont le prix est supérieur à 10 euros et dans une catégorie spécifique.
 -- Correction: on respecte la casse de la valeur ('Plat principal') telle qu'insérée.
-SELECT * 
-FROM plat 
-WHERE prix > 10 
+SELECT *
+FROM plat
+WHERE prix > 10
   AND id_categorie = (
     SELECT id_categorie FROM categorie WHERE nom_categorie = 'Plat principal'
   );
@@ -299,23 +340,23 @@ SELECT * FROM plat ORDER BY prix DESC;
 
 ```sql
 -- 12. Sélectionne les clients ayant passé une commande avec un montant supérieur à 50 euros.
-SELECT DISTINCT c.* 
-FROM client c 
-INNER JOIN commande cm ON c.id_client = cm.id_client 
+SELECT DISTINCT c.*
+FROM client c
+INNER JOIN commande cm ON c.id_client = cm.id_client
 WHERE cm.total > 50;
 ```
 
 ```sql
 -- 13. Sélectionne les plats avec leur catégorie respective.
-SELECT p.nom_plat AS plat, c.nom_categorie AS categorie 
-FROM plat p 
+SELECT p.nom_plat AS plat, c.nom_categorie AS categorie
+FROM plat p
 INNER JOIN categorie c ON p.id_categorie = c.id_categorie;
 ```
 
 ```sql
 -- 14. Sélectionne les clients n'ayant jamais passé de commande.
-SELECT * 
-FROM client 
+SELECT *
+FROM client
 WHERE id_client NOT IN (SELECT DISTINCT id_client FROM commande);
 ```
 
@@ -421,17 +462,17 @@ FROM commande;
 
 ```sql
 -- Utilise IN pour sélectionner les clients ayant passé une commande de plus de 100 euros.
-SELECT nom, prenom 
+SELECT nom, prenom
 FROM client
 WHERE id_client IN (SELECT id_client FROM commande WHERE total > 100);
 ```
 
 ```sql
 -- Utilise EXISTS pour vérifier l'existence de certaines commandes.
-SELECT nom 
+SELECT nom
 FROM client c
 WHERE EXISTS (
-  SELECT 1 FROM commande co 
+  SELECT 1 FROM commande co
   WHERE co.id_client = c.id_client AND total > 150
 );
 ```
@@ -508,19 +549,19 @@ END IF;
 
 #### Commentaires sur l'Exemple
 
-* **START TRANSACTION** démarre la transaction.
+- **START TRANSACTION** démarre la transaction.
 
-* Les commandes **UPDATE** sont utilisées pour transférer les fonds entre les comptes.
+- Les commandes **UPDATE** sont utilisées pour transférer les fonds entre les comptes.
 
-* La commande **SELECT INTO** récupère le solde après le débit pour vérifier si le compte ne passe pas en négatif.
+- La commande **SELECT INTO** récupère le solde après le débit pour vérifier si le compte ne passe pas en négatif.
 
-* **IF** permet de tester si le solde est inférieur à zéro. Si c'est le cas, la transaction est annulée avec **ROLLBACK**; sinon, elle est validée avec **COMMIT**.
+- **IF** permet de tester si le solde est inférieur à zéro. Si c'est le cas, la transaction est annulée avec **ROLLBACK**; sinon, elle est validée avec **COMMIT**.
 
-* **ROLLBACK** annule toutes les modifications effectuées dans la transaction.
+- **ROLLBACK** annule toutes les modifications effectuées dans la transaction.
 
-* **COMMIT** applique toutes les modifications de manière permanente dans la base de données.
+- **COMMIT** applique toutes les modifications de manière permanente dans la base de données.
 
-* **@solde** crée une variable :
+- **@solde** crée une variable :
 
   1. **Portée et durée de vie** : Les variables utilisateur comme `@solde` ont une portée limitée à la session dans laquelle elles sont définies. Elles perdent leur valeur une fois la session terminée.
   2. **Sécurité des transactions** : L'utilisation de cette variable dans un contexte bancaire permet de vérifier des règles de cohérence avant validation (ex : éviter un solde négatif).

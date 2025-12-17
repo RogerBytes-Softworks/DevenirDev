@@ -1,0 +1,48 @@
+services:
+  web:
+    build: .
+    depends_on:
+      - postgres
+    container_name: serverApache851
+    restart: unless-stopped
+    ports:
+      - "8851:80"
+    volumes:
+      - ./php-docker-app/:/var/www/html
+    environment:
+      - ALLOW_OVERRIDE=true
+      - DB_HOST=postgres
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=blog
+  postgres:
+    image: postgres:latest
+    container_name: serverPostgres851
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=blog
+    ports:
+      - "3851:5432"
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver
+    container_name: serverCloudBeaver851
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "7851:8978"
+
+  node:
+    image: node:lts-trixie-slim
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./frontend/:/home/node/app
+    ports:
+      - "8888:8888"
+    command: "npm start"

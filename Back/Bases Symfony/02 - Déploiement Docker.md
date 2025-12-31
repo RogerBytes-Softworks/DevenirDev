@@ -99,6 +99,8 @@ git push -u origin master
 
 ## Docker
 
+### Réglages du compose.yml
+
 <details>
   <summary class="button">
     Spoiler
@@ -156,6 +158,19 @@ qui donne (tout doit être en minuscule)
 container_name: mailer_learn_symfony
 ```
 
+  </div>
+</details>
+
+### Création de la pile et réglages
+
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+#### Lancement du compose.yml
+
 On lance le daemon de Docker (ou sinon via Docker Desktop)
 
 ```bash
@@ -165,10 +180,107 @@ sudo systemctl start docker
 Puis on lance la création de la pile.
 
 ```bash
-docker compose -p "${(L)PROJECT_NAME}" up -d
+docker compose -p "${(L)PROJECT_NAME}" --env-file .env.local up -d
+```
+
+Voici les différents ports du `compose.yml`
+
+- nginx : 7851:80
+- cloudbeaver : 7852:8978
+- postgres : 7853:5432
+- mailer : 1025 et 8025
+
+  </div>
+</details>
+
+### Setup CloudBeaver
+
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+J'au rempli **Administrator Credentials**.
+**Login** : `Admin-user`
+**Password** `Admin-password-1234`
+**Repeat Password** `Admin-password-1234`
+
+Normalement CloudBeaver est prêt à être utilisé, il ne reste qu'à cliquer sur son icône en haut à droite pour accéder au **tableau de bord CloudBeaver**..
+
+#### Connexion CloudBeaver à la DB
+
+1. Dans le tableau de bord, cliquez sur **New Connection** et cherchez "PostgreSQL".
+2. Créez une connexion PostgreSQL avec :
+
+- **Host** : `postgres database` (il s'agit du nom du service dans le .yml postgres:)
+- **Port** : `5432` (le port "3851:5432")
+- **Database** : `blog` (il s'agit de la valeur dans le .yml POSTGRES_DB=blog )
+- **User name** : `root` (ce que j'ai stocké dans le .env dans notre cas)
+- **User password** : `root` (ce que j'ai stocké dans le .env dans notre cas)
+
+Cocher `Save credentials for all users with access` puis `Create`.
+Après ça, vous pourrez explorer vos tables et données.
+
+  </div>
+</details>
+
+### Connexion en CLI
+
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+```bash
+docker exec -it <nom_du_conteneur> /bin/bash
+```
+
+donc dans le cas présent, pour le conteneur Postgres de la pile
+
+```bash
+docker exec -it serverPostgres851 /bin/bash
+```
+
+Dans les conteneur, il y a :
+
+- serverApache851
+- serverPostgres851
+- serverCloudBeaver851
+
+#### Pour se co au sql dans le conteneur de postgres
+
+```bash
+psql -U root -d blog
 ```
 
   </div>
+</details>
+
+### Utilisation
+
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+Les commandes docker
+
+```bash
+PROJECT_NAME="LearnSymfony"
+sudo systemctl start docker
+docker compose -p "${PROJECT_NAME}" start
+docker compose -p "${PROJECT_NAME}" stop
+```
+
+Pour afficher dans le navigateur :
+
+- [Connexion au projet sur le port 7851 `http://localhost:7851/`](http://localhost:7851/)
+- [Connexion à CloudBeaver sur le port 7852 `http://localhost:7852/`](http://localhost:7852/)
+
+</div>
 </details>
 
 <style>

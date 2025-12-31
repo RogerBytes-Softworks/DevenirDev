@@ -1,7 +1,5 @@
 services:
   php:
-    env_file:
-      - .env.local
     user: '${USER_ID}:${GROUP_ID}'
     build: ./docker/php
     container_name: php_learn_symfony
@@ -28,10 +26,10 @@ services:
       - app_network
 
   database:
-    env_file:
-      - .env.local
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     container_name: postgres_learn_symfony
+    ports:
+      - "7853:5432"
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}

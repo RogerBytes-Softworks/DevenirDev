@@ -1,10 +1,44 @@
-# Installation de Symfony
+# Déploiement Docker
 
-En me basant sur [la doc de Symfony](https://symfony.com/doc/current/setup.html) ainsi que [la page de téléchargement de Symfony](https://symfony.com/download).
+Dans cette documentation, nous allons créer un projet Symfony et le déployer dans une pile de conteneurs Docker.
+Ceci est basé [la doc de Symfony sur Docker](https://symfony.com/doc/current/setup/docker.html), [la doc d'install de Symfony](https://symfony.com/download) ainsi que [cette vidéo de Devscast](https://www.youtube.com/watch?v=dBjOBV64bIg).
 
-## Dépendances
+## Création d'un nouveau projet Symfony
 
-Il faut installer `PHP` puis `Composer`.
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+On va verifier la dernière version LTS en date [sur le calendrier officiel](https://symfony.com/releases#symfony-releases-calendar) via cette commande :
+
+```bash
+curl -s https://symfony.com/releases \
+  | grep 'Latest stable version' \
+  | head -1 \
+  | sed -E 's/.*Latest stable version: ([0-9]+\.[0-9]+\.[0-9]+)\. Latest LTS version: ([0-9]+\.[0-9]+\.[0-9]+).*/Stable: \1, LTS: \2/'
+```
+
+Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version="7.4.*"` ou ` --version=lts` juste après.
+
+On définit un nom de projet
+
+```bash
+PROJECT_NAME="test_symfony"
+```
+
+On se met dans le répertoire où l'on souhaite créer le projet, puis
+
+```bash
+symfony new $PROJECT_NAME --webapp --version=lts
+cd $PROJECT_NAME
+```
+
+Cela a créé le projet complet (et déplacé à l'intérieur), pour faire une version "skeleton", il vous suffit de retirer l'argument `--webapp` de la commande.
+
+  </div>
+</details>
 
 ### Installer Php
 

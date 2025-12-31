@@ -8,6 +8,8 @@ symfony new $PROJECT_NAME --version="7.4.*" --webapp
 cd $PROJECT_NAME
 ```
 
+ --version=lts
+
 ## Symfony sur Docker
 
 Pour la concevoir cette pile de conteneurs, je me suis basé [sur ce tutoriel](https://www.youtube.com/watch?v=dBjOBV64bIg).

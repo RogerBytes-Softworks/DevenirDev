@@ -27,7 +27,7 @@ Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version=
 On définit un nom de projet
 
 ```bash
-PROJECT_NAME="test_symfony"
+PROJECT_NAME="easy_symfony"
 ```
 
 On se met dans le répertoire où l'on souhaite créer le projet, puis
@@ -88,7 +88,7 @@ git push -u origin master
   </div>
 </details>
 
-### Installer Php
+## Docker
 
 <details>
   <summary class="button">
@@ -96,100 +96,52 @@ git push -u origin master
   </summary>
   <div class="spoiler">
 
-On installe Php en suivant [doc d'install de PHP](https://www.php.net/downloads.php?usage=web&os=linux&osvariant=linux-ubuntu&version=8.5).
+On commence par archiver les fichiers docker générés automatiquement (pour pouvoir utiliser notre compose personnalisé).
 
 ```bash
-sudo apt update
-sudo apt install -y software-properties-common
-sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
-sudo apt update
+mv compose.override.yaml compose.override.yaml.bak
+mv compose.yaml compose.yaml.bak
 ```
 
-On choisit d'installer `php 8.5`.
+Ici l'on créé le `env.local` et l'on lui met les variables tels qu'identifiants et mots de passe de DB.
 
 ```bash
-sudo apt install -y php8.5
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+cat <<EOF > .env.local
+DB_USER="root"
+DB_PASSWORD="root"
+DB_NAME="blog"
+SERVER_VERSION="16"
+USER_ID="${USER_ID}"
+GROUP_ID="${GROUP_ID}"
+DATABASE_URL="postgresql://\${DB_USER}:\${DB_PASSWORD}@postgres:5432/\${DB_NAME}?serverVersion=\${SERVER_VERSION}&charset=utf8"
+EOF
 ```
-
-Et on installe quelques paquets php
 
 ```bash
-sudo nala install -y php8.5-cli php8.5-common php8.5-xml php8.5-mbstring php8.5-intl php8.5-sqlite3 php8.5-mysql php8.5-pgsql
+mkdir temp_repo
+git clone --filter=blob:none --no-checkout https://github.com/RogerBytes-Softworks/DevenirDev.git temp_repo
+cd temp_repo
+git sparse-checkout init --cone
+git sparse-checkout set "Back/Bases Symfony/stack"
+git checkout HEAD
+cp -r "Back/Bases Symfony/stack/." ../
+cd ..
+rm -rf temp_repo
 ```
 
-Et on choisis la version utilisée par le système
+On lance le daemon de Docker (ou sinon via Docker Desktop)
 
 ```bash
-sudo update-alternatives --config php
+sudo systemctl start docker
 ```
 
-  </div>
-</details>
-
-### Installer Composer
-
-<details>
-  <summary class="button">
-    Spoiler
-  </summary>
-  <div class="spoiler">
-
-On installe la dernière version de Composer ([doc d'install de composer](https://getcomposer.org/download/))
+Puis on lance la création de la pile.
 
 ```bash
-php -r "copy('https://getcomposer.org/installer','composer-setup.php');" && \
-php -r "copy('https://composer.github.io/installer.sig','sig');" && \
-[ "$(php -r "echo hash_file('sha384','composer-setup.php');")" = "$(cat sig)" ] && \
-php composer-setup.php --quiet && rm composer-setup.php sig || \
-{ echo 'ERROR: Invalid installer checksum' >&2; rm composer-setup.php sig; exit 1; }
-sudo mv composer.phar /usr/local/bin/composer
+docker compose -p $PROJECT_NAME up -d
 ```
-
-Pour désinstaller composer
-
-```bash
-sudo rm /usr/local/bin/composer
-```
-
-  </div>
-</details>
-
-## Installation
-
-<details>
-  <summary class="button">
-    Spoiler
-  </summary>
-  <div class="spoiler">
-
-On peut enfin lancer l'installation de Symfony :
-
-```bash
-wget https://get.symfony.com/cli/installer -O - | bash
-sudo mv /home/$USER/.symfony5/bin/symfony /usr/local/bin/symfony
-```
-
-Le `sudo mv` ci-dessus est optionnel, mais il permet un accès global à l'executable.
-
-On peut forcer Symfony à utiliser une version particulière de php, on affiche quel est le php système :
-
-```bash
-symfony local:php:list
-```
-
-Ici le système utilise `bin/php8.5`, donc on a l'imposer à Symfony.
-
-```bash
-echo 8.5 > ~/.php-version
-```
-
-On termine en vérifiant que nous ayons tous les outils et dépendances prérequis.
-
-```bash
-symfony check:requirements
-```
-
-Tout devrait être en vert, sinon résolvez les erreurs ou les recommendations.
 
   </div>
 </details>

@@ -3,13 +3,15 @@
 Dans cette documentation, nous allons créer un projet Symfony et le déployer dans une pile de conteneurs Docker.
 Ceci est basé [la doc de Symfony sur Docker](https://symfony.com/doc/current/setup/docker.html), [la doc d'install de Symfony](https://symfony.com/download) ainsi que [cette vidéo de Devscast](https://www.youtube.com/watch?v=dBjOBV64bIg).
 
-## Création d'un nouveau projet Symfony
+## Initialisation d'un nouveau projet Symfony
 
 <details>
   <summary class="button">
     Spoiler
   </summary>
   <div class="spoiler">
+
+### Création de projet via CLI
 
 On va verifier la dernière version LTS en date [sur le calendrier officiel](https://symfony.com/releases#symfony-releases-calendar) via cette commande :
 
@@ -36,6 +38,52 @@ cd $PROJECT_NAME
 ```
 
 Cela a créé le projet complet (et déplacé à l'intérieur), pour faire une version "skeleton", il vous suffit de retirer l'argument `--webapp` de la commande.
+
+On vérifie qu'il fonctionne en local
+
+```bash
+symfony serve
+```
+
+Et on se connecte à `http://127.0.0.1:8000/`, si le site apparaît, tout est bon.
+
+On sécurise les .env sensibles
+
+```bash
+echo ".env.dev" >> .gitignore
+echo ".env.test" >> .gitignore
+git rm --cached .env.dev .env.test
+git add .
+git commit -m "Initial commit"
+```
+
+### Création de repo
+
+Il nous reste à créer notre repo sur github.
+
+```bash
+gh repo create "$PROJECT_NAME" --public
+```
+
+et à y lier notre branche locale :
+
+```bash
+ACCOUNT="RogerBytes"
+git remote add origin git@github.com:"$ACCOUNT/$PROJECT_NAME".git
+```
+
+Puis notre commit
+
+```bash
+touch README.md
+git add --all && git commit -m "First commit"
+```
+
+Suivi du premier push
+
+```bash
+git push -u origin master
+```
 
   </div>
 </details>

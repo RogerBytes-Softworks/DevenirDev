@@ -165,7 +165,7 @@ sudo systemctl start docker
 Puis on lance la création de la pile.
 
 ```bash
-docker compose -p $PROJECT_NAME up -d
+docker compose -p "${PROJECT_NAME,,}" up -d
 ```
 
   </div>

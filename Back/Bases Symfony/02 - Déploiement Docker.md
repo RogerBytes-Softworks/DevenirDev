@@ -45,6 +45,8 @@ On vérifie qu'il fonctionne en local
 symfony serve
 ```
 
+Et on se connecte à `http://127.0.0.1:8000/`, si le site apparaît, tout est bon.
+
   </div>
 </details>
 
@@ -55,8 +57,6 @@ symfony serve
     Spoiler
   </summary>
   <div class="spoiler">
-
-Et on se connecte à `http://127.0.0.1:8000/`, si le site apparaît, tout est bon.
 
 On sécurise les .env sensibles (.env.local et dérivés sont déjà dans le `.gitignore`)
 

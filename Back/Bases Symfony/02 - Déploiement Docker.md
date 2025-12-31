@@ -22,12 +22,12 @@ curl -s https://symfony.com/releases \
   | sed -E 's/.*Latest stable version: ([0-9]+\.[0-9]+\.[0-9]+)\. Latest LTS version: ([0-9]+\.[0-9]+\.[0-9]+).*/Stable: \1, LTS: \2/'
 ```
 
-Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version="7.4.*"` ou ` --version=lts` juste après.
+Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version="7.4.*"` ou `--version=lts` juste après.
 
 On définit un nom de projet
 
 ```bash
-PROJECT_NAME="easy_symfony"
+PROJECT_NAME="LearnSymfony"
 ```
 
 On se met dans le répertoire où l'on souhaite créer le projet, puis
@@ -153,7 +153,7 @@ container_name: NOM_SERVICE_NOM_PROJET
 qui donne
 
 ```yml
-container_name: mailer_easy_symfony
+container_name: mailer_LearnSymfony
 ```
 
 On lance le daemon de Docker (ou sinon via Docker Desktop)
@@ -167,7 +167,6 @@ Puis on lance la création de la pile.
 ```bash
 docker compose -p $PROJECT_NAME up -d
 ```
-
 
   </div>
 </details>

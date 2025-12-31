@@ -150,10 +150,10 @@ J'utilise cette convention de nommage
 container_name: NOM_SERVICE_NOM_PROJET
 ```
 
-qui donne
+qui donne (tout doit être en minuscule)
 
 ```yml
-container_name: mailer_LearnSymfony
+container_name: mailer_learn_symfony
 ```
 
 On lance le daemon de Docker (ou sinon via Docker Desktop)

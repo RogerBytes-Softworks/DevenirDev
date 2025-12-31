@@ -1,6 +1,6 @@
 # Installation de Symfony
 
-En me basant sur [la doc de Symfony](https://symfony.com/doc/current/setup.html) ainsi que [la page de téléchargement de Symfony](https://symfony.com/download).
+En me basant [sur la doc de Symfony](https://symfony.com/doc/current/setup.html) ainsi que [la doc d'installation](https://symfony.com/download).
 
 ## Dépendances
 
@@ -55,7 +55,10 @@ sudo update-alternatives --config php
 On installe la dernière version de Composer ([doc d'install de composer](https://getcomposer.org/download/))
 
 ```bash
-php -r "copy('https://getcomposer.org/installer','composer-setup.php');" && php -r "copy('https://composer.github.io/installer.sig','sig');" && [ "$(php -r "echo hash_file('sha384','composer-setup.php');")" = "$(cat sig)" ] && php composer-setup.php --quiet && rm composer-setup.php sig || { echo 'ERROR: Invalid installer checksum' >&2; rm composer-setup.php sig; exit 1; }
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
@@ -63,6 +66,12 @@ Pour désinstaller composer
 
 ```bash
 sudo rm /usr/local/bin/composer
+```
+
+Pour le mettre à jour
+
+```bash
+composer self-update
 ```
 
   </div>
@@ -76,22 +85,16 @@ sudo rm /usr/local/bin/composer
   </summary>
   <div class="spoiler">
 
-On peut enfin lancer l'installation de Symfony :
-
 ```bash
 wget https://get.symfony.com/cli/installer -O - | bash
 sudo mv /home/$USER/.symfony5/bin/symfony /usr/local/bin/symfony
 ```
 
-Le `sudo mv` ci-dessus est optionnel, mais il permet un accès global à l'executable
-
-On peut forcer Symfony à utiliser une version particulière de php, on affiche quel est le php système :
+On peut forcer Symfony à utiliser une version particulière de php
 
 ```bash
 symfony local:php:list
 ```
-
-Ici le système utilise `bin/php8.5`, donc on a l'imposer à Symfony.
 
 ```bash
 echo 8.5 > ~/.php-version
@@ -103,7 +106,30 @@ On termine en vérifiant que nous ayons tous les outils et dépendances prérequ
 symfony check:requirements
 ```
 
-Tout devrait être en vert, sinon résolvez les erreurs ou les recommendations.
+  </div>
+</details>
+
+## Docker et Symfony
+
+<details>
+  <summary class="button">
+    Spoiler
+  </summary>
+  <div class="spoiler">
+
+Dans le répertoire `stack` j'ai préparé un composer et des dockerfiles permettant d'avoir une stack compatible et fonctionnelle avec Symfony.
+
+
+
+```bash
+docker exec -it NOM_DU_CONTENEUR bash
+```
+
+Prenons l'exemple avec un conteneur `serverApache851`.
+
+```bash
+docker exec -it serverApache851 bash
+```
 
   </div>
 </details>

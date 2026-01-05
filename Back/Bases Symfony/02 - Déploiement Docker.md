@@ -191,7 +191,7 @@ Voici les différents ports du `compose.yml`
 - postgres : 7853:5432
 - mailer : 1025 et 8025
 
-  </div>
+</div>
 </details>
 
 ### Setup CloudBeaver

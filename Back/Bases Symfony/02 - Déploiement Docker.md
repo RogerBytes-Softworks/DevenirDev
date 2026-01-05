@@ -180,6 +180,7 @@ sudo systemctl start docker
 Puis on lance la création de la pile.
 
 ```bash
+PROJECT_NAME="LearnSymfony"
 docker compose -p "${(L)PROJECT_NAME}" --env-file .env.local up -d
 ```
 
@@ -274,6 +275,33 @@ sudo systemctl start docker
 docker compose -p "${PROJECT_NAME}" start
 docker compose -p "${PROJECT_NAME}" stop
 ```
+
+## Installation des dépendances Docker
+
+On vire le truc de groupe
+
+```bash
+docker compose down
+docker compose up -d
+```
+
+on commente `user: '${USER_ID}:${GROUP_ID}'`, puis
+
+```bash
+docker compose up -d
+```
+
+Symfony est installé dans php, dans le conteneur `container_name: php_learn_symfony` donc
+
+```bash
+docker exec -it php_learn_symfony bash
+composer install
+git config --global --add safe.directory /var/www
+exit
+docker compose restart php_learn_symfony
+```
+
+## Accès depuis le navigateur
 
 Pour afficher dans le navigateur :
 

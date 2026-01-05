@@ -188,3 +188,30 @@ Dans les conteneur, il y a :
 ```bash
 psql -U root -d blog
 ```
+
+## Lister les ports des conteneurs
+
+Liser les conteneurs
+
+```bash
+docker ps --format "table {{.Names}}\t{{.Ports}}"
+```
+
+par exemple
+
+```bash
+❯ docker ps --format "table {{.Names}}\t{{.Ports}}"
+NAMES                    PORTS
+nginx_learn_symfony      0.0.0.0:7851->80/tcp, [::]:7851->80/tcp
+php_learn_symfony        9000/tcp
+postgres_learn_symfony   5432/tcp
+mailer_learn_symfony     1110/tcp, 0.0.0.0:32768->1025/tcp, [::]:32768->1025/tcp, 0.0.0.0:32769->8025/tcp, [::]:32769->8025/tcp
+DBeaver_test-symfony     0.0.0.0:7852->8978/tcp, [::]:7852->8978/tcp
+```
+
+si je veux en arrêter uu.
+
+```bash
+docker stop DBeaver_test-symfony
+docker rm DBeaver_test-symfony
+```

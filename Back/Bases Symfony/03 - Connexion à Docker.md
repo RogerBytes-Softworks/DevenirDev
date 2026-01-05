@@ -1,4 +1,4 @@
-# Utilisation de Symfony
+# Connexion à Docker
 
 Ici on apprend à utiliser Symfony, et plus précisément une stack Docker.
 

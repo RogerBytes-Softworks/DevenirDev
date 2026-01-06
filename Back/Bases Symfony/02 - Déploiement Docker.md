@@ -214,7 +214,7 @@ Normalement CloudBeaver est prêt à être utilisé, il ne reste qu'à cliquer s
 1. Dans le tableau de bord, cliquez sur **New Connection** et cherchez "PostgreSQL".
 2. Créez une connexion PostgreSQL avec :
 
-- **Host** : `postgres database` (il s'agit du nom du service dans le .yml postgres:)
+- **Host** : `database` (il s'agit du nom du service dans le compose.yml postgres:)
 - **Port** : `5432` (le port "3851:5432")
 - **Database** : `blog` (il s'agit de la valeur dans le .yml POSTGRES_DB=blog )
 - **User name** : `root` (ce que j'ai stocké dans le .env dans notre cas)

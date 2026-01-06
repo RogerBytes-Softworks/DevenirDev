@@ -32,7 +32,7 @@ sudo apt install -y php8.3
 Et on installe quelques paquets php
 
 ```bash
-sudo nala install -y php8.3-cli php8.3-common php8.3-xml php8.3-mbstring php8.3-intl php8.3-sqlite3 php8.3-mysql php8.3-pgsql
+sudo nala install -y php8.3-cli php8.3-common php8.3-xml php8.3-mbstring php8.3-intl php8.3-sqlite3 php8.3-mysql php8.3-pgsql php8.3-curl
 ```
 
 Et on choisis la version utilisée par le système
@@ -67,6 +67,14 @@ Pour désinstaller composer
 
 ```bash
 sudo rm /usr/local/bin/composer
+```
+
+On paramètre composer pour qu'il utilise notre version de PHP (afin de pas générer des dépendances supérieures).
+
+```bash
+php -v
+composer config --global platform.php 8.3.29
+composer update
 ```
 
   </div>

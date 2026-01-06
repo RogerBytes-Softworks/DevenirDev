@@ -23,16 +23,16 @@ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 ```
 
-On choisit d'installer `php 8.5`.
+On choisit d'installer `php 8.3`, la version utilisée par la dernière LTS de Symfony (la v7.4).
 
 ```bash
-sudo apt install -y php8.5
+sudo apt install -y php8.3
 ```
 
 Et on installe quelques paquets php
 
 ```bash
-sudo nala install -y php8.5-cli php8.5-common php8.5-xml php8.5-mbstring php8.5-intl php8.5-sqlite3 php8.5-mysql php8.5-pgsql
+sudo nala install -y php8.3-cli php8.3-common php8.3-xml php8.3-mbstring php8.3-intl php8.3-sqlite3 php8.3-mysql php8.3-pgsql
 ```
 
 Et on choisis la version utilisée par le système
@@ -95,10 +95,10 @@ On peut forcer Symfony à utiliser une version particulière de php, on affiche 
 symfony local:php:list
 ```
 
-Ici le système utilise `bin/php8.5`, donc on a l'imposer à Symfony.
+Ici le système utilise `bin/php8.3`, donc on a l'imposer à Symfony.
 
 ```bash
-echo 8.5 > ~/.php-version
+echo 8.3 > ~/.php-version
 ```
 
 On termine en vérifiant que nous ayons tous les outils et dépendances prérequis.

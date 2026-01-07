@@ -22,7 +22,7 @@ curl -s https://symfony.com/releases \
   | sed -E 's/.*Latest stable version: ([0-9]+\.[0-9]+\.[0-9]+)\. Latest LTS version: ([0-9]+\.[0-9]+\.[0-9]+).*/Stable: \1, LTS: \2/'
 ```
 
-Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version="7.4.*"` ou `--version=lts` juste après, attention, il faut que votre système utilise PHP v8.3 (par rapport à la pile de conteneur, dans la version donnée dans le dockerfile) pour créer le projet.
+Il retourne `7.4.3` pour la LTS : l'on pourra donc passer l'argument `--version="7.4.*"` ou `--version=lts` juste après, attention, il faut que votre système utilise PHP v8.3 (par rapport à la pile de conteneur, dans la version donnée dans) pour créer le projet.
 
 On définit un nom de projet
 

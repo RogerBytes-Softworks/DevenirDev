@@ -33,7 +33,7 @@ services:
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      # POSTGRES_DB: ${DB_NAME} -> CA CRÉÉ UNE BDD, DONC NON, ON VEUT UN CONTENEUR VIDE, DONC EN COMMENTAIRE
     volumes:
       - database_data:/var/lib/postgresql/data:rw
     networks:

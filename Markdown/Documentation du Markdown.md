@@ -764,7 +764,7 @@ Il faut bien choisir son encrage de son titre 1, ici c'est `#documentation-du-ma
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
-Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi
+Utiliser `https://contrib.rocks/image?repo=account/repo&max=400&columns=20`, puis insérez-la ainsi
 
 En remplaçant `account/repo`
 

@@ -689,7 +689,7 @@ Il suffit de mettre le style en bas de page en l'appellant avec `xstyle`, ensuit
 
 <details><summary>🔍 Spoiler</summary><div>
 
-Il suffit d'appeler avec `yspoiler`.
+Il suffit d'appeler avec `yspoiler`, on ne peut pas importer de style dans un README, il ne sera pas executé.
 
 </div></details>
 

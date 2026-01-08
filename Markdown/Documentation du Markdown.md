@@ -5,11 +5,6 @@
 Le **Markdown** est un langage de balisage léger, volontairement simple et restreint, utilisé pour produire du contenu lisible qui sera ensuite rendu (documentation, README, notes, tickets, etc.), aussi bien côté outillage que côté affichage.
 </td></tr></table>
 
-<table><tr><td>
-
-Test ta proutmachère
-</td></tr></table>
-
 ## Sommaire
 
 <details><summary class="button">🔍 Sommaire</summary><div class="spoiler">
@@ -57,7 +52,7 @@ Test ta proutmachère
     - [Bloc de citation avec code et listes à l’intérieur](#bloc-de-citation-avec-code-et-listes-à-lintérieur)
   - [Upload d’images et vidéos sur GitHub](#upload-dimages-et-vidéos-sur-github)
     - [Exemple](#exemple)
-  - [Mettre de la vidéo](#mettre-de-la-vidéo)
+    - [Mettre de la vidéo](#mettre-de-la-vidéo)
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
   - [Snippet markdown](#snippet-markdown)
@@ -70,6 +65,8 @@ Test ta proutmachère
 </div></details>
 
 ## Syntaxe de base
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Ici nous allons voir quels sont les éléments de la syntaxe du MD.
 
@@ -180,7 +177,11 @@ Ce qui donne :
 - \*ce texte n'est pas en italique\*
 - _ce texte est en italique_
 
+</div></details>
+
 ## Coloration syntaxique des blocs de code
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 La coloration syntaxique n’appartient pas au Markdown standard : elle dépend du moteur de rendu (GitHub, GitLab, IDE, lecteur Markdown).
 
@@ -197,7 +198,11 @@ La coloration syntaxique n’appartient pas au Markdown standard : elle dépend 
 </html>
 ```
 
+</div></details>
+
 ## Mermaid
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Mermaid n’est pas implémenté dans le Markdown standard, mais peut être utilisé via des extensions ou des lecteurs Markdown compatibles (GitHub, GitLab, Obsidian, etc.).
 
@@ -210,7 +215,11 @@ graph TD
     D --> E[Fin]
 ```
 
+</div></details>
+
 ## Blocs en md
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Ces blocs ne font pas partie du Markdown standard ; ils sont interprétés par certains moteurs (GitHub, GitLab, Obsidian).
 
@@ -236,7 +245,11 @@ Ces blocs ne font pas partie du Markdown standard ; ils sont interprétés par c
 
 <!-- markdownlint-enable MD028 -->
 
+</div></details>
+
 ## Tableau
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Les tableaux sont une extension courante, mais absente du Markdown original.
 
@@ -272,7 +285,11 @@ Nous avons utilisé ces émoji pour remplacer la mise en style de couleur :
 
 Le **`:---`** = gauche, **`:---:`** = centre, **`---:`** = droite.
 
+</div></details>
+
 ## Les listes
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ### Liste ordonnée
 
@@ -310,7 +327,11 @@ On peut utiliser `-` ou `+`, il faut juste veiller à ne pas les mélanger
 - Un élément
   - un sous-élément
 
+</div></details>
+
 ## Usage avec VSC
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Codium (ou Vscode) est l'IDE le plus puissant pour créer de la documentation en Markdown
 
@@ -411,7 +432,11 @@ $$
 
 - L’extension complète le chemin du fichier et affiche un aperçu dans la prévisualisation.
 
+</div></details>
+
 ## Autres
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ### Footnotes
 
@@ -521,7 +546,11 @@ On peut imbriquer code et listes dans un blockquote :
 > print("Code dans la citation")
 > ```
 
+</div></details>
+
 ## Upload d’images et vidéos sur GitHub
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 1. Ouvrez le dépôt GitHub dans votre navigateur.
 2. Cliquez sur l’onglet **Issues**, **Discussions**, ou une **Pull Request** existante.
@@ -575,7 +604,7 @@ On va passer par du html pour les redimensionner
 |  <img src="https://github.com/user-attachments/assets/374e7777-aaf0-49ff-ab98-6f103c55cb2f" alt="Profile" width="200" />   | <img src="https://github.com/user-attachments/assets/afd6f91a-3151-4842-804a-c3db847515c2" alt="BrickWall" width="200" /> |
 | <img src="https://github.com/user-attachments/assets/5dc9def0-1fc9-475c-a0cb-e37c6110f563" alt="Tournament" width="200" /> |  <img src="https://github.com/user-attachments/assets/506af276-535b-4fce-8f69-7bb21f265437" alt="AIGame" width="200" />   |
 
-## Mettre de la vidéo
+### Mettre de la vidéo
 
 ```md
 <video width="400" controls>
@@ -603,7 +632,11 @@ Voici ce que ça donnerait
 
 Comme expliqué, ça ne s'affichera que sur github
 
+</div></details>
+
 ## Remonter la page
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Il faut bien choisir son encrage de son titre 1, ici c'est `#documentation-du-markdown`.
 
@@ -613,7 +646,11 @@ Il faut bien choisir son encrage de son titre 1, ici c'est `#documentation-du-ma
 
 <p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>
 
+</div></details>
+
 ## Ajouter les contributeurs
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi
 
@@ -645,7 +682,11 @@ Ce qui donne
 
 Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub public en redirigeant sur la page correspondante.
 
+</div></details>
+
 ## Snippet markdown
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Très utile pour faire un formatage dans une doc bien remplie.
 
@@ -714,23 +755,26 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
 
 ### Spoil dans une doc interne
 
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
-
 Il suffit de mettre le style en bas de page en l'appellant avec `xstyle` (il mettra le style dans une balise), ensuite dans notre doc il suffit d'appeler avec `yspoiler`.
-
-</div></details>
 
 ### Spoil dans un readme
 
-<details><summary>🔍 Spoiler</summary><div>
-
 Il suffit d'appeler avec `yspoiler`, on ne peut pas injecter de style dans un README, il ne sera donc pas décoré.
+
+</div></details>
 
 ## Utiliser des badges sympa
 
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
+
 Pour faire les badges : <https://shields.io/>
 
+</div></details>
+
+
 ## README de délégation
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 On peut utiliser un lien raccourci, ici j'ai mis mon readme dans le dossier "docs"
 
@@ -741,9 +785,6 @@ ln -s docs/README.md README.md
 Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le fichier, avec le chemin relatif.
 
 </div></details>
-
-Caca visible
-<span hidden>Caca caché<span>
 
 ## Auteur
 

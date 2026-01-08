@@ -1,5 +1,7 @@
 # Exo SQL avec les dep
 
+[!WARNING] Je dois refaire cette doc, c'est un repo ayant vertu à devenir ma source pour mes docs
+
 ## Import du script sql
 
 ```bash

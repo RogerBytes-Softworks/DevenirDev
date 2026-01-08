@@ -112,14 +112,14 @@ Ce qui donne (il faut un retour vide attention) :
 ### Syntaxe des emphase (gras / italique)
 
 ```md
-_italique_
-**gras**
-**_gras et italique_**
+- *italique*
+- **gras**
+- ***gras et italique***
 ```
 
-_italique_  
-**gras**  
-**_gras et italique_**
+- *italique*
+- **gras**
+- ***gras et italique***
 
 ### Syntaxe des liens
 
@@ -376,11 +376,10 @@ Markdown All-in-One permet de :
 - **Barré** : <kbd>Alt</kbd> + <kbd>S</kbd>
 - **Titre (niveau up)** : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>
 - **Titre (niveau down)** : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>
-- **Toggle math environment** : <kbd>Ctrl</kbd> + <kbd>M</kbd>
 
 #### Environnement mathématique
 
-Ca permet d’écrire des formules en LaTeX dans Markdown.
+Ca permet d’écrire des formules en LaTeX *dans Markdown*.
 
 - Inline : `$E = mc^2$` → rendu dans le texte.
 

@@ -392,7 +392,7 @@ Codium (ou Vscode) est l'IDE le plus puissant pour créer de la documentation en
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
-Aller dans les options via `CTRL+,` et cliquer sur l’icône `Afficher les paramètres (en JSON)` (icône roue dentée chez moi)
+Aller dans les options via <kbd>CTRL</kbd> + <kbd>,</kbd> et cliquer sur l’icône `Afficher les paramètres (en JSON)` (icône roue dentée chez moi)
 
 ```JSON
 "[markdown]": {
@@ -461,8 +461,6 @@ Markdown All-in-One permet de :
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
-- **Raccourcis clavier pour formater rapidement le texte** : gras, italique, barré, titre, blocs de code, etc.
-- **Toggle de l’environnement mathématique** : <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>M</kbd>.
 - **Gras** : <kbd>Ctrl</kbd> + <kbd>B</kbd>
 - **Italique** : <kbd>Ctrl</kbd> + <kbd>I</kbd>
 - **Barré** : <kbd>Alt</kbd> + <kbd>S</kbd>

@@ -15,7 +15,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
   - [Syntaxe de base](#syntaxe-de-base)
     - [Retour à la ligne](#retour-à-la-ligne)
     - [Syntaxe des titres](#syntaxe-des-titres)
-    - [Titre niveau 3 sympa avec lien](#titre-niveau-3-sympa-avec-lien)
+    - [Titre niveau 3 stylé avec lien](#titre-niveau-3-stylé-avec-lien)
     - [Commentaire invisible](#commentaire-invisible)
     - [Syntaxe des emphase (gras / italique)](#syntaxe-des-emphase-gras--italique)
     - [Syntaxe des liens](#syntaxe-des-liens)
@@ -32,17 +32,17 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Alignement dans les tableaux](#alignement-dans-les-tableaux)
   - [Les listes](#les-listes)
     - [Liste ordonnée](#liste-ordonnée)
-    - [Points pleins](#points-pleins)
-    - [Points vides](#points-vides)
+    - [Liste non ordonnée](#liste-non-ordonnée)
+    - [Liste non ordonnée avec sous-éléments](#liste-non-ordonnée-avec-sous-éléments)
   - [Usage avec VSC](#usage-avec-vsc)
     - [Réglages dans les options](#réglages-dans-les-options)
     - [Extensions VSC pour le MD](#extensions-vsc-pour-le-md)
     - [Générer un index/sommaire automatique sur VSC](#générer-un-indexsommaire-automatique-sur-vsc)
-    - [Gestion avancée des listes et tableaux](#gestion-avancée-des-listes-et-tableaux)
+    - [Listes et tableaux : gestion avancée](#listes-et-tableaux--gestion-avancée)
     - [Prévisualisation et raccourcis clavier](#prévisualisation-et-raccourcis-clavier)
     - [Environnement mathématique](#environnement-mathématique)
     - [Gestion des images avec autocomplétion](#gestion-des-images-avec-autocomplétion)
-  - [Fonctionnalités avancées et éléments divers](#fonctionnalités-avancées-et-éléments-divers)
+  - [Astuces et fonctions avancées du Markdown](#astuces-et-fonctions-avancées-du-markdown)
     - [Footnotes](#footnotes)
     - [Emojis](#emojis)
     - [Autolinks](#autolinks)
@@ -56,9 +56,9 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Mettre de la vidéo](#mettre-de-la-vidéo)
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
-  - [Exemples de snippets et modèles réutilisables](#exemples-de-snippets-et-modèles-réutilisables)
-    - [Spoil dans une doc interne](#spoil-dans-une-doc-interne)
-    - [Spoil dans un readme](#spoil-dans-un-readme)
+  - [Snippets et modèles pratiques pour VSC](#snippets-et-modèles-pratiques-pour-vsc)
+    - [Spoiler pour doc interne](#spoiler-pour-doc-interne)
+    - [Spoiler pour README](#spoiler-pour-readme)
   - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
   - [Redirection et organisation de README via liens](#redirection-et-organisation-de-readme-via-liens)
   - [Auteur](#auteur)
@@ -94,10 +94,10 @@ Voilà un nouveau paragraphe.
 
 ### Titre niveau 3
 
-### [Titre niveau 3 sympa avec lien](#titre-niveau-3-sympa-avec-lien)
+### [Titre niveau 3 stylé avec lien](#titre-niveau-3-sympa-avec-lien)
 ```
 
-### [Titre niveau 3 sympa avec lien](#titre-niveau-3-sympa-avec-lien)
+### [Titre niveau 3 stylé avec lien](#titre-niveau-3-sympa-avec-lien)
 
 Ici le titre est coloré !
 
@@ -357,7 +357,7 @@ Ou avec parenthèses :
 
 </div></details>
 
-### Points pleins
+### Liste non ordonnée
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -369,7 +369,7 @@ On peut utiliser `-` ou `+`, il faut juste veiller à ne pas les mélanger
 
 </div></details>
 
-### Points vides
+### Liste non ordonnée avec sous-éléments
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -445,7 +445,7 @@ Via `Ctrl+Shift+P` et on choisis `Markdown All in One : Create Table of Contents
 
 </div></details>
 
-### Gestion avancée des listes et tableaux
+### Listes et tableaux : gestion avancée
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -513,7 +513,7 @@ $$
 
 </div></details>
 
-## Fonctionnalités avancées et éléments divers
+## Astuces et fonctions avancées du Markdown
 
 Voici d'autres points subsidiaires.
 
@@ -801,7 +801,7 @@ Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub pub
 
 </div></details>
 
-## Exemples de snippets et modèles réutilisables
+## Snippets et modèles pratiques pour VSC
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -867,7 +867,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
 
 </div></details>
 
-### Spoil dans une doc interne
+### Spoiler pour doc interne
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -875,7 +875,7 @@ Il suffit de mettre le style en bas de page en l'appellant avec `xstyle` (il met
 
 </div></details>
 
-### Spoil dans un readme
+### Spoiler pour README
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 

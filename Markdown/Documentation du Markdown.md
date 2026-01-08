@@ -15,7 +15,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
 - [Documentation du Markdown](#documentation-du-markdown)
   - [Sommaire](#sommaire)
   - [Syntaxe de base](#syntaxe-de-base)
-  - [Retour à la ligne](#retour-à-la-ligne)
+    - [Retour à la ligne](#retour-à-la-ligne)
     - [Syntaxe des titres](#syntaxe-des-titres)
     - [Titre niveau 3 sympa avec lien](#titre-niveau-3-sympa-avec-lien)
     - [Commentaire invisible](#commentaire-invisible)
@@ -57,8 +57,8 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
   - [Mettre de la vidéo](#mettre-de-la-vidéo)
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
-  - [Snippet balise spoiler](#snippet-balise-spoiler)
-  - [Snippet markdown spoil](#snippet-markdown-spoil)
+  - [Snippet markdown](#snippet-markdown)
+    - [Snippet markdown spoil](#snippet-markdown-spoil)
     - [Spoil dans une doc interne](#spoil-dans-une-doc-interne)
     - [Spoil dans un readme](#spoil-dans-un-readme)
   - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
@@ -68,7 +68,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
 
 Ici nous allons voir quels sont les éléments de la syntaxe du MD.
 
-## Retour à la ligne
+### Retour à la ligne
 
 Les retour à la ligne est spécial,
 car ici, après mon retour chariot, le texte apparait toujours sur la même row !
@@ -520,13 +520,13 @@ On peut imbriquer code et listes dans un blockquote :
 1. Ouvrez le dépôt GitHub dans votre navigateur.
 2. Cliquez sur l’onglet **Issues**, **Discussions**, ou une **Pull Request** existante.
 3. Cliquez sur **New issue** pour ouvrir le formulaire de commentaire.
-4. **Glissez-déposez votre image (PNG, GIF, MP4 ou SVG) directement dans la zone de texte**.
+4. **Glissez-déposez votre fichier (PNG, GIF, MP4 ou SVG) directement dans la zone de texte**.
    - Les **GIF** sont animés mais ce ne sont **pas des vidéos**. Ils seront lus en boucle dans le README.
 5. Attendez que GitHub termine l’upload : une **URL `github.com/user-attachments/...`** est générée automatiquement.
 6. Copiez cette URL.
 7. Collez-la dans votre `README.md` avec la syntaxe Markdown :
 
-**Attention : les vidéos MP4 `user-attachments` ne sont pas lisibles dans le README GitHub ni dans la preview locale, seuls les images et GIF fonctionnent.**
+**Attention : les vidéos MP4 `user-attachments` ne sont lisibles que dans le README GitHub, pas dans une preview locale, seuls les images et GIF fonctionneront ainsi.**
 
 ```md
 ![Texte alternatif](URL)
@@ -609,21 +609,37 @@ Il faut bien choisir son encrage de son titre 1, ici c'est `#documentation-du-ma
 
 ## Ajouter les contributeurs
 
-Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi :
+Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi  
+
+En remplaçant `account/repo`
 
 ```md
-<a href="https://github.com/refinedev/refine/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=refinedev/refine&max=400&columns=20" />
+<a href="https://github.com/account/repo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=account/repo&max=400&columns=20" alt="contributors"/>
 </a>
 ```
 
+Par exemple ici, pour `refinedev/refine`
+
+```md
+<a href="https://github.com/refinedev/refine/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=refinedev/refine&max=400&columns=20" alt="contributors"/>
+</a>
+```
+
+Ce qui donne
+
+<a href="https://github.com/refinedev/refine/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=refinedev/refine&max=400&columns=20" alt="contributors"/>
+</a>
+
 Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub public en redirigeant sur la page correspondante.
 
-## Snippet balise spoiler
+## Snippet markdown
 
 Très utile pour faire un formatage dans une doc bien remplie.
 
-## Snippet markdown spoil
+### Snippet markdown spoil
 
 Pour faire un snippet dans VSC `'CTRL+SHIFT+P'`\ `"Snippets configurer user snippet"`
 Et choisissez le language `javascript/css/html/etc...`
@@ -631,7 +647,7 @@ Vous aurez à copier les blocs de code de cette doc au sein des objets, entre le
 
 Pour des doc internes on peut utiliser du style pour faire des balises.
 
-```json
+````json
 "Code block with language": {
   "prefix": "ycodeblock",
   "body": [
@@ -670,7 +686,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
   ],
   "description": "Insère un spoiler collapsible avec curseur sur le contenu"
 }
-```
+````
 
 ### Spoil dans une doc interne
 
@@ -701,5 +717,7 @@ ln -s docs/README.md README.md
 Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le fichier, avec le chemin relatif.
 
 </div></details>
+
+<p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>
 
 <style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>

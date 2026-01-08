@@ -1,9 +1,7 @@
 # Documentation du Markdown
 
 <table><tr><td>
-
 Le **Markdown** est un langage de balisage léger, volontairement simple et restreint, utilisé pour produire du contenu lisible qui sera ensuite rendu (documentation, README, notes, tickets, etc.), aussi bien côté outillage que côté affichage.
-
 </td></tr></table>
 
 ## Sommaire

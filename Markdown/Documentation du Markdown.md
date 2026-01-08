@@ -613,7 +613,7 @@ Il faut bien choisir son encrage de son titre 1, ici c'est `#documentation-du-ma
 
 ## Ajouter les contributeurs
 
-Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi  
+Utiliser `https://contrib.rocks/image?repo=user/repo&max=500&columns=20&anon=1`, puis insérez-la ainsi
 
 En remplaçant `account/repo`
 
@@ -650,44 +650,54 @@ Vous aurez à copier les blocs de code de cette doc au sein des objets, entre le
 Pour des doc internes on peut utiliser du style pour faire des balises.
 
 ````json
-"Code block with language": {
-  "prefix": "ycodeblock",
-  "body": [
-    "```$1",
-    "$0",
-    "```"
-  ],
-  "description": "Insère un bloc de code avec le langage à saisir"
-},
-"Spoiler style perso": {
-  "prefix": "xstyle",
-  "body": [
-    "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>"
-  ],
-  "description": "Insère ton style perso pour spoiler Markdown sur une ligne"
-},
-"Spoiler collapsible contenu with style": {
-  "prefix": "yyspoiler",
-  "body": [
-    "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
-    "",
-    "$0",
-    "",
-    "</div></details>"
-  ],
-  "description": "Insère un spoiler collapsible avec curseur sur le contenu"
-},
-"Spoiler collapsible contenu without style": {
-  "prefix": "yspoiler",
-  "body": [
-    "<details><summary>🔍 Spoiler</summary><div>",
-    "",
-    "$0",
-    "",
-    "</div></details>"
-  ],
-  "description": "Insère un spoiler collapsible avec curseur sur le contenu"
-}
+  "Code block with language": {
+    "prefix": "ycodeblock",
+    "body": [
+      "```$1",
+      "$0",
+      "```"
+    ],
+    "description": "Insère un bloc de code avec le langage à saisir"
+  },
+  "Spoiler style perso": {
+    "prefix": "xstyle",
+    "body": [
+      "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>"
+    ],
+    "description": "Insère ton style perso pour spoiler Markdown sur une ligne"
+  },
+  "Spoiler collapsible contenu with style": {
+    "prefix": "yyspoiler",
+    "body": [
+      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
+      "",
+      "$0",
+      "",
+      "</div></details>"
+    ],
+    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
+  },
+  "Spoiler collapsible contenu without style": {
+    "prefix": "yspoiler",
+    "body": [
+      "<details><summary>🔍 Spoiler</summary><div>",
+      "",
+      "$0",
+      "",
+      "</div></details>"
+    ],
+    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
+  },
+  "Insert Author Block": {
+    "prefix": "yauthorblock",
+    "body": [
+      "## Auteur",
+      "",
+      "[<img src=\"https://github.com/RogerBytes.png\" width=\"40\" height=\"40\" style=\"border-radius:50%;\" alt=\"RogerBytes' avatar\">](https://github.com/RogerBytes)  ",
+      "[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)"
+    ],
+    "description": "Insère un bloc auteur avec avatar et nom cliquable"
+  }
 ````
 
 ### Spoil dans une doc interne
@@ -722,7 +732,7 @@ Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le f
 
 ## Auteur
 
-[<img src="https://github.com/RogerBytes.png" width="40" height="40" style="border-radius:50%;" alt="Rogerbytes' avatar">](https://github.com/RogerBytes)  
+[<img src="https://github.com/RogerBytes.png" width="40" height="40" style="border-radius:50%;" alt="RogerBytes' avatar">](https://github.com/RogerBytes)  
 [**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)
 
 <p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>

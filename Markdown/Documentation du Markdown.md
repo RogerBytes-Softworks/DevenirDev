@@ -5,6 +5,11 @@
 Le **Markdown** est un langage de balisage léger, volontairement simple et restreint, utilisé pour produire du contenu lisible qui sera ensuite rendu (documentation, README, notes, tickets, etc.), aussi bien côté outillage que côté affichage.
 </td></tr></table>
 
+<table><tr><td>
+
+Test ta proutmachère
+</td></tr></table>
+
 ## Sommaire
 
 <details><summary class="button">🔍 Sommaire</summary><div class="spoiler">
@@ -669,6 +674,16 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
       ""
     ],
     "description": "Insertion du style et bouton up, remplir le titre 1 pour le bouton"
+  },
+  "Intro": {
+    "prefix": "xintro",
+    "body": [
+      "<table><tr><td>",
+      "",
+      "$1",
+      "</td></tr></table>"
+    ],
+    "description": "Insère un bloc d'intro"
   },
   "Spoiler collapsible contenu with style": {
     "prefix": "yspoiler",

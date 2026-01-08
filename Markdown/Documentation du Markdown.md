@@ -112,14 +112,14 @@ Ce qui donne (il faut un retour vide attention) :
 ### Syntaxe des emphase (gras / italique)
 
 ```md
-- *italique*
+- _italique_
 - **gras**
-- ***gras et italique***
+- **_gras et italique_**
 ```
 
-- *italique*
+- _italique_
 - **gras**
-- ***gras et italique***
+- **_gras et italique_**
 
 ### Syntaxe des liens
 
@@ -379,7 +379,7 @@ Markdown All-in-One permet de :
 
 #### Environnement mathématique
 
-Ca permet d’écrire des formules en LaTeX *dans Markdown*.
+Ca permet d’écrire des formules en LaTeX _dans Markdown_.
 
 - Inline : `$E = mc^2$` → rendu dans le texte.
 
@@ -656,37 +656,30 @@ Vous aurez à copier les blocs de code de cette doc au sein des objets, entre le
 Pour des doc internes on peut utiliser du style pour faire des balises.
 
 ````json
+{
   "Code block with language": {
     "prefix": "ycodeblock",
-    "body": [
-      "```$1",
-      "$0",
-      "```"
-    ],
+    "body": ["```$1", "$0", "```"],
     "description": "Insère un bloc de code avec le langage à saisir"
   },
   "Spoiler style perso": {
     "prefix": "xstyle",
     "body": [
-      "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>"
+      "<span hidden>",
+      "",
+      "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>",
+      "",
+      "</span>",
+      "",
+      "<p align=\"right\"><a href=\"#documentation-du-markdown\">🔝 Retour en haut</a></p>",
+      ""
     ],
     "description": "Insère ton style perso pour spoiler Markdown sur une ligne"
   },
   "Spoiler collapsible contenu with style": {
-    "prefix": "yyspoiler",
-    "body": [
-      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
-      "",
-      "$0",
-      "",
-      "</div></details>"
-    ],
-    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
-  },
-  "Spoiler collapsible contenu without style": {
     "prefix": "yspoiler",
     "body": [
-      "<details><summary>🔍 Spoiler</summary><div>",
+      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
       "",
       "$0",
       "",
@@ -704,6 +697,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
     ],
     "description": "Insère un bloc auteur avec avatar et nom cliquable"
   }
+}
 ````
 
 > [!WARNING]
@@ -713,15 +707,24 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
-Il suffit de mettre le style en bas de page en l'appellant avec `xstyle`, ensuite dans notre doc il suffit d'appeler avec `yyspoiler`.
+Il suffit de mettre le style en bas de page en l'appellant avec `xstyle` (il mettra le style dans une balise), ensuite dans notre doc il suffit d'appeler avec `yspoiler`.
 
 </div></details>
+
+caca affiché
+
+<span hidden>
+  caca caché
+</span>
+
+
+
 
 ### Spoil dans un readme
 
 <details><summary>🔍 Spoiler</summary><div>
 
-Il suffit d'appeler avec `yspoiler`, on ne peut pas importer de style dans un README, il ne sera pas exécuté.
+Il suffit d'appeler avec `yspoiler`, on ne peut pas injecter de style dans un README, il ne sera donc pas décoré.
 
 ## Utiliser des badges sympa
 
@@ -744,6 +747,10 @@ Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le f
 [<img src="https://github.com/RogerBytes.png" width="40" height="40" style="border-radius:50%;" alt="RogerBytes' avatar">](https://github.com/RogerBytes)  
 [**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)
 
-<p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>
+<details><summary></summary><div>
 
 <style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>
+
+</div></details>
+
+<p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>

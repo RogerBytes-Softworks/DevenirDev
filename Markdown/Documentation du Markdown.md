@@ -38,6 +38,7 @@ packages/core/README.md
   - [Mermaid](#mermaid)
   - [Blocs en md](#blocs-en-md)
   - [Tableau](#tableau)
+    - [Alignement dans les tableaux](#alignement-dans-les-tableaux)
   - [Les listes](#les-listes)
     - [Liste ordonnée](#liste-ordonnée)
     - [Points pleins](#points-pleins)
@@ -58,7 +59,6 @@ packages/core/README.md
     - [Définitions de terme / Definition lists](#définitions-de-terme--definition-lists)
     - [Strikethrough](#strikethrough)
     - [Bloc de citation avec code et listes à l’intérieur](#bloc-de-citation-avec-code-et-listes-à-lintérieur)
-    - [Alignement dans les tableaux](#alignement-dans-les-tableaux)
   - [Upload d’images et vidéos sur GitHub](#upload-dimages-et-vidéos-sur-github)
     - [Exemple](#exemple)
   - [Mettre de la vidéo](#mettre-de-la-vidéo)
@@ -254,6 +254,23 @@ Les tableaux sont une extension courante, mais absente du Markdown original.
 
 Nous avons utilisé ces émoji pour remplacer la mise en style de couleur :  
 🔴🟠🟡🟢🔵🟣🟤⚫⚪
+
+### Alignement dans les tableaux
+
+| Produit             |                  Description                   | Prix (€) |      Disponibilité |
+| :------------------ | :--------------------------------------------: | :------: | -----------------: |
+| Ordinateur portable |   Ultrabook 15" avec 16 Go RAM et SSD 512 Go   |   1200   |           En stock |
+| Smartphone          |       Écran OLED 6,7", 256 Go, dual SIM        |   999    | Rupture temporaire |
+| Casque audio        | Casque circum-aural, réduction de bruit active |   199    |           En stock |
+| Souris gaming       |     RGB, 16000 DPI, boutons programmables      |    79    |           En stock |
+| Clavier mécanique   |  Switches Cherry MX Red, rétro-éclairage RGB   |   129    |        Précommande |
+
+- **Colonne 1** : alignée à gauche (`:---`)
+- **Colonne 2** : centrée (`:---:`)
+- **Colonne 3** : centrée (`:---:`)
+- **Colonne 4** : alignée à droite (`---:`)
+
+Le **`:---`** = gauche, **`:---:`** = centre, **`---:`** = droite.
 
 ## Les listes
 
@@ -502,23 +519,6 @@ On peut imbriquer code et listes dans un blockquote :
 > ```python
 > print("Code dans la citation")
 > ```
-
-### Alignement dans les tableaux
-
-| Produit             |                  Description                   | Prix (€) |      Disponibilité |
-| :------------------ | :--------------------------------------------: | :------: | -----------------: |
-| Ordinateur portable |   Ultrabook 15" avec 16 Go RAM et SSD 512 Go   |   1200   |           En stock |
-| Smartphone          |       Écran OLED 6,7", 256 Go, dual SIM        |   999    | Rupture temporaire |
-| Casque audio        | Casque circum-aural, réduction de bruit active |   199    |           En stock |
-| Souris gaming       |     RGB, 16000 DPI, boutons programmables      |    79    |           En stock |
-| Clavier mécanique   |  Switches Cherry MX Red, rétro-éclairage RGB   |   129    |        Précommande |
-
-- **Colonne 1** : alignée à gauche (`:---`)
-- **Colonne 2** : centrée (`:---:`)
-- **Colonne 3** : centrée (`:---:`)
-- **Colonne 4** : alignée à droite (`---:`)
-
-Le **`:---`** = gauche, **`:---:`** = centre, **`---:`** = droite.
 
 ## Upload d’images et vidéos sur GitHub
 

@@ -12,6 +12,8 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
 
 ## Sommaire
 
+<details><summary class="button">🔍 Sommaire</summary><div class="spoiler">
+
 - [Documentation du Markdown](#documentation-du-markdown)
   - [Sommaire](#sommaire)
   - [Syntaxe de base](#syntaxe-de-base)
@@ -58,11 +60,13 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
   - [Snippet markdown](#snippet-markdown)
-    - [Snippet markdown spoil](#snippet-markdown-spoil)
     - [Spoil dans une doc interne](#spoil-dans-une-doc-interne)
     - [Spoil dans un readme](#spoil-dans-un-readme)
   - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
   - [README de délégation](#readme-de-délégation)
+  - [Auteur](#auteur)
+
+</div></details>
 
 ## Syntaxe de base
 
@@ -639,8 +643,6 @@ Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub pub
 
 Très utile pour faire un formatage dans une doc bien remplie.
 
-### Snippet markdown spoil
-
 Pour faire un snippet dans VSC `'CTRL+SHIFT+P'`\ `"Snippets configurer user snippet"`
 Et choisissez le language `javascript/css/html/etc...`
 Vous aurez à copier les blocs de code de cette doc au sein des objets, entre les accolades du fichier .json du langage sélectionné.
@@ -717,6 +719,11 @@ ln -s docs/README.md README.md
 Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le fichier, avec le chemin relatif.
 
 </div></details>
+
+## Auteur
+
+[<img src="https://github.com/RogerBytes.png" width="40" height="40" style="border-radius:50%;" alt="Rogerbytes' avatar">](https://github.com/RogerBytes)  
+[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)
 
 <p align="right"><a href="#documentation-du-markdown">🔝 Retour en haut</a></p>
 

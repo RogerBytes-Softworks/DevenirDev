@@ -732,6 +732,9 @@ Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le f
 
 </div></details>
 
+Caca visible
+<span hidden>Caca caché<span>
+
 ## Auteur
 
 [<img src="https://github.com/RogerBytes.png" width="40" height="40" style="border-radius:50%;" alt="RogerBytes' avatar">](https://github.com/RogerBytes)  

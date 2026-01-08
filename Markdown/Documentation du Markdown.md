@@ -692,11 +692,13 @@ Pour faire les badges : <https://shields.io/>
 
 ## README de délégation
 
-et dans un readme on peut parfaitement faire une redirection du style
+On peut utiliser un lien raccourci, ici j'ai mis mon readme dans le dossier "docs"
 
-```md
-docs/README.md
+```bash
+ln -s docs/README.md README.md
 ```
+
+Ici le fichier `README.md` à la racine n'est en réalité qu'un lien faire le fichier, avec le chemin relatif.
 
 </div></details>
 

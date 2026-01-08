@@ -3,6 +3,7 @@
 <table><tr><td>
 
 Le **Markdown** est un langage de balisage léger, volontairement simple et restreint, utilisé pour produire du contenu lisible qui sera ensuite rendu (documentation, README, notes, tickets, etc.), aussi bien côté outillage que côté affichage.
+
 </td></tr></table>
 
 ## Sommaire
@@ -26,7 +27,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Syntaxe d’échappement de caractères spéciaux](#syntaxe-déchappement-de-caractères-spéciaux)
   - [Coloration syntaxique des blocs de code](#coloration-syntaxique-des-blocs-de-code)
   - [Mermaid](#mermaid)
-  - [Blocs en md](#blocs-en-md)
+  - [Types de blocs spéciaux (TIP, NOTE, WARNING, IMPORTANT…)](#types-de-blocs-spéciaux-tip-note-warning-important)
   - [Tableau](#tableau)
     - [Alignement dans les tableaux](#alignement-dans-les-tableaux)
   - [Les listes](#les-listes)
@@ -41,7 +42,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Prévisualisation et raccourcis clavier](#prévisualisation-et-raccourcis-clavier)
     - [Environnement mathématique](#environnement-mathématique)
     - [Gestion des images avec autocomplétion](#gestion-des-images-avec-autocomplétion)
-  - [Autres](#autres)
+  - [Fonctionnalités avancées et éléments divers](#fonctionnalités-avancées-et-éléments-divers)
     - [Footnotes](#footnotes)
     - [Emojis](#emojis)
     - [Autolinks](#autolinks)
@@ -55,11 +56,11 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Mettre de la vidéo](#mettre-de-la-vidéo)
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
-  - [Snippet markdown](#snippet-markdown)
+  - [Exemples de snippets et modèles réutilisables](#exemples-de-snippets-et-modèles-réutilisables)
     - [Spoil dans une doc interne](#spoil-dans-une-doc-interne)
     - [Spoil dans un readme](#spoil-dans-un-readme)
   - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
-  - [README de délégation](#readme-de-délégation)
+  - [Redirection et organisation de README via liens](#redirection-et-organisation-de-readme-via-liens)
   - [Auteur](#auteur)
 
 </div></details>
@@ -162,6 +163,7 @@ Ce qui donne (il faut un retour vide attention) :
 
 Ce qui donne :
 [![Featured on Awesome README](https://awesome.re/badge-flat.svg)](https://github.com/matiassingers/awesome-readme)
+
 </div></details>
 
 ### Syntaxe des ancres (liens internes)
@@ -173,6 +175,7 @@ Ce qui donne :
 ```
 
 Ce qui donne [Aller au chapitre "Syntaxe des titres"](#syntaxe-des-titres)
+
 </div></details>
 
 ### Syntaxe de code inline
@@ -184,6 +187,7 @@ Ce qui donne [Aller au chapitre "Syntaxe des titres"](#syntaxe-des-titres)
 ```
 
 Ce qui donne `ceci est du code inline`
+
 </div></details>
 
 ### Syntaxe des séparateurs horizontaux
@@ -197,6 +201,7 @@ Ce qui donne `ceci est du code inline`
 Ce qui donne
 
 ---
+
 </div></details>
 
 ### Syntaxe d’échappement de caractères spéciaux
@@ -253,7 +258,7 @@ graph TD
 
 </div></details>
 
-## Blocs en md
+## Types de blocs spéciaux (TIP, NOTE, WARNING, IMPORTANT…)
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -508,7 +513,7 @@ $$
 
 </div></details>
 
-## Autres
+## Fonctionnalités avancées et éléments divers
 
 Voici d'autres points subsidiaires.
 
@@ -796,7 +801,7 @@ Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub pub
 
 </div></details>
 
-## Snippet markdown
+## Exemples de snippets et modèles réutilisables
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
@@ -830,12 +835,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
   },
   "Intro": {
     "prefix": "xintro",
-    "body": [
-      "<table><tr><td>",
-      "",
-      "$1",
-      "</td></tr></table>"
-    ],
+    "body": ["<table><tr><td>", "", "$1", "</td></tr></table>"],
     "description": "Insère un bloc d'intro"
   },
   "Spoiler collapsible contenu with style": {
@@ -891,7 +891,7 @@ Pour faire les badges : <https://shields.io/>
 
 </div></details>
 
-## README de délégation
+## Redirection et organisation de README via liens
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 

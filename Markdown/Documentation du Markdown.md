@@ -23,7 +23,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Syntaxe des ancres (liens internes)](#syntaxe-des-ancres-liens-internes)
     - [Syntaxe de code inline](#syntaxe-de-code-inline)
     - [Syntaxe des séparateurs horizontaux](#syntaxe-des-séparateurs-horizontaux)
-    - [Syntaxe d'échapement de caractères spéciaux](#syntaxe-déchapement-de-caractères-spéciaux)
+    - [Syntaxe d’échappement de caractères spéciaux](#syntaxe-déchappement-de-caractères-spéciaux)
   - [Coloration syntaxique des blocs de code](#coloration-syntaxique-des-blocs-de-code)
   - [Mermaid](#mermaid)
   - [Blocs en md](#blocs-en-md)
@@ -39,7 +39,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Générer un index/sommaire automatique sur VSC](#générer-un-indexsommaire-automatique-sur-vsc)
     - [Gestion avancée des listes et tableaux](#gestion-avancée-des-listes-et-tableaux)
     - [Prévisualisation et raccourcis clavier](#prévisualisation-et-raccourcis-clavier)
-      - [Environnement mathématique](#environnement-mathématique)
+    - [Environnement mathématique](#environnement-mathématique)
     - [Gestion des images avec autocomplétion](#gestion-des-images-avec-autocomplétion)
   - [Autres](#autres)
     - [Footnotes](#footnotes)
@@ -66,11 +66,11 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
 
 ## Syntaxe de base
 
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
-
 Ici nous allons voir quels sont les éléments de la syntaxe du MD.
 
 ### Retour à la ligne
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Les retour à la ligne est spécial,
 car ici, après mon retour chariot, le texte apparait toujours sur la même row !
@@ -80,7 +80,11 @@ Voilà, le texte apparaît normalement ! Pour faire un nouveau paragraphe, il su
 
 Voilà un nouveau paragraphe.
 
+</div></details>
+
 ### Syntaxe des titres
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 # Titre niveau 1
@@ -96,7 +100,11 @@ Voilà un nouveau paragraphe.
 
 Ici le titre est coloré !
 
+</div></details>
+
 ### Commentaire invisible
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 [//]: un-commentaire-caché
@@ -106,7 +114,11 @@ Ce qui donne (il faut un retour vide attention) :
 
 [//]: un-commentaire-caché
 
+</div></details>
+
 ### Syntaxe des emphase (gras / italique)
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 - _italique_
@@ -118,19 +130,31 @@ Ce qui donne (il faut un retour vide attention) :
 - **gras**
 - **_gras et italique_**
 
+</div></details>
+
 ### Syntaxe des liens
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 [Texte du lien](https://example.com)
 ```
 
+</div></details>
+
 ### Syntaxe des images
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 ![Texte alternatif](chemin/vers/image.png)
 ```
 
+</div></details>
+
 ### Image dans un lien
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 [![Featured on Awesome README](https://awesome.re/badge-flat.svg)](https://github.com/matiassingers/awesome-readme)
@@ -138,24 +162,33 @@ Ce qui donne (il faut un retour vide attention) :
 
 Ce qui donne :
 [![Featured on Awesome README](https://awesome.re/badge-flat.svg)](https://github.com/matiassingers/awesome-readme)
+</div></details>
 
 ### Syntaxe des ancres (liens internes)
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 [Aller au chapitre "Syntaxe des titres"](#syntaxe-des-titres)
 ```
 
 Ce qui donne [Aller au chapitre "Syntaxe des titres"](#syntaxe-des-titres)
+</div></details>
 
 ### Syntaxe de code inline
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 `ceci est du code inline`
 ```
 
 Ce qui donne `ceci est du code inline`
+</div></details>
 
 ### Syntaxe des séparateurs horizontaux
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 ---
@@ -164,8 +197,11 @@ Ce qui donne `ceci est du code inline`
 Ce qui donne
 
 ---
+</div></details>
 
-### Syntaxe d'échapement de caractères spéciaux
+### Syntaxe d’échappement de caractères spéciaux
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 \*ce texte n'est pas en italique\*
@@ -268,7 +304,11 @@ Les tableaux sont une extension courante, mais absente du Markdown original.
 Nous avons utilisé ces émoji pour remplacer la mise en style de couleur :  
 🔴🟠🟡🟢🔵🟣🟤⚫⚪
 
+</div></details>
+
 ### Alignement dans les tableaux
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 | Produit             |                  Description                   | Prix (€) |      Disponibilité |
 | :------------------ | :--------------------------------------------: | :------: | -----------------: |
@@ -289,9 +329,11 @@ Le **`:---`** = gauche, **`:---:`** = centre, **`---:`** = droite.
 
 ## Les listes
 
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
+Voici les différents types de listes
 
 ### Liste ordonnée
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 1. Un premier élément
 2. Un second
@@ -308,7 +350,11 @@ Ou avec parenthèses :
    2. Sous-élément 2
 5. Élément 2
 
+</div></details>
+
 ### Points pleins
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 On peut utiliser `-` ou `+`, il faut juste veiller à ne pas les mélanger
 
@@ -316,7 +362,11 @@ On peut utiliser `-` ou `+`, il faut juste veiller à ne pas les mélanger
 - Un élément
 - Un élément
 
+</div></details>
+
 ### Points vides
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 - Un élément
   - un sous-élément
@@ -331,11 +381,11 @@ On peut utiliser `-` ou `+`, il faut juste veiller à ne pas les mélanger
 
 ## Usage avec VSC
 
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
-
 Codium (ou Vscode) est l'IDE le plus puissant pour créer de la documentation en Markdown
 
 ### Réglages dans les options
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Aller dans les options via `CTRL+,` et cliquer sur l’icône `Afficher les paramètres (en JSON)` (icône roue dentée chez moi)
 
@@ -357,7 +407,11 @@ Aller dans les options via `CTRL+,` et cliquer sur l’icône `Afficher les para
 }
 ```
 
+</div></details>
+
 ### Extensions VSC pour le MD
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Voici ce que j'utilise
 
@@ -376,11 +430,19 @@ ID : yzhang.markdown-all-in-one
 Nom : Markdown Footnote
 ID : houkanshan.vscode-markdown-footnote
 
+</div></details>
+
 ### Générer un index/sommaire automatique sur VSC
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Via `Ctrl+Shift+P` et on choisis `Markdown All in One : Create Table of Contents`
 
+</div></details>
+
 ### Gestion avancée des listes et tableaux
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Markdown All-in-One permet de :
 
@@ -388,7 +450,11 @@ Markdown All-in-One permet de :
 - **Basculer facilement entre différents marqueurs de liste** (`-`, `+`, `1.`, `1)`).
 - **Aligner proprement les tableaux** via le raccourci **<kbd>Ctrl</kbd> + <kbd>Shift</kbd>** + <kbd>I</kbd>
 
+</div></details>
+
 ### Prévisualisation et raccourcis clavier
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 - **Raccourcis clavier pour formater rapidement le texte** : gras, italique, barré, titre, blocs de code, etc.
 - **Toggle de l’environnement mathématique** : <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>M</kbd>.
@@ -398,7 +464,11 @@ Markdown All-in-One permet de :
 - **Titre (niveau up)** : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>
 - **Titre (niveau down)** : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>
 
-#### Environnement mathématique
+</div></details>
+
+### Environnement mathématique
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Ca permet d’écrire des formules en LaTeX _dans Markdown_.
 
@@ -420,7 +490,11 @@ $$
 
 → rendu centré sur sa propre ligne, pratique pour les équations longues.
 
+</div></details>
+
 ### Gestion des images avec autocomplétion
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 - Saisie rapide des chemins d’images et fichiers depuis le projet.
 - Propose automatiquement les fichiers présents dans le dossier, en respectant `search.exclude`.
@@ -436,15 +510,21 @@ $$
 
 ## Autres
 
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
+Voici d'autres points subsidiaires.
 
 ### Footnotes
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Voici un texte avec une note[^1].
 
 [^1]: Ceci est le contenu de la note de bas de page.
 
+</div></details>
+
 ### Emojis
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Tu peux insérer directement des émojis Unicode dans le texte :
 
@@ -454,7 +534,11 @@ Voici un texte avec un smiley 😄 et un cœur ❤️.
 
 Voici un texte avec un smiley 😄 et un cœur ❤️.
 
+</div></details>
+
 ### Autolinks
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Markdown reconnaît les URLs entre `< >` automatiquement :
 
@@ -464,7 +548,11 @@ Voici un lien automatique : <https://example.com>.
 
 Voici un lien automatique : <https://example.com>.
 
+</div></details>
+
 ### HTML inline complexe
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Tu peux intégrer du HTML directement pour styliser ou structurer :
 
@@ -478,7 +566,11 @@ Tu peux intégrer du HTML directement pour styliser ou structurer :
 
 Attention **le style et le script sont désactivés sur GitHub**.
 
+</div></details>
+
 ### Bloc de citation imbriqué multiple
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Pour des citations imbriquées ou longues :
 
@@ -496,7 +588,11 @@ Pour des citations imbriquées ou longues :
 > >
 > > > Encore une citation
 
+</div></details>
+
 ### Définitions de terme / Definition lists
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Certains moteurs Markdown supportent les listes de définitions :
 
@@ -514,7 +610,11 @@ Terme 1
 Terme 2
 : Définition du terme 2
 
+</div></details>
+
 ### Strikethrough
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Pour barrer du texte :
 
@@ -522,7 +622,11 @@ Pour barrer du texte :
 ~~Texte barré~~
 ```
 
+</div></details>
+
 ### Bloc de citation avec code et listes à l’intérieur
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 On peut imbriquer code et listes dans un blockquote :
 
@@ -579,7 +683,11 @@ Cela permet de l’intégrer proprement dans un tableau ou de limiter sa largeur
 
 **Résultat** : l’image ou GIF s’affiche dans le README, avec **tout le style intégré dans le fichier**, sans CSS ni Markdown avancé.
 
+</div></details>
+
 ### Exemple
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Voici un tableau existant avec des gif
 
@@ -604,7 +712,11 @@ On va passer par du html pour les redimensionner
 |  <img src="https://github.com/user-attachments/assets/374e7777-aaf0-49ff-ab98-6f103c55cb2f" alt="Profile" width="200" />   | <img src="https://github.com/user-attachments/assets/afd6f91a-3151-4842-804a-c3db847515c2" alt="BrickWall" width="200" /> |
 | <img src="https://github.com/user-attachments/assets/5dc9def0-1fc9-475c-a0cb-e37c6110f563" alt="Tournament" width="200" /> |  <img src="https://github.com/user-attachments/assets/506af276-535b-4fce-8f69-7bb21f265437" alt="AIGame" width="200" />   |
 
+</div></details>
+
 ### Mettre de la vidéo
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 ```md
 <video width="400" controls>
@@ -753,11 +865,19 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
 > [!WARNING]
 > Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` ainsi que ton nom et prénom !
 
+</div></details>
+
 ### Spoil dans une doc interne
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Il suffit de mettre le style en bas de page en l'appellant avec `xstyle` (il mettra le style dans une balise), ensuite dans notre doc il suffit d'appeler avec `yspoiler`.
 
+</div></details>
+
 ### Spoil dans un readme
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
 
 Il suffit d'appeler avec `yspoiler`, on ne peut pas injecter de style dans un README, il ne sera donc pas décoré.
 
@@ -770,7 +890,6 @@ Il suffit d'appeler avec `yspoiler`, on ne peut pas injecter de style dans un RE
 Pour faire les badges : <https://shields.io/>
 
 </div></details>
-
 
 ## README de délégation
 

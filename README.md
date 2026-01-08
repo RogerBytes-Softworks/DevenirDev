@@ -1,6 +1,7 @@
 # Exo SQL avec les dep
 
-[!WARNING] Je dois refaire cette doc, c'est un repo ayant vertu à devenir ma source pour mes docs
+> [!WARNING]
+> Je dois refaire cette doc, c'est un repo ayant vertu à devenir ma source pour mes docs
 
 ## Import du script sql
 
@@ -33,8 +34,6 @@ On commance par chercher les tables présentes
 ```mariadb
 USE dep_ville
 ```
-
-
 
 ## Obtenir la liste des 50 villes ayant la plus faible superficie
 

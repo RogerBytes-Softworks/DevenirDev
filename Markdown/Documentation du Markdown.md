@@ -44,6 +44,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Générer un index/sommaire automatique sur VSC](#générer-un-indexsommaire-automatique-sur-vsc)
     - [Gestion avancée des listes et tableaux](#gestion-avancée-des-listes-et-tableaux)
     - [Prévisualisation et raccourcis clavier](#prévisualisation-et-raccourcis-clavier)
+      - [Environnement mathématique](#environnement-mathématique)
     - [Gestion des images avec autocomplétion](#gestion-des-images-avec-autocomplétion)
   - [Autres](#autres)
     - [Footnotes](#footnotes)
@@ -377,13 +378,15 @@ Markdown All-in-One permet de :
 - **Titre (niveau down)** : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>
 - **Toggle math environment** : <kbd>Ctrl</kbd> + <kbd>M</kbd>
 
-**Environnement mathématique** : ça permet d’écrire des formules en LaTeX dans Markdown.
+#### Environnement mathématique
+
+Ca permet d’écrire des formules en LaTeX dans Markdown.
 
 - Inline : `$E = mc^2$` → rendu dans le texte.
 
 $E = mc^2$
 
-- Bloc :
+- Bloc `$$` :
 
 ```md
 $$

@@ -673,7 +673,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
       "<p align=\"right\"><a href=\"#$1\">🔝 Retour en haut</a></p>",
       ""
     ],
-    "description": "Insère ton style perso pour spoiler Markdown sur une ligne"
+    "description": "Insertion du style et bouton up, remplir le titre 1 pour le bouton"
   },
   "Spoiler collapsible contenu with style": {
     "prefix": "yspoiler",

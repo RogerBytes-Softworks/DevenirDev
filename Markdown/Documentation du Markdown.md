@@ -631,11 +631,15 @@ Par exemple ici, pour `refinedev/refine`
 </a>
 ```
 
+<details><summary class="button">🔍 Afficher pavé</summary><div class="spoiler">
+
 Ce qui donne
 
 <a href="https://github.com/refinedev/refine/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=refinedev/refine&max=400&columns=20" alt="contributors"/>
 </a>
+
+</div></details>
 
 Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub public en redirigeant sur la page correspondante.
 
@@ -699,6 +703,9 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
     "description": "Insère un bloc auteur avec avatar et nom cliquable"
   }
 ````
+
+> [!WARNING]
+> Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` !
 
 ### Spoil dans une doc interne
 

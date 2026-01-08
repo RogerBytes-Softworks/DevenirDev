@@ -705,7 +705,7 @@ Pour des doc internes on peut utiliser du style pour faire des balises.
 ````
 
 > [!WARNING]
-> Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` !
+> Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` ainsi que ton nom est prénom !
 
 ### Spoil dans une doc interne
 

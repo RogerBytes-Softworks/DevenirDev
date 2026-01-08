@@ -3,7 +3,7 @@
 Dans la conception d'une application, la première chose que l'on fait est le dictionnaire des données, je donne ici un exemple final, mais dans un premier temps on doit laisser la colonne `Contraintes` vide et ne pas s'occuper des FK dans les tables.
 
 |     | **Code**           | **Type, longueur** | **Table**            | **Contraintes**               | **Descriptif**                                               |
-| --- | ------------------ | ------------------ | -------------------- | ----------------------------- | ------------------------------------------------------------ |
+| :-: | ------------------ | ------------------ | -------------------- | ----------------------------- | ------------------------------------------------------------ |
 | 🔴  | `user_id`          | UUID               | user                 | PK, NOT NULL                  | Identifiant unique de l'utilisateur                          |
 | 🔴  | `email`            | VARCHAR(255)       | user                 | UNIQUE, NOT NULL              | Adresse email de l'utilisateur                               |
 | 🔴  | `password_hash`    | VARCHAR(255)       | user                 | NOT NULL                      | Hash du mot de passe (BCrypt/Argon2)                         |

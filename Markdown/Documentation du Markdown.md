@@ -48,7 +48,6 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Autolinks](#autolinks)
     - [HTML inline complexe](#html-inline-complexe)
     - [Bloc de citation imbriqué multiple](#bloc-de-citation-imbriqué-multiple)
-    - [Définitions de terme / Definition lists](#définitions-de-terme--definition-lists)
     - [Strikethrough](#strikethrough)
     - [Bloc de citation avec code et listes à l’intérieur](#bloc-de-citation-avec-code-et-listes-à-lintérieur)
   - [Upload d’images et vidéos sur GitHub](#upload-dimages-et-vidéos-sur-github)
@@ -590,28 +589,6 @@ Pour des citations imbriquées ou longues :
 > > Citation imbriquée
 > >
 > > > Encore une citation
-
-</div></details>
-
-### Définitions de terme / Definition lists
-
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
-
-Certains moteurs Markdown supportent les listes de définitions :
-
-```md
-Terme 1
-: Définition du terme 1
-
-Terme 2
-: Définition du terme 2
-```
-
-Terme 1
-: Définition du terme 1
-
-Terme 2
-: Définition du terme 2
 
 </div></details>
 

@@ -5,13 +5,6 @@
 <td>
 
 Le **Markdown** est un langage de balisage léger, volontairement simple et restreint, utilisé pour produire du contenu lisible qui sera ensuite rendu (documentation, README, notes, tickets, etc.), aussi bien côté outillage que côté affichage.
-Pour faire les badges : <https://shields.io/>
-
-et dans un readme on peut parfaitement faire une redirection du style
-
-```md
-packages/core/README.md
-```
 
 </td>
 </tr>
@@ -68,6 +61,8 @@ packages/core/README.md
   - [Snippet markdown spoil](#snippet-markdown-spoil)
     - [Spoil dans une doc interne](#spoil-dans-une-doc-interne)
     - [Spoil dans un readme](#spoil-dans-un-readme)
+  - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
+  - [README de délégation](#readme-de-délégation)
 
 ## Syntaxe de base
 
@@ -689,7 +684,19 @@ Il suffit de mettre le style en bas de page en l'appellant avec `xstyle`, ensuit
 
 <details><summary>🔍 Spoiler</summary><div>
 
-Il suffit d'appeler avec `yspoiler`, on ne peut pas importer de style dans un README, il ne sera pas executé.
+Il suffit d'appeler avec `yspoiler`, on ne peut pas importer de style dans un README, il ne sera pas exécuté.
+
+## Utiliser des badges sympa
+
+Pour faire les badges : <https://shields.io/>
+
+## README de délégation
+
+et dans un readme on peut parfaitement faire une redirection du style
+
+```md
+docs/README.md
+```
 
 </div></details>
 

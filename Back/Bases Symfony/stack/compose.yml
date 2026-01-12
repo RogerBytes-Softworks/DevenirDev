@@ -2,6 +2,8 @@ services:
   php:
     user: '${USER_ID}:${GROUP_ID}'
     build: ./docker/php
+    environment:
+      HOME: /var/www
     container_name: php_learn_symfony
     volumes:
       # donne accès au projet

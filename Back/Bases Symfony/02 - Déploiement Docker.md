@@ -276,30 +276,17 @@ docker compose -p "${PROJECT_NAME}" start
 docker compose -p "${PROJECT_NAME}" stop
 ```
 
-## Installation des dépendances Docker
+## Initialisation des droits du conteneur
 
-On vire le truc de groupe
-
-```bash
-docker compose down
-docker compose up -d
-```
-
-on commente `user: '${USER_ID}:${GROUP_ID}'`, puis
+Symfony est installé dans php, dans le conteneur `container_name: php_symfony_noob`, on va donner les droits d'accès à la pile.
+Il faudra lancer ces commande une fois par ordinateur.
 
 ```bash
-docker compose up -d
-```
-
-Symfony est installé dans php, dans le conteneur `container_name: php_learn_symfony` donc
-
-```bash
-docker exec -it php_learn_symfony bash
+docker exec -it php_symfony_noob bash
+chown -R $UID:$GID /var/www
 composer install
 git config --global --add safe.directory /var/www
 exit
-docker compose restart php_learn_symfony
-```
 
 ## Accès depuis le navigateur
 

@@ -37,6 +37,7 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
   - [Usage avec VSC](#usage-avec-vsc)
     - [Réglages dans les options](#réglages-dans-les-options)
     - [Extensions VSC pour le MD](#extensions-vsc-pour-le-md)
+  - [Snippets et modèles pratiques pour VSC](#snippets-et-modèles-pratiques-pour-vsc)
     - [Générer un index/sommaire automatique sur VSC](#générer-un-indexsommaire-automatique-sur-vsc)
     - [Listes et tableaux : gestion avancée](#listes-et-tableaux--gestion-avancée)
     - [Prévisualisation et raccourcis clavier](#prévisualisation-et-raccourcis-clavier)
@@ -55,7 +56,6 @@ Le **Markdown** est un langage de balisage léger, volontairement simple et rest
     - [Mettre de la vidéo](#mettre-de-la-vidéo)
   - [Remonter la page](#remonter-la-page)
   - [Ajouter les contributeurs](#ajouter-les-contributeurs)
-  - [Snippets et modèles pratiques pour VSC](#snippets-et-modèles-pratiques-pour-vsc)
     - [Spoiler pour doc interne](#spoiler-pour-doc-interne)
     - [Spoiler pour README](#spoiler-pour-readme)
   - [Utiliser des badges sympa](#utiliser-des-badges-sympa)
@@ -436,6 +436,67 @@ ID : houkanshan.vscode-markdown-footnote
 
 </div></details>
 
+## Snippets et modèles pratiques pour VSC
+
+<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
+
+Très utile pour faire un formatage dans une doc bien remplie.
+
+Pour faire un snippet dans VSC `'CTRL+SHIFT+P'`\ `"Snippets configurer user snippet"`
+Et choisissez le language `javascript/css/html/etc...`
+Vous aurez à copier les blocs de code de cette doc au sein des objets, entre les accolades du fichier .json du langage sélectionné.
+
+Pour des doc internes on peut utiliser du style pour faire des balises. Pour les bloc de code il faut utiliser `fenced codeblock`.
+
+````json
+{
+  "Spoiler style perso": {
+    "prefix": "xstyle",
+    "body": [
+      "<span hidden>",
+      "<details><summary></summary>",
+      "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>",
+      "</details></span>",
+      "",
+      "<p align=\"right\"><a href=\"#$1\">🔝 Retour en haut</a></p>",
+      ""
+    ],
+    "description": "Insertion du style et bouton up, remplir le titre 1 pour le bouton"
+  },
+  "Intro": {
+    "prefix": "xintro",
+    "body": ["<table><tr><td>", "", "$1", "</td></tr></table>"],
+    "description": "Insère un bloc d'intro"
+  },
+  "Spoiler collapsible contenu with style": {
+    "prefix": "yspoiler",
+    "body": [
+      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
+      "",
+      "$0",
+      "",
+      "</div></details>"
+    ],
+    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
+  },
+  "Insert Author Block": {
+    "prefix": "yauthorblock",
+    "body": [
+      "## Auteur",
+      "",
+      "[<img src=\"https://github.com/RogerBytes.png\" width=\"40\" height=\"40\" style=\"border-radius:50%;\" alt=\"RogerBytes' avatar\">](https://github.com/RogerBytes)  ",
+      "[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)"
+    ],
+    "description": "Insère un bloc auteur avec avatar et nom cliquable"
+  }
+}
+````
+
+> [!WARNING]
+> Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` ainsi que ton nom et prénom !
+
+</div></details>
+
 ### Générer un index/sommaire automatique sur VSC
 
 <details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
@@ -773,72 +834,6 @@ Ce qui donne
 </div></details>
 
 Cela affiche automatiquement les avatars des contributeurs du dépôt GitHub public en redirigeant sur la page correspondante.
-
-</div></details>
-
-## Snippets et modèles pratiques pour VSC
-
-<details><summary class="button">🔍 Spoiler</summary><div class="spoiler">
-
-Très utile pour faire un formatage dans une doc bien remplie.
-
-Pour faire un snippet dans VSC `'CTRL+SHIFT+P'`\ `"Snippets configurer user snippet"`
-Et choisissez le language `javascript/css/html/etc...`
-Vous aurez à copier les blocs de code de cette doc au sein des objets, entre les accolades du fichier .json du langage sélectionné.
-
-Pour des doc internes on peut utiliser du style pour faire des balises.
-
-````json
-{
-  "Code block with language": {
-    "prefix": "ycodeblock",
-    "body": ["```$1", "$0", "```"],
-    "description": "Insère un bloc de code avec le langage à saisir"
-  },
-  "Spoiler style perso": {
-    "prefix": "xstyle",
-    "body": [
-      "<span hidden>",
-      "<details><summary></summary>",
-      "<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>",
-      "</details></span>",
-      "",
-      "<p align=\"right\"><a href=\"#$1\">🔝 Retour en haut</a></p>",
-      ""
-    ],
-    "description": "Insertion du style et bouton up, remplir le titre 1 pour le bouton"
-  },
-  "Intro": {
-    "prefix": "xintro",
-    "body": ["<table><tr><td>", "", "$1", "</td></tr></table>"],
-    "description": "Insère un bloc d'intro"
-  },
-  "Spoiler collapsible contenu with style": {
-    "prefix": "yspoiler",
-    "body": [
-      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
-      "",
-      "$0",
-      "",
-      "</div></details>"
-    ],
-    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
-  },
-  "Insert Author Block": {
-    "prefix": "yauthorblock",
-    "body": [
-      "## Auteur",
-      "",
-      "[<img src=\"https://github.com/RogerBytes.png\" width=\"40\" height=\"40\" style=\"border-radius:50%;\" alt=\"RogerBytes' avatar\">](https://github.com/RogerBytes)  ",
-      "[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)"
-    ],
-    "description": "Insère un bloc auteur avec avatar et nom cliquable"
-  }
-}
-````
-
-> [!WARNING]
-> Corrige le snippet `Insert Author Block` pour y mettre ton nom de compte au lieu de `RogerBytes` ainsi que ton nom et prénom !
 
 </div></details>
 

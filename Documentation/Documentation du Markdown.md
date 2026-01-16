@@ -93,10 +93,10 @@ Voilà un nouveau paragraphe.
 
 ### Titre niveau 3
 
-### [Titre niveau 3 stylé avec lien](#titre-niveau-3-sympa-avec-lien)
+### [Titre niveau 3 stylé avec lien](#titre-niveau-3-stylé-avec-lien)
 ```
 
-### [Titre niveau 3 stylé avec lien](#titre-niveau-3-sympa-avec-lien)
+### [Titre niveau 3 stylé avec lien](#titre-niveau-3-stylé-avec-lien)
 
 Ici le titre est coloré !
 

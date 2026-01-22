@@ -107,10 +107,9 @@ Depuis le marketplace avec mon petit programme `vsix-dl` conçu pour VSCodium (p
 ```bash
 vsix-dl AnbuselvanRocky.Bootstrap5-vscode
 vsix-dl hossaini.Bootstrap-intellisense
-vsix-dl HansUXdev.Bootstrap5-snippets
 ```
 
-Cela permet d'installer `Bootstrap 5 Quick Snippets`, `Bootstrap IntelliSense` et `Bootstrap 5 & Font Awesome Snippets`.
+Cela permet d'installer `Bootstrap 5 Quick Snippets`, `Bootstrap IntelliSense`.
 
 ### Initialisation du projet
 

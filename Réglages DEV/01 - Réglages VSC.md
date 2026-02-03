@@ -70,6 +70,8 @@ codium --install-extension ritwickdey.LiveServer
 codium --install-extension streetsidesoftware.code-spell-checker
 codium --install-extension streetsidesoftware.code-spell-checker-french
 codium --install-extension gitpod.gitpod-theme
+codium --install-extension MS-CEINTL.vscode-language-pack-fr
+codium --install-extension dracula-theme.theme-dracula
 ```
 
 ## Changer le thème
@@ -167,7 +169,9 @@ Dans le fichier settings.json, remplacez le contenu :
     },
     "editor.snippetSuggestions": "top",
     "editor.tabCompletion": "on"
-  }
+  },
+    "editor.fontFamily": "'Fira Code', monospace",
+    "editor.fontLigatures": true,
 }
 ```
 

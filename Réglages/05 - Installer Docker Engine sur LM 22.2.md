@@ -57,7 +57,7 @@ sudo nala install -y gnome-terminal
 Depuis [cette page de Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 ```bash
-sudo apt update
+sudo nala update
 sudo nala install -y ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -69,7 +69,7 @@ Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
 Components: stable
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
-sudo apt update
+sudo nala update
 ```
 
 Chez moi, `apt update` se plaint de l’architecture i386. Docker ne supportant plus i386 sur Ubuntu, je spécifie uniquement l’architecture amd64 dans la source.

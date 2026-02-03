@@ -180,20 +180,11 @@ Dans le fichier settings.json, remplacez le contenu :
     "php": "/usr/bin/php",
   },
   "intelephense.diagnostics.undefinedTypes": false,
-  "intelephense.diagnostics.undefinedFunctions": false
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "codeium.enableConfig": {
+    "*": false,
+  },
 }
-```
-
-Pour le formatage "prettier" de l'extension php "bmewburn.vscode-intelephense-client", il faut désactiver l'extension intégrée `Fonctionnalités de langage PHP` en cherchant `@builtin php` dans les extensions
-
-```json
-  "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
-    "editor.formatOnSave": true
-  },
-  "files.associations": {
-  "*.modules": "php"
-  },
 ```
 
 Pour changer les raccourcis clavier :

@@ -79,7 +79,7 @@ codium --install-extension gitpod.gitpod-theme
 On installe les polices
 
 ```bash
-sudo nala install -y fonts-firacode fonts-fira
+sudo nala install -y fonts-firacode
 wget https://github.com/mozilla/Fira/archive/refs/tags/4.202.zip -O fira.zip
 unzip fira.zip -d fira
 mkdir -p ~/.fonts

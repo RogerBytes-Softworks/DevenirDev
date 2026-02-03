@@ -127,14 +127,17 @@ Dans le fichier settings.json, remplacez le contenu :
 
 ```json
 {
+  "workbench.colorTheme": "Dracula Theme",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
   "editor.matchBrackets": "never",
   "editor.inlayHints.enabled": "off",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#1073cf2d",
     "editor.lineHighlightBorder": "#9fced11f"
   },
-  "editor.wordWrap": "on",
-  "diffEditor.wordWrap": "on",
+  "editor.wordWrap": "off",
+  "diffEditor.wordWrap": "off",
   "editor.guides.indentation": false,
   "editor.guides.bracketPairs": false,
   "bracketPairColorizer.depreciation-notice": false,
@@ -151,9 +154,6 @@ Dans le fichier settings.json, remplacez le contenu :
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "terminal.integrated.sendKeybindingsToShell": true,
-  "workbench.productIconTheme": "material-product-icons",
-  "workbench.colorTheme": "Gitpod Dark",
-  "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "afterDelay",
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.preview.editor"
@@ -170,8 +170,14 @@ Dans le fichier settings.json, remplacez le contenu :
     "editor.snippetSuggestions": "top",
     "editor.tabCompletion": "on"
   },
-    "editor.fontFamily": "'Fira Code', monospace",
-    "editor.fontLigatures": true,
+  "editor.fontFamily": "'Fira Code', monospace",
+  "editor.fontLigatures": true,
+  "php.suggest.basic": false,
+  "php.validate.enable": false,
+  "emmet.excludeLanguages": ["markdown", "php"],
+  "php.executables": {
+    "php": "/usr/bin/php"
+  }
 }
 ```
 

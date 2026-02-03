@@ -146,7 +146,7 @@ Dans le fichier settings.json, remplacez le contenu :
   "security.workspace.trust.untrustedFiles": "newWindow",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontWeightBold": "bold",0
+  "terminal.integrated.fontWeightBold": "bold",
   "terminal.explorerKind": "external",
   "terminal.external.linuxExec": "tilix",
   "terminal.integrated.inheritEnv": true,

@@ -391,6 +391,30 @@ Recommended for project managers who need to manage the repository without acces
 Admin
 Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository.
 
+## Démmarrage automatique de l'agent SSH
+
+```bash
+mkdir -p ~/.config/systemd/user
+cat << 'EOF' > ~/.config/systemd/user/ssh-agent.service
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/ssh-agent -s
+ExecStop=/usr/bin/ssh-agent -k
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+EOF
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent
+grep -qxF 'export SSH_AUTH_SOCK=$(systemctl --user show-environment | grep SSH_AUTH_SOCK | cut -d= -f2)' ~/.zshrc || \
+echo 'export SSH_AUTH_SOCK=$(systemctl --user show-environment | grep SSH_AUTH_SOCK | cut -d= -f2)' >> ~/.zshrc
+source ~/.zshrc
+```
+
 ---
 
 ## Auteurs

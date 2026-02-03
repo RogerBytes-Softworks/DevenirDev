@@ -136,18 +136,17 @@ Dans le fichier settings.json, remplacez le contenu :
   "editor.inlayHints.enabled": "off",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#1073cf2d",
-    "editor.lineHighlightBorder": "#9fced11f"
+    "editor.lineHighlightBorder": "#9fced11f",
   },
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
   "editor.guides.indentation": false,
   "editor.guides.bracketPairs": false,
-  "bracketPairColorizer.depreciation-notice": false,
   "redhat.telemetry.enabled": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontWeightBold": "bold",
+  "terminal.integrated.fontWeightBold": "bold",0
   "terminal.explorerKind": "external",
   "terminal.external.linuxExec": "tilix",
   "terminal.integrated.inheritEnv": true,
@@ -158,19 +157,19 @@ Dans le fichier settings.json, remplacez le contenu :
   "terminal.integrated.sendKeybindingsToShell": true,
   "files.autoSave": "afterDelay",
   "workbench.editorAssociations": {
-    "*.md": "vscode.markdown.preview.editor"
+    "*.md": "vscode.markdown.preview.editor",
   },
   "markdownlint.config": {
-    "MD033": false
+    "MD033": false,
   },
   "[markdown]": {
     "editor.quickSuggestions": {
       "other": true,
       "comments": true,
-      "strings": true
+      "strings": true,
     },
     "editor.snippetSuggestions": "top",
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
   },
   "editor.fontFamily": "'Fira Code', monospace",
   "editor.fontLigatures": true,
@@ -178,8 +177,10 @@ Dans le fichier settings.json, remplacez le contenu :
   "php.validate.enable": false,
   "emmet.excludeLanguages": ["markdown", "php"],
   "php.executables": {
-    "php": "/usr/bin/php"
-  }
+    "php": "/usr/bin/php",
+  },
+  "intelephense.diagnostics.undefinedTypes": false,
+  "intelephense.diagnostics.undefinedFunctions": false
 }
 ```
 

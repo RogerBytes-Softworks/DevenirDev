@@ -144,7 +144,7 @@ Dans le fichier settings.json, remplacez le contenu :
   "editor.guides.bracketPairs": false,
   "redhat.telemetry.enabled": true,
   "security.workspace.trust.untrustedFiles": "newWindow",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeightBold": "bold",
   "terminal.explorerKind": "external",
@@ -184,6 +184,7 @@ Dans le fichier settings.json, remplacez le contenu :
   "codeium.enableConfig": {
     "*": false,
   },
+  "terminal.integrated.minimumContrastRatio": 1
 }
 ```
 

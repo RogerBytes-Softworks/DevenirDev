@@ -72,6 +72,8 @@ codium --install-extension streetsidesoftware.code-spell-checker-french
 codium --install-extension gitpod.gitpod-theme
 codium --install-extension MS-CEINTL.vscode-language-pack-fr
 codium --install-extension dracula-theme.theme-dracula
+codium --install-extension HansUXdev.bootstrap5-snippets
+codium --install-extension hossaini.bootstrap-intellisense
 ```
 
 ## Changer le thème

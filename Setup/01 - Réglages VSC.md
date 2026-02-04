@@ -179,8 +179,6 @@ Dans le fichier settings.json, remplacez le contenu :
   "php.executables": {
     "php": "/usr/bin/php"
   },
-  "intelephense.diagnostics.undefinedTypes": false,
-  "intelephense.diagnostics.undefinedFunctions": false,
   "codeium.enableConfig": {
     "*": false
   },

@@ -75,13 +75,7 @@ sudo nala update
 Chez moi, `apt update` se plaint de l’architecture i386. Docker ne supportant plus i386 sur Ubuntu, je spécifie uniquement l’architecture amd64 dans la source.
 
 ```bash
-sudo nano /etc/apt/sources.list.d/docker.sources
-```
-
-et j'ajoute la ligne
-
-```text
-Architectures: amd64
+echo "Architectures: amd64" | sudo tee -a /etc/apt/sources.list.d/docker.sources > /dev/null
 ```
 
 ## Installation

@@ -183,7 +183,13 @@ Dans le fichier settings.json, remplacez le contenu :
     "*": false
   },
   "terminal.integrated.minimumContrastRatio": 1,
-  "terminal.integrated.fontLigatures.enabled": true
+  "terminal.integrated.fontLigatures.enabled": true,
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+  "files.associations": {
+    "*.twig": "twig"
+  }
 }
 ```
 

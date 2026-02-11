@@ -276,32 +276,32 @@ On fait `'CTRL+SHIFT+P'`\ `"Snippets configurer user snippet"`
 Et choisissez le language `markdown`
 
 ```json
-"Spoiler collapsible contenu with style": {
-  "prefix": "yspoiler",
-  "body": [
-    "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
-    "",
-    "$0",
-    "",
-    "</div></details>"
-  ],
-  "description": "Insère un spoiler collapsible avec curseur sur le contenu"
-}
+  "Spoiler collapsible contenu with style": {
+    "prefix": "yspoiler",
+    "body": [
+      "<details><summary class=\"button\">🔍 Spoiler</summary><div class=\"spoiler\">",
+      "",
+      "$0",
+      "",
+      "</div></details>"
+    ],
+    "description": "Insère un spoiler collapsible avec curseur sur le contenu"
+  },
 ```
 
 ### Snipper signature
 
 ```md
-"Insert Author Block": {
-"prefix": "yauthorblock",
-"body": [
-"## Auteur",
-"",
-"[<img src=\"https://github.com/RogerBytes.png\" width=\"40\" height=\"40\" style=\"border-radius:50%;\" alt=\"RogerBytes' avatar\">](https://github.com/RogerBytes) ",
-"[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)"
-],
-"description": "Insère un bloc auteur avec avatar et nom cliquable"
-}
+  "Insert Author Block": {
+    "prefix": "yauthorblock",
+    "body": [
+      "## Auteur",
+      "",
+      "[<img src=\"https://github.com/RogerBytes.png\" width=\"40\" height=\"40\" style=\"border-radius:50%;\" alt=\"RogerBytes' avatar\">](https://github.com/RogerBytes) ",
+      "[**RogerBytes (Harry Richmond)**](https://github.com/RogerBytes)"
+    ],
+    "description": "Insère un bloc auteur avec avatar et nom cliquable"
+  },
 ```
 
 ### Snipper intro

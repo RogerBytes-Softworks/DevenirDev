@@ -120,6 +120,20 @@ Tout devrait être en vert, sinon résolvez les erreurs ou les recommendations.
   </div>
 </details>
 
+## Extensions Codium
+
+```bash
+codium --install-extension cvergne.vscode-php-getters-setters-cv
+codium --install-extension bmewburn.vscode-intelephense-client
+codium --install-extension nadim-vscode.symfony-code-snippets
+codium --install-extension nadim-vscode.symfony-super-console
+codium --install-extension TheNouillet.symfony-vscodeDotENV
+codium --install-extension mikestead.dotenv
+codium --install-extension redhat.vscode-yaml
+codium --install-extension mblode.twig-language
+vsix-dl klesun.deep-assoc-completion-vscode
+```
+
 <style>
 .spoiler {
   border-left: 4px solid #1abc9c;

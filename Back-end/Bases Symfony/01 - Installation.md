@@ -131,6 +131,7 @@ codium --install-extension TheNouillet.symfony-vscodeDotENV
 codium --install-extension mikestead.dotenv
 codium --install-extension redhat.vscode-yaml
 codium --install-extension mblode.twig-language
+codium --install-extension tmrdh.symfony-helper
 vsix-dl klesun.deep-assoc-completion-vscode
 ```
 

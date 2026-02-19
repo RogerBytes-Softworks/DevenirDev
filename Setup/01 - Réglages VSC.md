@@ -74,6 +74,16 @@ codium --install-extension MS-CEINTL.vscode-language-pack-fr
 codium --install-extension dracula-theme.theme-dracula
 codium --install-extension HansUXdev.bootstrap5-snippets
 codium --install-extension hossaini.bootstrap-intellisense
+codium --install-extension cvergne.vscode-php-getters-setters-cv
+codium --install-extension bmewburn.vscode-intelephense-client
+codium --install-extension nadim-vscode.symfony-code-snippets
+codium --install-extension nadim-vscode.symfony-super-console
+codium --install-extension TheNouillet.symfony-vscodeDotENV
+codium --install-extension mikestead.dotenv
+codium --install-extension redhat.vscode-yaml
+codium --install-extension mblode.twig-language
+codium --install-extension tmrdh.symfony-helper
+vsix-dl klesun.deep-assoc-completion-vscode
 ```
 
 ## Changer le thème

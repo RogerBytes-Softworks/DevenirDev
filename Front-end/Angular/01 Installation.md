@@ -34,11 +34,6 @@ codium --install-extension anseki.vscode-color
 codium --install-extension stylelint.vscode-stylelint
 ```
 
-il fuzaa qur je fasse le détail de
-codium --install-extension Gydunhn.angular-tailwind-essentials
-
-car ce fumier m'installe html essentials que je veux pas a cause de html validator
-
 ## Le Projet
 
 ### La CLI

@@ -122,11 +122,15 @@ GROUP_ID=$(id -g)
 cat <<EOF > .env.local
 DB_USER="root"
 DB_PASSWORD="root"
-DB_NAME="blog"
+DB_HOST_PORT="database:5432"
+DB_NAME="default_db"
 SERVER_VERSION="16"
+CHARSET="utf8"
 USER_ID="${USER_ID}"
 GROUP_ID="${GROUP_ID}"
-DATABASE_URL="postgresql://\${DB_USER}:\${DB_PASSWORD}@postgres:5432/\${DB_NAME}?serverVersion=\${SERVER_VERSION}&charset=utf8"
+
+
+DATABASE_URL="postgresql://\${DB_USER}:\${DB_PASSWORD}@\${DB_HOST_PORT}/\${DB_NAME}?serverVersion=\${SERVER_VERSION}&charset=\${CHARSET}"
 EOF
 ```
 
@@ -137,7 +141,7 @@ mkdir temp_repo
 git clone --filter=blob:none --no-checkout https://github.com/RogerBytes-Softworks/DevenirDev.git temp_repo
 cd temp_repo
 git sparse-checkout init --cone
-git sparse-checkout set "Back/Bases Symfony/stack"
+git sparse-checkout set "Back-end/Bases Symfony/stack"
 git checkout HEAD
 cp -r "Back/Bases Symfony/stack/." ../
 cd ..

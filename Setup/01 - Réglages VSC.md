@@ -85,6 +85,19 @@ codium --install-extension mblode.twig-language
 codium --install-extension tmrdh.symfony-helper
 codium --install-extension TheNouillet.symfony-vscode
 vsix-dl klesun.deep-assoc-completion-vscode
+codium --install-extension ecmel.vscode-html-css
+codium --install-extension vincaslt.highlight-matching-tag
+codium --install-extension naumovs.color-highlight
+codium --install-extension html-validate.vscode-html-validate
+codium --install-extension pranaygp.vscode-css-peek
+codium --install-extension anseki.vscode-color
+codium --install-extension stylelint.vscode-stylelint
+codium --install-extension bradlc.vscode-tailwindcss
+codium --install-extension esdete.tailwind-rainbow
+codium --install-extension esbenp.prettier-vscode
+codium --install-extension SonarSource.sonarlint-vscode
+codium --install-extension Gydunhn.vsc-essentials
+codium --install-extension Gydunhn.angular-essentials
 ```
 
 ## Changer le thème

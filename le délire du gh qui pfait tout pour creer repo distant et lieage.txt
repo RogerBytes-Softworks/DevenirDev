@@ -1,0 +1,6 @@
+BRANCH="nom-de-la-branche"
+gh repo create "$BRANCH" --public --source=. --remote=origin
+
+ou 
+
+gh repo create "$BRANCH" --public --source=. --remote=origin --org="NomDeLOrga"

@@ -40,7 +40,11 @@ Si on veut le mettre dans une organisation, ça donne
 gh repo create "$PROJECT" --public --source=. --remote=origin --org="NomDeLOrga"
 ```
 
-Le nom de la branche, dans le cas d'une organisation doit être dans ce format `RogerBytes-Softworks/testGodot`
+Et on fait le commit et le push initiaux.
+
+```bash
+[[ -f README.md ]] && echo "Premier commit effectué" >> README.md || touch README.md; git add -A && git commit -m "chore: init projet avec README" && git push -u origin master
+```
 
 ### Activer le remote
 

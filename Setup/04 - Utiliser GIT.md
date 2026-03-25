@@ -25,13 +25,19 @@ cd testGodot
 git init
 ```
 
-### Créer un dépôt distant
+### Créer un dépôt distant et le lier au local
 
-Je créé un dépôt distant du même nom sur github
+Je créé un dépôt distant du même nom sur github et on l'associe au git local.
 
 ```bash
-BRANCH="nom-de-la-branche"
-gh repo create "$BRANCH" --public
+PROJECT="nom-du-projet"
+gh repo create "$PROJECT" --public --source=. --remote=origin
+```
+
+Si on veut le mettre dans une organisation, ça donne
+
+```bash
+gh repo create "$PROJECT" --public --source=. --remote=origin --org="NomDeLOrga"
 ```
 
 Le nom de la branche, dans le cas d'une organisation doit être dans ce format `RogerBytes-Softworks/testGodot`
@@ -420,3 +426,10 @@ source ~/.zshrc
 ## Auteurs
 
 - [Harry RICHMOND](https://github.com/RogerBytes)
+
+<span hidden>
+<details><summary></summary>
+<style>.spoiler{border-left:4px solid #1abc9c;border-bottom-left-radius:3px;padding-left:10px;padding-top:15px;margin-top:-10px;margin-bottom:15px}.button{cursor:pointer;padding:5px 10px;background-color:#3498db;color:white;border-radius:3px;margin-bottom:5px;display:inline-block;transition:background-color 0.2s}.button:hover{background-color:#217dbb}details[open] .button{background-color:#1abc9c}</style>
+</details></span>
+
+<p align="right"><a href="#">🔝 Retour en haut</a></p>

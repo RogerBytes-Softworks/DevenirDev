@@ -1,6 +1,16 @@
-BRANCH="nom-de-la-branche"
-gh repo create "$BRANCH" --public --source=. --remote=origin
+Une fois le git initialisé en local :
+
+
+PROJECT="nom-du-projet"
+gh repo create "$PROJECT" --public --source=. --remote=origin
 
 ou 
 
-gh repo create "$BRANCH" --public --source=. --remote=origin --org="NomDeLOrga"
+gh repo create "$PROJECT" --public --source=. --remote=origin --org="NomDeLOrga"
+
+PUIS
+
+git push -u origin master
+
+et on fait le premier push
+git add -A && git commit -m "initialisation" && git push

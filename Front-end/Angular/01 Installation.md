@@ -55,6 +55,12 @@ ng version
 ng new nom_du_projet
 ```
 
+On peut fait en sorte que le typage soit strict avec `--strict`.
+
+```bash
+ng new nom_du_projet --strict
+```
+
 En prime on installe ce qu'il faut en plus pour tailwind [d'après cette doc](https://angular.dev/guide/tailwind)
 
 ```bash
@@ -77,11 +83,11 @@ et dans le fichier `src/styles.css` on peut y mettre nos components de tailwind 
 
 Une fois le projet initialisé, on peut le lancer avec la commande suivante :
 
-```tsx
+```bash
 ng serve -o
 ```
 
-La commande se chargera de build l’application, et ouvrira le navigateur 🚀
+La commande se chargera de build l’application, et ouvrira le navigateur
 
 _Le port par défaut est_ 4200
 
@@ -114,3 +120,4 @@ Pour un plus petit projet on peut parfaitement faire
 ```
 
 Même s'il manque l'organisation par layer, cela marchera correctement.
+
